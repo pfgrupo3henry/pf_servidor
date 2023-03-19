@@ -8,5 +8,26 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
+      primaryKey: true
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    image: {
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+    price: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+    rating: {
+      type: DataTypes.ARRAY(DataTypes.JSONB)  // recibe un obj con puntaje y nombre de usuario?
+    },
   });
 };
