@@ -32,7 +32,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 const { Videogame } = sequelize.models;
 
-// Aca vendrian las relaciones
+// Aca vendrian las relaciones (probando123)
 // Product.hasMany(Reviews);
 
 module.exports = {
