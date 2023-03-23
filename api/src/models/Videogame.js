@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     rating: {
-      type: DataTypes.ARRAY(DataTypes.JSONB)  // recibe un obj con puntaje y nombre de usuario?
+      type: DataTypes.FLOAT
     },
   });
 };
