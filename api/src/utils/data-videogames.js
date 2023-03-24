@@ -1,11 +1,3 @@
-const Router = require('express');
-const router = Router();
-const {Videogame, Genre, Platform} = require("../db")
-
-// router.get('/', videogamesHandlers);
-// router.get('/:id', videogameHandler);
-// router.put('/modify', modifyVideogameHandler);
-
 const videogames= [
     {
     
@@ -835,52 +827,3 @@ const videogames= [
     }
     
 ]
-
-router.post("/", async (req,res) => {
-    try{
-     
-     
-      await Promise.all(videogames.map(async (el) => { 
-        
-        const newGame = await Videogame.create(el);
-
-        const genreDb = await Genre.findOne({where: {name: el.genre}})
-
-        await newGame.addGenre(genreDb)
-
-        const platformDb = await Platform.findOne({where: {name: el.platform}})
-
-        await newGame.addPlatform(platformDb)
-
-
-      })); 
-
-     res.status(201).send("Juegos Creados")
-    }
-    catch(e) {res.status(404).json(console.log(e))}
-});
-
-
-router.post("/genres", async (req,res) => {
-    try{
-     
-     const genres = await Genre.bulkCreate([{name: "Acción"},{name: "Aventura"},{name: "Combos"},{name: "Conducción"},{name: "Deportes"},{name: "Estrategia"},{name: "Infantiles"},{name: "Multijugador"},{name: "Rol"}])
-
-     res.status(201).json(genres)
-    }
-    catch(e) {res.status(404).json(console.log(e))}
-});
-
-
-router.post("/platforms", async (req,res) => {
-    try{
-     
-     const platforms = await Platform.bulkCreate([{name: "PS3"},{name: "PS4"},{name: "PS5"}])
-
-     res.status(201).json(platforms)
-    }
-    catch(e) {res.status(404).json(console.log(e))}
-});
-
-
-module.exports = router
