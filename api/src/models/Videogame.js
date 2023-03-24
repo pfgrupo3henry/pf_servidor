@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    image: {
+    img: {
 			type: DataTypes.ARRAY(TEXT),
 			allowNull: false
 		},

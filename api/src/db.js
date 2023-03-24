@@ -8,7 +8,7 @@ const {
 } = process.env;
 
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogamespf`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/prueba1`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
@@ -42,14 +42,14 @@ Genre.belongsToMany(Videogame, {through: "Videogames_Genre"});
 Videogame.belongsToMany(Platform, {through: "Platforms_Videogames"});
 Platform.belongsToMany(Videogame, {through: "Platforms_Videogames"});
 
-Order.belongsTo(User);
+/* Order.belongsTo(User);
 User.hasMany(Order);
 
 User.hasMany(Review);
 Review.belongsTo(User);
 
 Order.belongsToMany(Videogame, {through: OrderDetail});
-Videogame.belongsToMany(Order, {through: OrderDetail})
+Videogame.belongsToMany(Order, {through: OrderDetail}) */
 
 
 // fs.readFile('utils/data-videogames.json', async (err, data)=>{
@@ -503,22 +503,9 @@ const videogames= [
   }
   
 ]
+//ESTE VIDEOGAMES NO ESTA ACTUALIZADO SOLO TIENE EL JSON DE ROCIO
 
 
-
-
-const instancia= async()=>{
-//   await Promise.all(videogames.map(async(el)=>{
-    await Videogame.create({name: 'World', description: 'lalslsl', price: 5466, image: ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333107/Ps3/The%20Last%20of%20Us%20-%20ps3/the-last-of-us-1-330x379_aevmzo.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333105/Ps3/The%20Last%20of%20Us%20-%20ps3/the-last-of-us-1-330x185_ajytdr.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333104/Ps3/The%20Last%20of%20Us%20-%20ps3/the-last-of-us_2-330x185_s6nvyo.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333102/Ps3/The%20Last%20of%20Us%20-%20ps3/the-last-of-us_4-330x185_cuqetr.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333102/Ps3/The%20Last%20of%20Us%20-%20ps3/the-last-of-us_3-330x185_gqfl73.jpg"]});
-//     let genreDB= await Genre.create({name: el.genre});
-//     await videogameDB.addGenre(genreDB);
-//     let platformDB= await Platform.create({name:el.platform});
-//     await videogameDB.addPlatform(platformDB);
-//   }))
-}
-
-instancia();
- 
  
 
 
