@@ -454,7 +454,7 @@ const videogames= [
         ],
         price: 13.12,
         platform: "PS4",
-        genre: 3
+        genre: "Combos"
       },
       {
         name: "Crash Team Racing Nitro Fueled digital",
