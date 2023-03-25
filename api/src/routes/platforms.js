@@ -6,3 +6,4 @@ const {createPlatforms} = require('../controllers/platforms.controllers');
 // router.get('/', platformsHandlers);
 
 router.post("/platforms", createPlatforms);
+

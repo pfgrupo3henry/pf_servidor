@@ -2043,9 +2043,7 @@ const videogames= [
       price: 19600,
       platform: "PS4",
       genre: "Deportes"
-    },
-
-    
+    },    
 ]
 
 module.exports = videogames;
