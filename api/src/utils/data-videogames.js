@@ -9,7 +9,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454270/Ps4/A%20Way%20Out/a-way-out_2-330x186_l7qq4f.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454270/Ps4/A%20Way%20Out/a-way-out_4-330x186_lfx1cd.jpg"
         ],
-        price: 10.68,
+        price: 10680,
         platform: "PS4",
         genre: "Acción"
       },
@@ -22,7 +22,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454315/Ps5/A%20Way%20Out%20PS5%20Retro/a-way-out_6-330x186_yc8yps.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454317/Ps5/A%20Way%20Out%20PS5%20Retro/a-way-out_5-330x186_suc2wc.jpg"
         ],
-        price: 10.08,
+        price: 10080,
         platform: "PS5",
         genre: "Acción"
       },
@@ -35,7 +35,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454270/Ps4/Alien%20Isolation/alien-isolation_2-330x185_vrlhlc.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454263/Ps4/Alien%20Isolation/alien-isolation_3-330x185_1_o3uro1.jpg"
         ],
-        price: 11.16,
+        price: 11160,
         platform: "PS4",
         genre: "Acción"
       },
@@ -48,7 +48,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454236/Ps3/Alien%20Isolation/alien-isolation_5-330x185_ngtnld.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454235/Ps3/Alien%20Isolation/alien-isolation-330x185_y61ab6.jpg"
         ],
-        price: 7.348,
+        price: 7348,
         platform: "PS3",
         genre: "Acción"
       },
@@ -61,7 +61,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454317/Ps5/Alien%20Isolation%20PS5%20Retro/alien-isolation_2-330x185_g8pnms.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454316/Ps5/Alien%20Isolation%20PS5%20Retro/alien-isolation_5-330x185_f6himr.jpg"
         ],
-        price: 10.08,
+        price: 10080,
         platform: "PS5",
         genre: "Acción"
       },
@@ -74,7 +74,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454270/Ps4/Among%20Us/among-us_3-330x185_omjrai.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454262/Ps4/Among%20Us/among-us_7-330x217_x8ejtf.jpg"
         ],
-        price: 1.8,
+        price: 1800,
         platform: "PS4",
         genre: "Estrategia"
       },
@@ -87,7 +87,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454317/Ps5/Among%20Us%20PS5/among-us_3-330x185_wwki0i.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454316/Ps5/Among%20Us%20PS5/among-us_4-330x186_tmgtkv.jpg"
         ],
-        price: 2.4,
+        price: 2400,
         platform: "PS5",
         genre: "Estrategia"
       },
@@ -100,7 +100,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454269/Ps4/Anthem/anthem_5-330x185_mtsgwd.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454262/Ps4/Anthem/anthem_4-330x185_gnfo33.jpg"
         ],
-        price: 13.44,
+        price: 13440,
         platform: "PS4",
         genre: "Acción"
       },
@@ -113,7 +113,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454319/Ps5/Anthem%20PS5%20Retro/anthem_5-330x185_sfmnro.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454315/Ps5/Anthem%20PS5%20Retro/anthem_4-330x185_inhhpw.jpg"
         ],
-        price: 19.6,
+        price: 19600,
         platform: "PS5",
         genre: "Acción"
       },
@@ -126,7 +126,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454269/Ps4/ARK%20Survival%20Evolved/ark-survival-evolved_4-330x185_zs15ro.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454265/Ps4/ARK%20Survival%20Evolved/ark-survival-evolved-2-330x185_s43htx.jpg"
         ],
-        price: 7.28,
+        price: 7280,
         platform: "PS4",
         genre: "Acción"
       },
@@ -139,7 +139,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454316/Ps5/ARK%20Survival%20Evolved%20PS5%20Retro/ark-survival-evolved-2-330x185_wjic5v.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454318/Ps5/ARK%20Survival%20Evolved%20PS5%20Retro/ark-survival-evolved_3-330x185_tfnauk.jpg"
         ],
-        price: 6.8,
+        price: 6800,
         platform: "PS5",
         genre: "Acción"
       },
@@ -152,7 +152,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454241/Ps3/Army%20Of%20Two%20The%20Devils%20Cartel/army-of-two-the-devils-cartel-4-330x248_xmxk38.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454237/Ps3/Army%20Of%20Two%20The%20Devils%20Cartel/army-of-two-the-devils-cartel-6-330x248_mkug5d.jpg"
         ],
-        price: 4.52,
+        price: 4520,
         platform: "PS3",
         genre: "Acción"
       },
@@ -162,7 +162,7 @@ const videogames= [
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454237/Ps3/Assassins%20Creed/Assassins-Creed-330x397_xmayyb.png"
         ],
-        price: 3.44,
+        price: 3440,
         platform: "PS3",
         genre: "Acción"
       },     {
@@ -174,7 +174,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454237/Ps3/Assassins%20Creed%203/assassins-creed-3-4-330x248_bbbdys.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454238/Ps3/Assassins%20Creed%203/assassins-creed-3-5-330x248_igjawp.jpg"
         ],
-        price: 4.972,
+        price: 4972,
         platform: "PS3",
         genre: "Acción"
       },
@@ -187,7 +187,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454278/Ps4/Assassins%20Creed%204%20Black%20Flag/assassins-creed-4-black-flag_4-330x185_kgdtnp.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454272/Ps4/Assassins%20Creed%204%20Black%20Flag/assassins-creed-4-black-flag_2-330x185_ar9slr.jpg"
         ],
-        price: 11.16,
+        price: 11160,
         platform: "PS4",
         genre: "Acción"
       },
@@ -200,7 +200,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454315/Ps5/Assassins%20Creed%204%20Black%20Flag%20PS5%20Retro/assassins-creed-4-black-flag_2-330x185_qsdyqs.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454315/Ps5/Assassins%20Creed%204%20Black%20Flag%20PS5%20Retro/assassins-creed-4-black-flag_3-330x185_exgwma.jpg"
         ],
-        price: 10.08,
+        price: 10080,
         platform: "PS5",
         genre: "Acción"
       },
@@ -213,7 +213,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454270/Ps4/Back%204%20Blood/wwe-back-4-blood_3-330x186_xtxuls.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454270/Ps4/Back%204%20Blood/wwe-back-4-blood_4-330x186_nnrqq7.jpg"
         ],
-        price: 12.2,
+        price: 12200,
         platform: "PS4",
         genre: "Acción"
       },
@@ -226,7 +226,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454305/Ps5/Back%204%20Blood/wwe-back-4-blood_2-330x186_ubslvl.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454317/Ps5/Back%204%20Blood/wwe-back-4-blood_4-330x186_anxidf.jpg"
         ],
-        price: 21.36,
+        price: 21360,
         platform: "PS5",
         genre: "Acción"
       },
@@ -239,7 +239,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454244/Ps3/Batman%20Arkham%20City/batman-arkham-city-4-330x248_fgyauu.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454242/Ps3/Batman%20Arkham%20City/batman-arkham-city-2-330x248_qgpeoa.jpg"
         ],
-        price: 20,
+        price: 2000,
         platform: "PS3",
         genre: "Acción"
       },
@@ -252,7 +252,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454265/Ps4/Batman%20Arkham%20Knight/batman-arkham-knight_5-330x185_rj79uk.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454271/Ps4/Batman%20Arkham%20Knight/batman-arkham-knight_2-330x185_nzo5ec.jpg"
         ],
-        price: 8.32,
+        price: 8320,
         platform: "PS4",
         genre: "Acción"
       },
@@ -265,7 +265,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454302/Ps5/Batman%20Arkham%20Knight/batman-arkham-knight-330x185_dzqsfa.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454315/Ps5/Batman%20Arkham%20Knight/batman-arkham-knight_5-330x185_ym7avc.jpg"
         ],
-        price: 6.8,
+        price: 6800,
         platform: "PS5",
         genre: "Acción"
       },
@@ -278,7 +278,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454240/Ps3/Batman%20Arkham%20Origins/batman-arkham-origins-6-330x248_j9yv6a.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454243/Ps3/Batman%20Arkham%20Origins/batman-arkham-origins-3-330x248_qyb7qz.jpg"
         ],
-        price: 4.52,
+        price: 4520,
         platform: "PS3",
         genre: "Acción"
       },
@@ -291,7 +291,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454266/Ps4/Battlefield%205/battlefield-5_5-330x185_pvm916.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454273/Ps4/Battlefield%205/battlefield-5_4-330x185_b4ito6.jpg"
         ],
-        price: 14.08,
+        price: 14080,
         platform: "PS4",
         genre: "Acción"
       },
@@ -304,7 +304,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454303/Ps5/Battlefield%205/battlefield-5-330x185_myamik.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454313/Ps5/Battlefield%205/battlefield-5_2-330x185_ek0wva.jpg"
         ],
-        price: 13.12,
+        price: 13120,
         platform: "PS5",
         genre: "Acción"
       },
@@ -317,7 +317,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454239/Ps3/Bayonetta/bayonetta_7-330x185_iybrre.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454239/Ps3/Bayonetta/bayonetta_6-330x185_ddk2gp.jpg"
         ],
-        price: 4.52,
+        price: 4520,
         platform: "PS3",
         genre: "Acción"
       },
@@ -330,7 +330,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454315/Ps5/Call%20of%20Duty%20Advanced%20Warfare%20Gold%20Edition/call-of-duty-advanced-warfare-gold-edition_5-330x185_kgqy29.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454315/Ps5/Call%20of%20Duty%20Advanced%20Warfare%20Gold%20Edition/call-of-duty-advanced-warfare-gold-edition_3-330x185_f20d9y.jpg"
         ],
-        price: 19.6,
+        price: 19600,
         platform: "PS3",
         genre: "Acción"
       },
@@ -340,7 +340,7 @@ const videogames= [
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468705/Ps3/Call%20Of%20Duty%20Black%20Ops%202%20Revolution%20Map%20Pack/call-of-duty-black-ops-2-revolution-map-pack-2-330x380_aoh7sa.jpg"
         ],
-        price: 11.0,
+        price: 11000,
         platform: "PS3",
         genre: 'Multijugador'
       },     {
@@ -349,7 +349,7 @@ const videogames= [
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468705/Ps3/Call%20Of%20Duty%20Black%20Ops%203/call-of-duty-black-ops-3-1-330x380_v1lefc.jpg"
         ],
-        price: 11.0,
+        price: 11000,
         platform: "PS3",
         genre: 'Multijugador'
       },     {
@@ -361,7 +361,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468866/Ps5/Call%20Of%20Duty%20Black%20Ops%203%20PS5%20retro/Call-of-Duty-Black-Ops-3-_7-330x180_xxtfjm.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468866/Ps5/Call%20Of%20Duty%20Black%20Ops%203%20PS5%20retro/Call-of-Duty-Black-Ops-3-_4-330x173_c5klcc.jpg"
         ],
-        price: 19.6,
+        price: 19600,
         platform: "PS5",
         genre: 'Multijugador'
       },
@@ -374,7 +374,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468798/Ps4/Call%20Of%20Duty%20Black%20Ops%203/Call-of-Duty-Black-Ops-3-_6-330x166_eugfhq.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468798/Ps4/Call%20Of%20Duty%20Black%20Ops%203/Call-of-Duty-Black-Ops-3-_7-330x180_gdurxr.jpg"
         ],
-        price: 20.32,
+        price: 20320,
         platform: "PS4",
         genre: 'Multijugador'
       },
@@ -387,7 +387,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468791/Ps4/Call%20of%20Duty%20Black%20Ops%203%20Zombies%20Chronicles%20Edition/call-of-duty-black-ops-3-zombies-chronicles-edition_4-330x185_day8l9.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468791/Ps4/Call%20of%20Duty%20Black%20Ops%203%20Zombies%20Chronicles%20Edition/call-of-duty-black-ops-3-zombies-chronicles-edition_5-330x185_y9d3ed.jpg"
         ],
-        price: 20.44,
+        price: 20440,
         platform: "PS4",
         genre: 'Multijugador'
       },
@@ -400,7 +400,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468867/Ps5/Call%20of%20Duty%20Black%20Ops%203%20Zombies%20Chronicles%20Edition/call-of-duty-black-ops-3-zombies-chronicles-edition-330x185_b12uys.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468866/Ps5/Call%20of%20Duty%20Black%20Ops%203%20Zombies%20Chronicles%20Edition/call-of-duty-black-ops-3-zombies-chronicles-edition_3-330x185_hrlnoe.jpg"
         ],
-        price: 19.6,
+        price: 19600,
         platform: "PS5",
         genre: 'Multijugador'
       },
@@ -413,7 +413,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468793/Ps4/Call%20of%20Duty%20Black%20Ops%204/call-of-duty-black-ops-4_3-330x185_mpyyhq.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468793/Ps4/Call%20of%20Duty%20Black%20Ops%204/call-of-duty-black-ops-4-330x185_ecv3l3.jpg"
         ],
-        price: 19.6,
+        price: 19600,
         platform: "PS4",
         genre: 'Multijugador'
       },
@@ -426,7 +426,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468793/Ps4/Call%20of%20Duty%20Black%20Ops%204/call-of-duty-black-ops-4-330x185_ecv3l3.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468793/Ps4/Call%20of%20Duty%20Black%20Ops%204/call-of-duty-black-ops-4_5-330x185_qcjvjl.jpg"
         ],
-        price: 19.6,
+        price: 19600,
         platform: "PS5",
         genre: 'Multijugador'
       },
@@ -439,7 +439,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468704/Ps3/CTR%20Crash%20Team%20Racing/crash-team-racing_3-330x185_apdkbx.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468704/Ps3/CTR%20Crash%20Team%20Racing/crash-team-racing_4-330x185_ilk6lk.jpg"
         ],
-        price: 2.4,
+        price: 2400,
         platform: "PS3",
         genre: "Conducción"
       },
@@ -452,7 +452,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468794/Ps4/Crash%20Bandicoot%20N%20Sane%20Trilogy/crash-bandicoot-n-sane-trilogy-330x185_yewpgw.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468795/Ps4/Crash%20Bandicoot%20N%20Sane%20Trilogy/crash-bandicoot-n-sane-trilogy_2_nvezze.jpg"
         ],
-        price: 13.12,
+        price: 13120,
         platform: "PS4",
         genre: "Combos"
       },
@@ -465,7 +465,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468795/Ps4/Crash%20Team%20Racing%20Nitro%20Fueled/crash-team-racing-nitro-fueled_5-330x185_t1qbsj.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468795/Ps4/Crash%20Team%20Racing%20Nitro%20Fueled/crash-team-racing-nitro-fueled_3-330x185_gsn68n.jpg"
         ],
-        price: 13.36,
+        price: 13360,
         platform: "PS4",
         genre: "Conducción"
       },
@@ -478,7 +478,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468795/Ps4/Cuphead/cuphead_2-330x185_xh1uhu.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468796/Ps4/Cuphead/cuphead_4-330x185_jp6nvp.jpg"
         ],
-        price: 4.48,
+        price: 4480,
         platform: "PS4",
         genre: "Aventura"
       },
@@ -491,7 +491,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468864/Ps5/Cuphead/cuphead-330x185_dk7h5z.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468865/Ps5/Cuphead/cuphead_4-330x185_ie2kdl.jpg"
         ],
-        price: 6.8,
+        price: 6800,
         platform: "PS5",
         genre: "Aventura"
       },
@@ -505,7 +505,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468705/Ps3/Devil%20May%20Cry%20HD%20Collection/devil-may-cry-hd-collection_5-330x185_eik8ok.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468705/Ps3/Devil%20May%20Cry%20HD%20Collection/devil-may-cry-hd-collection_3-330x185_fx3clb.jpg"
         ],
-        price: 4.52,
+        price: 4520,
         platform: "PS3",
         genre: "Aventura"
       },
@@ -518,7 +518,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468865/Ps5/Devil%20May%20Cry%20HD%20Collection/devil-may-cry-hd-collection_3-330x185_au0fdd.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468865/Ps5/Devil%20May%20Cry%20HD%20Collection/devil-may-cry-hd-collection_2-330x185_mep0wk.jpg"
         ],
-        price: 10.08,
+        price: 10080,
         platform: "PS5",
         genre: "Aventura"
       },
@@ -531,7 +531,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468797/Ps4/Diablo%203%20Eternal%20Collection/diablo-3-eternal-collection_4-330x185_hyfk3s.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468797/Ps4/Diablo%203%20Eternal%20Collection/diablo-3-eternal-collection-1-330x185_i9kr6b.jpg"
         ],
-        price: 24.48,
+        price: 24480,
         platform: "PS3",
         genre: "Acción"
       },
@@ -544,7 +544,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468866/Ps5/Diablo%203%20Eternal%20Collection/diablo-3-eternal-collection_4-330x185_da5zdy.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468865/Ps5/Diablo%203%20Eternal%20Collection/diablo-3-eternal-collection_3-330x185_zk88on.jpg"
         ],
-        price: 19.6,
+        price: 19600,
         platform: "PS5",
         genre: "Acción"
       },
@@ -554,7 +554,7 @@ const videogames= [
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468705/Ps3/Diablo%203%20Reaper%20of%20Souls%20Ultimate%20Evil%20Edition/Diablo-3-Reaper-of-Souls-Ultimate-Evil-Edition-1-330x397_mcl6zs.png"
         ],
-        price: 6.68,
+        price: 6680,
         platform: "PS3",
         genre: "Acción"
       },     {
@@ -563,7 +563,7 @@ const videogames= [
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468798/Ps4/Digimon%20World%20Next%20Order/digimon-world-next-order-330x412_aguww8.jpg"
         ],
-        price: 23.04,
+        price: 23040,
         platform: "PS4",
         genre: "Infantiles"
       },     {
@@ -572,7 +572,7 @@ const videogames= [
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468865/Ps5/Digimon%20World%20Next%20Order/digimon-world-next-order-ps5-retro-330x404_rt2xn8.jpg"
         ],
-        price: 23.04,
+        price: 23040,
         platform: "PS3",
         genre: "Infantiles"
       },     {
@@ -584,7 +584,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679511214/Ps5/DUCATI%2090th%20Anniversary/ducati-90th-anniversary_4-330x185_li5tbq.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679511213/Ps5/DUCATI%2090th%20Anniversary/ducati-90th-anniversary_2-330x185_fx3o0q.jpg"
         ],
-        price: 3.48,
+        price: 3480,
         platform: "PS5",
         genre: "Acción"
       },
