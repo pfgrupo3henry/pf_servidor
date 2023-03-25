@@ -1,10 +1,10 @@
 const {Videogame, Genre, Platform} = require('../db');
 const axios = require('axios');
-const {videogames} = require('../utils/data-videogames');
+const {searchGameByName, getAllGames, getGameById} = require('../utils/utils');
+const videogames = require('../utils/data-videogames');
 
-const createVideogame = async (req,res) => {
+const createVideogameDb = async (req,res) => {
     try {
-     
      
       await Promise.all(videogames.map(async (el) => { 
         
@@ -18,7 +18,6 @@ const createVideogame = async (req,res) => {
 
         await newGame.addPlatform(platformDb)
 
-
       })); 
 
      res.status(201).send("Juegos Creados")
@@ -27,32 +26,42 @@ const createVideogame = async (req,res) => {
 }
 
 
-// const getAllGames = async () => {
-//     let gamesInDb = await Videogame.findAll()
-//     return gamesInDb;
-// }
+const createVideogame = async (req, res) => {
+  const {name, description, image, price, platform, genre} = req.body;
 
-// const searchGameByName = async (name) => {
-//     let findNameInDb = await Videogame.findAll({
-//         where: {name : {[Op.iLike] : `%${name}%`}},
-//         attributes:["id","name","description","image","price","platform","genre"],
-//         include:{
-//             model: Genre, Platform,
-//             attributes: ['name'],
-//             through:{
-//                 attributes:[],
-//             },
-//         }
-//      })
+  try {
+    const newGame = await Videogame.create(name, description, image, price, platform, genre);
+    res.status(201).json(newGame);
+  } catch (error) {
+    res.status(400).json({error: error.message});
+  }
+};
 
-//      findNameInDb= findNameInDb.map(m=>{
-//         return {
-//         ...m.dataValues, 
-//        genre: m.genre?.map(m=>m.name),
-//        platform: m.platform?.map(m=>m.name)
-//     }})
-//     return findNameInDb;
-// };
+const getVideogames = async (req, res) => {
+  const { name } = req.query;
+  
+  try {
+  const results = name ? await searchGameByName(name) : await getAllGames();
+  res.status(200).json(results);
+  } catch (error){
+      res.status(400).json({error: error.message})
+  }
+};
+
+
+const getVideogameById = async (req, res) => {
+  const { id } = req.params;
+  try {
+      const game = await getGameById(id);
+      res.status(201).json(game);
+  } catch (error) {
+      res.status(400).json({ error: "No existe Videogame para ese ID" });
+  }
+      
+};
+ 
+
+
 
 // const getGameById = async (value) => {
 //     if(value.length>5){
@@ -70,4 +79,9 @@ const createVideogame = async (req,res) => {
 //     }
 // };
 
-module.exports = {createVideogame};
+module.exports = {
+  createVideogame,
+  createVideogameDb,
+  getVideogames,
+  getVideogameById
+};

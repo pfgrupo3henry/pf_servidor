@@ -1,8 +1,11 @@
 const {Genre} = require('../db');
 
-const getGameByGenre = async () => {
+const getGenres= async (req,res) => {
+    try {
     let genreInDb = await Genre.findAll()
-    return genreInDb;
+    res.status(201).json(genreInDb);
+    }
+    catch(e) {res.status(404).json(console.log(e))}
 };
 
 const createGenres = async (req,res) => {
@@ -15,4 +18,4 @@ const createGenres = async (req,res) => {
     catch(e) {res.status(404).json(console.log(e))}
 };
 
-module.exports = {getGameByGenre, createGenres}
+module.exports = {getGenres, createGenres}
