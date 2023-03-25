@@ -33,6 +33,23 @@ const videogameHandler = async (req, res) => {
       
 };
 
+const getGameById = async (value) => {
+  if(value.length>5){
+      const findDbID= await Videogame.findByPk(value, {include:Genre, Platform})
+      const detailOfGame = {
+          id:findDbID.id,
+          name: findDbID.name,
+          description: findDbID.description,
+          image: findDbID.img,
+          price: findDbID.price,
+          platform: findDbID.platform.map(m=>m.name),
+          genre: findDbID.genre.map(m=>m.name)
+      }
+      return detailOfGame
+  }
+};
+
+
 const modifyVideogameHandler = async (req, res) => {
   const{ name, description, price } = req.body;
   try {

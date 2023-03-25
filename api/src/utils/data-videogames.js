@@ -167,7 +167,7 @@ const videogames= [
         genre: "Acción"
       },     {
         name: "Asassins Creed 3",
-        escrition: "Ambientado en las colonias americanas de 1775, la agitación civil y política están a la orden del día. Los jugadores deberán proteger su tierra y su pueblo como uno de los Asesinos con una variedad de armas y habilidades de combate para disfrutar una experiencia realista e inmersiva.",
+        description: "Ambientado en las colonias americanas de 1775, la agitación civil y política están a la orden del día. Los jugadores deberán proteger su tierra y su pueblo como uno de los Asesinos con una variedad de armas y habilidades de combate para disfrutar una experiencia realista e inmersiva.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454236/Ps3/Assassins%20Creed%203/assassins-creed-3-330x379_ropea9.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454237/Ps3/Assassins%20Creed%203/assassins-creed-3-2-330x248_zaheqb.jpg",
@@ -345,7 +345,7 @@ const videogames= [
         genre: 'Multijugador'
       },     {
         name: "Cal of Duty Black Ops 3",
-        escrition: "Esta entrega conserva los elementos futuristas característicos de la saga y agrega nuevos modos de juego para vivir una experiencia única. Los jugadores verán una historia profunda y detallada, con formas únicas de subir de nivel, personalizar los personajes y prepararse para la batalla.",
+        description: "Esta entrega conserva los elementos futuristas característicos de la saga y agrega nuevos modos de juego para vivir una experiencia única. Los jugadores verán una historia profunda y detallada, con formas únicas de subir de nivel, personalizar los personajes y prepararse para la batalla.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468705/Ps3/Call%20Of%20Duty%20Black%20Ops%203/call-of-duty-black-ops-3-1-330x380_v1lefc.jpg"
         ],
@@ -354,7 +354,7 @@ const videogames= [
         genre: 'Multijugador'
       },     {
         name: "Cal of Duty Black Ops 3 PS5 Retro",
-        escrition: "En 2065, surge una nueva clase de soldados de operaciones encubiertas. Mientras tanto, la línea que separa a la humanidad de la alta tecnología robótica se vuelve difusa y afecta a los conflictos armados.",
+        description: "En 2065, surge una nueva clase de soldados de operaciones encubiertas. Mientras tanto, la línea que separa a la humanidad de la alta tecnología robótica se vuelve difusa y afecta a los conflictos armados.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468866/Ps5/Call%20Of%20Duty%20Black%20Ops%203%20PS5%20retro/call-of-duty-black-ops-3-ps5-retrocompatible-330x404_qaybe1.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468866/Ps5/Call%20Of%20Duty%20Black%20Ops%203%20PS5%20retro/Call-of-Duty-Black-Ops-3-_2-330x186_hchvln.jpg",
@@ -559,7 +559,7 @@ const videogames= [
         genre: "Acción"
       },     {
         name: "Diimon World Next Order",
-        escrition: "Una aventura por el Mundo Digital reúne a los mejores entrenadores y más de 200 digimones para frenar el caos sembrado por los machinedramons. Los jugadores deberán ser estratégicos en la crianza y entrenamiento de sus digimones para ganar esta batalla.",
+        description: "Una aventura por el Mundo Digital reúne a los mejores entrenadores y más de 200 digimones para frenar el caos sembrado por los machinedramons. Los jugadores deberán ser estratégicos en la crianza y entrenamiento de sus digimones para ganar esta batalla.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468798/Ps4/Digimon%20World%20Next%20Order/digimon-world-next-order-330x412_aguww8.jpg"
         ],
@@ -568,7 +568,7 @@ const videogames= [
         genre: "Infantiles"
       },     {
         name: "Diimon World Next Order PS5 Retro",
-        escrition: "Una aventura por el Mundo Digital reúne a los mejores entrenadores y más de 200 digimones para frenar el caos sembrado por los machinedramons. Los jugadores deberán ser estratégicos en la crianza y entrenamiento de sus digimones para ganar esta batalla.",
+        description: "Una aventura por el Mundo Digital reúne a los mejores entrenadores y más de 200 digimones para frenar el caos sembrado por los machinedramons. Los jugadores deberán ser estratégicos en la crianza y entrenamiento de sus digimones para ganar esta batalla.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468865/Ps5/Digimon%20World%20Next%20Order/digimon-world-next-order-ps5-retro-330x404_rt2xn8.jpg"
         ],
@@ -577,7 +577,7 @@ const videogames= [
         genre: "Infantiles"
       },     {
         name: "DUCATI 90th Anniversary PS5 Retro",
-        escrition: "Un juego totalmente dedicado a la emblemática marca Ducati acerca un juego que reúne a los modelos más emblemáticos de toda su historia. Los jugadores podrán elegir entre 39 modelos, 5 pistas, 8 circuitos oficiales y 7 épocas para redescubrir la historia detrás de cada moto.",
+        description: "Un juego totalmente dedicado a la emblemática marca Ducati acerca un juego que reúne a los modelos más emblemáticos de toda su historia. Los jugadores podrán elegir entre 39 modelos, 5 pistas, 8 circuitos oficiales y 7 épocas para redescubrir la historia detrás de cada moto.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679511213/Ps5/DUCATI%2090th%20Anniversary/ducati-90th-anniversary-ps5-retro-330x404_kstpjc.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679511214/Ps5/DUCATI%2090th%20Anniversary/ducati-90th-anniversary_5-330x185_fc0qz6.jpg",
