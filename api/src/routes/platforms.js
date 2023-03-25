@@ -1,5 +1,8 @@
 const Router = require('express');
 const router = Router();
-const {platformsHandlers} = require('../handlers/platforms.handlers');
+const {createPlatforms} = require('../controllers/platforms.controllers');
 
-router.get('/', platformsHandlers);
+
+// router.get('/', platformsHandlers);
+
+router.post("/platforms", createPlatforms);

@@ -1,5 +1,6 @@
 const Router = require('express');
 const router = Router();
-const {genresHandlers} = require('../handlers/genres.handlers');
+const {createGenres} = require('../controllers/genres.controllers');
 
-router.get('/', genresHandlers);
+// router.get('/', genresHandlers);
+router.post("/genres", createGenres);

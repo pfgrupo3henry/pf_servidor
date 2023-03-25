@@ -52,4 +52,5 @@ module.exports = {
   createVideogameHandler, 
   videogamesHandlers, 
   videogameHandler, 
-  modifyVideogameHandler};
+  modifyVideogameHandler
+};
