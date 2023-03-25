@@ -1,7 +1,7 @@
 const videogames= [
 
     {
-        name: "A Way Out digital",
+        name: "A Way Out",
         description: "Este título de acción y aventura se enfoca en la cooperación, con una trama centrada en las hazañas de dos prisioneros en fuga, Leo y Vincent, obligados a trabajar juntos para evitar a la policía y otros criminales. Para lograrlo deberán superar persecuciones en coche, pasajes sigilosos y combates cuerpo a cuerpo.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454264/Ps4/A%20Way%20Out/a-way-out-330x404_g6xu5s.jpg",
@@ -14,7 +14,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "A Way Out Retro digital",
+        name: "A Way Out Retro",
         description: "Este título de acción y aventura se enfoca en la cooperación, con una trama centrada en las hazañas de dos prisioneros en fuga, Leo y Vincent, obligados a trabajar juntos para evitar a la policía y otros criminales. Para lograrlo deberán superar persecuciones en coche, pasajes sigilosos y combates cuerpo a cuerpo.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454318/Ps5/A%20Way%20Out%20PS5%20Retro/a-way-out-ps5-retro-330x404_dhgoda.jpg",
@@ -27,7 +27,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Alien Isolation digital",
+        name: "Alien Isolation",
         description: "En una atmósfera que incluye temor, peligro y un alienígena impredecible, los jugadores encarnan el papel de Amanda, quien lucha por sobrevivir y cumplir su objetivo de saber cuál es la verdad detrás de la desaparición de su madre.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454275/Ps4/Alien%20Isolation/alien-isolation-5_espz0u.png",
@@ -40,7 +40,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Alien Isolation digital",
+        name: "Alien Isolation",
         description: "En una atmósfera que incluye temor, peligro y un alienígena impredecible, los jugadores encarnan el papel de Amanda, quien lucha por sobrevivir y cumplir su objetivo de saber cuál es la verdad detrás de la desaparición de su madre.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454235/Ps3/Alien%20Isolation/alien-isolation-330x380_lo26fm.jpgs",
@@ -53,7 +53,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Alien Isolation PS5 Retro digital",
+        name: "Alien Isolation PS5 Retro",
         description: "En una atmósfera que incluye temor, peligro y un alienígena impredecible, los jugadores encarnan el papel de Amanda, quien lucha por sobrevivir y cumplir su objetivo de saber cuál es la verdad detrás de la desaparición de su madre.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454308/Ps5/Alien%20Isolation%20PS5%20Retro/alien-isolation_wgrtt3.jpg",
@@ -66,7 +66,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Among Us digital",
+        name: "Among Us",
         description: "Mientras preparan su nave espacial para partir, los jugadores deberán estar atentos a detectar a los impostores de la tripulación. El juego admite partidas individuales o en caso de contar con suscripción a PS Plus, con otros jugadores en línea de cualquier plataforma, ya sea PlayStation, PC, móvil u otras.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454271/Ps4/Among%20Us/among-us-330x404_ooewft.jpg",
@@ -79,7 +79,7 @@ const videogames= [
         genre: "Estrategia"
       },
       {
-        name: "Among Us PS5 digital",
+        name: "Among Us PS5",
         description: "Mientras preparan su nave espacial para partir, los jugadores deberán estar atentos a detectar a los impostores de la tripulación. El juego admite partidas individuales o en caso de contar con suscripción a PS Plus, con otros jugadores en línea de cualquier plataforma, ya sea PlayStation, PC, móvil u otras.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679584951/Ps5/Among%20Us%20PS5/among-us-ps5-330x404_nsxyxu.jpg",
@@ -92,7 +92,7 @@ const videogames= [
         genre: "Estrategia"
       },
       {
-        name: "Anthem digital",
+        name: "Anthem",
         description: "Juego de aventura cooperativa con mundos abiertos y enemigos impredecibles. Todas las opciones de personalización de los trajes, las armas y el equipamiento permiten mostrar cada victoria obtenida, cada enemigo vencido y cada logro completado.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454272/Ps4/Anthem/anthem-1-330x404_bepmdh.jpg",
@@ -105,7 +105,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Anthem PS5 Retro digital",
+        name: "Anthem PS5 Retro",
         description: "Juego de aventura cooperativa con mundos abiertos y enemigos impredecibles. Todas las opciones de personalización de los trajes, las armas y el equipamiento permiten mostrar cada victoria obtenida, cada enemigo vencido y cada logro completado.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454308/Ps5/Anthem%20PS5%20Retro/anthem-ps5-retro-330x404_w7wlr4.jpg",
@@ -118,7 +118,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "ARK Survival Evolved digital",
+        name: "ARK Survival Evolved",
         description: "Juego de aventuras en una misteriosa isla habitada por dinosaurios y otros animales primitivos. Los jugadores deben sobrevivir a este ambiente desafiante a través de la caza y la domesticación de estas criaturas.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454277/Ps4/ARK%20Survival%20Evolved/ARK-Survival-Evolved-1-330x413_daebld.png",
@@ -144,7 +144,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Army of Two The Devils Cartel digital",
+        name: "Army of Two The Devils Cartel",
         description: "En la ciudad de México se desató el caos y la destrucción de la mano de uno de los carteles de drogas más temidos del mundo. Los jugadores acompañarán a Alpha y Bravo en peligrosas misiones mientras mejoran sus equipos y armas para enfrentar una guerra contra la mafia.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454245/Ps3/Army%20Of%20Two%20The%20Devils%20Cartel/Army-Of-Two-The-Devils-Cartel-330x397_zmxagg.png",
@@ -157,7 +157,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Assassins Creed digital",
+        name: "Assassins Creed",
         description: "En 1911 la Tierra Santa estaba siendo arrasada y sometida por intereses políticos y religiosos. En el rol de Altair, los jugadores tendrán la misión de frenar a ambos bandos del conflicto para frenar la destrucción pero también para evitar que algunos secretos de los Asesinos sean revelados.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454237/Ps3/Assassins%20Creed/Assassins-Creed-330x397_xmayyb.png"
@@ -166,7 +166,7 @@ const videogames= [
         platform: "PS3",
         genre: "Acción"
       },     {
-        name: "Asassins Creed 3 digital",
+        name: "Asassins Creed 3",
         escrition: "Ambientado en las colonias americanas de 1775, la agitación civil y política están a la orden del día. Los jugadores deberán proteger su tierra y su pueblo como uno de los Asesinos con una variedad de armas y habilidades de combate para disfrutar una experiencia realista e inmersiva.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454236/Ps3/Assassins%20Creed%203/assassins-creed-3-330x379_ropea9.jpg",
@@ -179,7 +179,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Assassins Creed 4 Black Flag digital",
+        name: "Assassins Creed 4 Black Flag",
         description: "string",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454262/Ps4/Assassins%20Creed%204%20Black%20Flag/assassins-creed-4-black-flag-330x420_efvb7w.jpg",
@@ -192,7 +192,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Assassins Creed 4 Black Flag PS5 Retro digital",
+        name: "Assassins Creed 4 Black Flag PS5 Retro",
         description: "Cuarta entrega de la saga, ambientada en el Caribe del siglo XVIII gobernado por piratas. En el rol del capitán Kenway, los jugadores deben explorar 50 increíbles lugares para hundir buques de guerra o buscar tesoros en el fondo del mar.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454309/Ps5/Assassins%20Creed%204%20Black%20Flag%20PS5%20Retro/assassins-creed-black-flag-ps5-retro-330x404_d00ogo.jpg",
@@ -205,7 +205,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Back 4 Blood digital",
+        name: "Back 4 Blood",
         description: "En este emocionante shooter en primera persona, los jugadores estarán en el centro de una guerra contra los Ridden, criaturas que alguna vez fueron humanos pero se han convertido en monstruos aterradores y hambrientos. Con la humanidad en peligro, será un verdadero desafío erradicar a los Ridden y recuperar el mundo.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454272/Ps4/Back%204%20Blood/back-4-blood-330x404_d5a7kv.jpg",
@@ -218,7 +218,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Back 4 Blood PS5 digital",
+        name: "Back 4 Blood PS5",
         description: "En este emocionante shooter en primera persona, los jugadores estarán en el centro de una guerra contra los Ridden, criaturas que alguna vez fueron humanos pero se han convertido en monstruos aterradores y hambrientos. Con la humanidad en peligro, será un verdadero desafío erradicar a los Ridden y recuperar el mundo.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454302/Ps5/Back%204%20Blood/back-4-blood-ps5-330x404_fmvwvq.jpg",
@@ -231,7 +231,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Batman Arkham City digital",
+        name: "Batman Arkham City",
         description: "La secuela de Arkham Asylum continúa sus mismas atmósferas oscuras combinadas con una fórmula de juego renovada. Los jugadores deberán ponerse en la piel de Batman para llevar, una vez más, justicia y tranquilidad a los habitantes de la ciudad.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454242/Ps3/Batman%20Arkham%20City/Batman-Arkham-City-1-330x397_bcot7i.png",
@@ -244,7 +244,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Batman Arkham Knight digital",
+        name: "Batman Arkham Knight",
         description: "Un explosivo final para la serie Arkham enfrenta a Batman con los villanos más peligrosos, unidos para destruir al caballero de la noche. Para recorrer la ciudad más grande de toda la saga, los jugadores podrán conducir el diseño único del Batimóvil, exclusivamente creado para esta entrega.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454272/Ps4/Batman%20Arkham%20Knight/batman-arkham-knight-330x404_rhy5d8.jpg",
@@ -257,7 +257,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Batman Arkham Knight PS5 Retro digital",
+        name: "Batman Arkham Knight PS5 Retro",
         description: "Un explosivo final para la serie Arkham enfrenta a Batman con los villanos más peligrosos, unidos para destruir al caballero de la noche. Para recorrer la ciudad más grande de toda la saga, los jugadores podrán conducir el diseño único del Batimóvil, exclusivamente creado para esta entrega.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454303/Ps5/Batman%20Arkham%20Knight/batman-arkham-knight-ps5-330x404_trwaun.jpg",
@@ -270,7 +270,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Batman Arkham Origins digital",
+        name: "Batman Arkham Origins",
         description: "La tercera entrega de la saga presenta la precuela de las dos anteriores para explorar los orígenes de Batman. Los jugadores disfrutarán de una aventura de acción en la que el sigilo es central para triunfar en su lucha contra los más peligrosos villanos.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454242/Ps3/Batman%20Arkham%20Origins/Batman-Arkham-Origins-1-330x397_kwhyug.png",
@@ -283,7 +283,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Battlefield 5 digital",
+        name: "Battlefield 5",
         description: "Esta historia bélica ambientada en la Segunda Guerra Mundial propone a los jugadores una experiencia de lucha y supervivencia con nuevos desafíos, objetivos y recompensas pero también mejores vehículos de combate y artillería totalmente destructiva.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454277/Ps4/Battlefield%205/battlefield-5-201811201110172_1-330x411_hg2ymz.jpg",
@@ -296,7 +296,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Battlefield 5 PS5 Retro digital",
+        name: "Battlefield 5 PS5 Retro",
         description: "Esta historia bélica ambientada en la Segunda Guerra Mundial propone a los jugadores una experiencia de lucha y supervivencia con nuevos desafíos, objetivos y recompensas pero también mejores vehículos de combate y artillería totalmente destructiva.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454303/Ps5/Battlefield%205/battlefield-5-ps5-330x404_ewtfjp.jpg",
@@ -309,7 +309,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Bayonetta digital",
+        name: "Bayonetta",
         description: "Tras un profundo sueño de 500 años, Bayonetta despierta sin recuerdos de su pasado. En la ficticia ciudad europea de Vigrid, los jugadores serán testigos de las aventuras de esta bruja con tantos poderes sobrenaturales como enemigos demoníacos y el incomparable estilo de Hideki Kamiya, creador de Devil May Cry",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454236/Ps3/Bayonetta/bayonetta-330x397_kayi5i.jpg",
@@ -322,7 +322,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Call of Duty Advanced Warfare Gold Edition PS5 Retro digital",
+        name: "Call of Duty Advanced Warfare Gold Edition PS5 Retro",
         description: "Esta entrega de la saga se ambienta en escenarios bélicos pero con un conflicto de fondo relacionado con los vínculos secretos entre la política, las tecnologías y las organizaciones paramilitares. En esta edición, los jugadores cuentan con el juego base más el DLC Havoc y mapas multijugador.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454306/Ps5/Call%20of%20Duty%20Advanced%20Warfare%20Gold%20Edition/call-of-duty-advanced-warfare-gold-edition-ps5-retrocompatible-330x404_gksbeb.jpg",
@@ -335,7 +335,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Call Of Duty Black Ops 2 Revolution Map Pack digital",
+        name: "Call Of Duty Black Ops 2 Revolution Map Pack",
         description: "Esta edición combina giros novedosos en la historia con contenido extra para vivirla de una manera única. Los jugadores estarán expuestos a la Guerra Fría del siglo XXI, un escenario bélico ambientado en el futuro cercano al que deberán sobrevivir con nuevos mapas, modos de juego y un arma multijugador.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468705/Ps3/Call%20Of%20Duty%20Black%20Ops%202%20Revolution%20Map%20Pack/call-of-duty-black-ops-2-revolution-map-pack-2-330x380_aoh7sa.jpg"
@@ -344,7 +344,7 @@ const videogames= [
         platform: "PS3",
         genre: 'Multijugador'
       },     {
-        name: "Cal of Duty Black Ops 3 digital",
+        name: "Cal of Duty Black Ops 3",
         escrition: "Esta entrega conserva los elementos futuristas característicos de la saga y agrega nuevos modos de juego para vivir una experiencia única. Los jugadores verán una historia profunda y detallada, con formas únicas de subir de nivel, personalizar los personajes y prepararse para la batalla.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468705/Ps3/Call%20Of%20Duty%20Black%20Ops%203/call-of-duty-black-ops-3-1-330x380_v1lefc.jpg"
@@ -353,7 +353,7 @@ const videogames= [
         platform: "PS3",
         genre: 'Multijugador'
       },     {
-        name: "Cal of Duty Black Ops 3 PS5 Retro digital",
+        name: "Cal of Duty Black Ops 3 PS5 Retro",
         escrition: "En 2065, surge una nueva clase de soldados de operaciones encubiertas. Mientras tanto, la línea que separa a la humanidad de la alta tecnología robótica se vuelve difusa y afecta a los conflictos armados.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468866/Ps5/Call%20Of%20Duty%20Black%20Ops%203%20PS5%20retro/call-of-duty-black-ops-3-ps5-retrocompatible-330x404_qaybe1.jpg",
@@ -366,7 +366,7 @@ const videogames= [
         genre: 'Multijugador'
       },
       {
-        name: "Call of Duty Black Ops 3 digital",
+        name: "Call of Duty Black Ops 3",
         description: "En 2065, surge una nueva clase de soldados de operaciones encubiertas. Mientras tanto, la línea que separa a la humanidad de la alta tecnología robótica se vuelve difusa y afecta a los conflictos armados.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468797/Ps4/Call%20Of%20Duty%20Black%20Ops%203/Call-of-Duty-Black-Ops-3-330x404_jqybd6.jpg",
@@ -379,7 +379,7 @@ const videogames= [
         genre: 'Multijugador'
       },
       {
-        name: "Call of Duty Black Ops 3 Zombies Chronicles Edition digital",
+        name: "Call of Duty Black Ops 3 Zombies Chronicles Edition",
         description: "En una combinación de escenarios futuristas y muertos vivientes, con mejoras en los efectos visuales, sonidos, ambientes y personajes, los jugadores tendrán acceso a una experiencia renovada. Esta edición incluye el juego base completo más ocho mapas clásicos remasterizados de entregas previas: World at War, Black Ops y Black Ops II.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468791/Ps4/Call%20of%20Duty%20Black%20Ops%203%20Zombies%20Chronicles%20Edition/call-of-duty-black-ops-3-zombies-chronicles-edition-330x404_wleri7.jpg",
@@ -392,7 +392,7 @@ const videogames= [
         genre: 'Multijugador'
       },
       {
-        name: "Call of Duty Black Ops 3 Zombies Chronicles Edition PS5 Retro digital",
+        name: "Call of Duty Black Ops 3 Zombies Chronicles Edition PS5 Retro",
         description: "En una combinación de escenarios futuristas y muertos vivientes, con mejoras en los efectos visuales, sonidos, ambientes y personajes, los jugadores tendrán acceso a una experiencia renovada. Esta edición incluye el juego base completo más ocho mapas clásicos remasterizados de entregas previas: World at War, Black Ops y Black Ops II.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468867/Ps5/Call%20of%20Duty%20Black%20Ops%203%20Zombies%20Chronicles%20Edition/call-of-duty-black-ops-3-zombies-chronicles-ps5-retrocompatible-330x404_vchzqq.jpg",
@@ -405,7 +405,7 @@ const videogames= [
         genre: 'Multijugador'
       },
       {
-        name: "Call of Duty Black Ops 4 digital",
+        name: "Call of Duty Black Ops 4",
         description: "En esta aventura bélica, los mapas brindan una variedad impresionante a medida que los jugadores se enfrentan en escenarios únicos con una mecánica de armas que da a cada una la sensación de máxima autenticidad y un manejo inigualable.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468793/Ps4/Call%20of%20Duty%20Black%20Ops%204/call-of-duty-black-ops-4-1-330x413_iiqcd0.jpg",
@@ -418,7 +418,7 @@ const videogames= [
         genre: 'Multijugador'
       },
       {
-        name: "Call of Duty Black Ops 4 PS5 Retro digital",
+        name: "Call of Duty Black Ops 4 PS5 Retro",
         description: "En esta aventura bélica, los mapas brindan una variedad impresionante a medida que los jugadores se enfrentan en escenarios únicos con una mecánica de armas que da a cada una la sensación de máxima autenticidad y un manejo inigualable.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679595631/Ps4/Call%20of%20Duty%20Black%20Ops%204/call-of-duty-black-ops-4-ps5-330x404_jb7wqq.jpg",
@@ -431,7 +431,7 @@ const videogames= [
         genre: 'Multijugador'
       },
       {
-        name: "CTR Crash Team Racing digital",
+        name: "CTR Crash Team Racing",
         description: "Esta entrega encuentra a Crash y sus amigos acelerando en las pistas de carrera. Los jugadores deberán unirse a sus propios enemigos conduciendo a toda velocidad para vencer al malvado Nitros Oxide que quiere convertir al mundo en un enorme estacionamiento de hormigón.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468704/Ps3/CTR%20Crash%20Team%20Racing/crash-team-racing-330x397_nwu1rl.jpg",
@@ -444,7 +444,7 @@ const videogames= [
         genre: "Conducción"
       },
       {
-        name: "Crash Bandicoot N Sane Trilogy digital",
+        name: "Crash Bandicoot N Sane Trilogy",
         description: "En un remake con gráficas completamente remasterizadas y nuevas opciones de juego, el juego acerca desafíos y aventuras para divertirse como nunca antes. La trilogía incluye Crash Bandicoot, Crash Bandicoot 2: Cortex Strikes Back y Crash Bandicoot: Warped.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468794/Ps4/Crash%20Bandicoot%20N%20Sane%20Trilogy/Crash-Bandicoot-N-Sane-Trilogy-1_wpjeag.jpg",
@@ -457,7 +457,7 @@ const videogames= [
         genre: "Combos"
       },
       {
-        name: "Crash Team Racing Nitro Fueled digital",
+        name: "Crash Team Racing Nitro Fueled",
         description: "Las aventuras del Team Racing volvieron a Crash en una experiencia totalmente remasterizada pero con los modos de juego, personajes, pistas y controles originales. En este remake, el juego ofrece nuevas pistas y karts personalizables para vivir una competencia única.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468797/Ps4/Crash%20Team%20Racing%20Nitro%20Fueled/Crash-Team-Racing-Nitro-Fueled-1-330x413_afdhgm.png",
@@ -470,7 +470,7 @@ const videogames= [
         genre: "Conducción"
       },
       {
-        name: "Cuphead digital",
+        name: "Cuphead",
         description: "Esta aventura está ambientada en un simpático mundo inspirado en los dibujos animados de los años 30. Con elementos de plataforma y estrategia, los jugadores se divertirán descubriendo mundos extraños, adquiriendo nuevas armas y aprendiendo poderosos movimientos.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468795/Ps4/Cuphead/Cuphead-330x404_pr4wac.jpg",
@@ -483,7 +483,7 @@ const videogames= [
         genre: "Aventura"
       },
       {
-        name: "Cuphead PS5 Retro digital",
+        name: "Cuphead PS5 Retro",
         description: "Esta aventura está ambientada en un simpático mundo inspirado en los dibujos animados de los años 30. Con elementos de plataforma y estrategia, los jugadores se divertirán descubriendo mundos extraños, adquiriendo nuevas armas y aprendiendo poderosos movimientos.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468864/Ps5/Cuphead/cuphead-ps5-330x404_ajllsg.jpg",
@@ -497,7 +497,7 @@ const videogames= [
       },
     
       {
-        name: "Devil May Cry HD Collection digital",
+        name: "Devil May Cry HD Collection",
         description: "Esta recopilación en HD incluye Devil May Cry, Devil May Cry 2 y Devil May Cry 3 Special Edition con gráficos remasterizados. En el rol de Dante, los jugadores se unirán a otros cazadores de demonios para disfrutar al máximo toda la acción de esta trilogía.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468704/Ps3/Devil%20May%20Cry%20HD%20Collection/Devil-May-Cry-HD-Collection-1-330x397_kyfyts.png",
@@ -510,7 +510,7 @@ const videogames= [
         genre: "Aventura"
       },
       {
-        name: "Devil May Cry HD Collection PS5 Retro digital",
+        name: "Devil May Cry HD Collection PS5 Retro",
         description: "Esta recopilación en HD incluye Devil May Cry, Devil May Cry 2 y Devil May Cry 3 Special Edition con gráficos remasterizados. En el rol de Dante, los jugadores se unirán a otros cazadores de demonios para disfrutar al máximo toda la acción de esta trilogía.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468865/Ps5/Devil%20May%20Cry%20HD%20Collection/devil-may-cry-hd-collection-ps5-retrocompatible-330x404_psxjeh.jpg",
@@ -523,7 +523,7 @@ const videogames= [
         genre: "Aventura"
       },
       {
-        name: "Diablo 3 Eternal Collection digital",
+        name: "Diablo 3 Eternal Collection",
         description: "Esta colección contiene el juego Diablo III más las expansiones Reaper of Souls y Rise of the Necromancer. Siguiendo el legado de los juegos de rol y acción, los jugadores podrán continuar la lucha contra poderosos demonios que vuelven desde el infierno.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468797/Ps4/Diablo%203%20Eternal%20Collection/Diablo-3-Eternal-Collection-1_hpirsm.jpg",
@@ -536,7 +536,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Diablo 3 Eternal Collection PS5 Retro digital",
+        name: "Diablo 3 Eternal Collection PS5 Retro",
         description: "Esta colección contiene el juego Diablo III más las expansiones Reaper of Souls y Rise of the Necromancer. Siguiendo el legado de los juegos de rol y acción, los jugadores podrán continuar la lucha contra poderosos demonios que vuelven desde el infierno.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468865/Ps5/Diablo%203%20Eternal%20Collection/diablo-3-eternal-collection-ps5-retro-330x404_zedvc8.jpg",
@@ -549,7 +549,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Diablo 3 Reaper of Souls Ultimate Evil Edition digital",
+        name: "Diablo 3 Reaper of Souls Ultimate Evil Edition",
         description: "La edición Ultimate Evil potencia el juego base con la expansión Reaper of Souls y el nuevo modo Aventura para obtener mejores recompensas. Los jugadores podrán vivir esta experiencia como brujo, cazador de demonios, monje o mago mientras aprenden a dominar nuevas habilidades y poderes mortales.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468705/Ps3/Diablo%203%20Reaper%20of%20Souls%20Ultimate%20Evil%20Edition/Diablo-3-Reaper-of-Souls-Ultimate-Evil-Edition-1-330x397_mcl6zs.png"
@@ -558,7 +558,7 @@ const videogames= [
         platform: "PS3",
         genre: "Acción"
       },     {
-        name: "Diimon World Next Order digital",
+        name: "Diimon World Next Order",
         escrition: "Una aventura por el Mundo Digital reúne a los mejores entrenadores y más de 200 digimones para frenar el caos sembrado por los machinedramons. Los jugadores deberán ser estratégicos en la crianza y entrenamiento de sus digimones para ganar esta batalla.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468798/Ps4/Digimon%20World%20Next%20Order/digimon-world-next-order-330x412_aguww8.jpg"
@@ -567,7 +567,7 @@ const videogames= [
         platform: "PS4",
         genre: "Infantiles"
       },     {
-        name: "Diimon World Next Order PS5 Retro digital",
+        name: "Diimon World Next Order PS5 Retro",
         escrition: "Una aventura por el Mundo Digital reúne a los mejores entrenadores y más de 200 digimones para frenar el caos sembrado por los machinedramons. Los jugadores deberán ser estratégicos en la crianza y entrenamiento de sus digimones para ganar esta batalla.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468865/Ps5/Digimon%20World%20Next%20Order/digimon-world-next-order-ps5-retro-330x404_rt2xn8.jpg"
@@ -576,7 +576,7 @@ const videogames= [
         platform: "PS3",
         genre: "Infantiles"
       },     {
-        name: "DUCATI 90th Anniversary PS5 Retro digital",
+        name: "DUCATI 90th Anniversary PS5 Retro",
         escrition: "Un juego totalmente dedicado a la emblemática marca Ducati acerca un juego que reúne a los modelos más emblemáticos de toda su historia. Los jugadores podrán elegir entre 39 modelos, 5 pistas, 8 circuitos oficiales y 7 épocas para redescubrir la historia detrás de cada moto.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679511213/Ps5/DUCATI%2090th%20Anniversary/ducati-90th-anniversary-ps5-retro-330x404_kstpjc.jpg",
