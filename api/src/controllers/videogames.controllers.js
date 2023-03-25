@@ -27,10 +27,23 @@ const createVideogameDb = async (req,res) => {
 
 
 const createVideogame = async (req, res) => {
-  const {name, description, image, price, platform, genre} = req.body;
+  const {platform, genre} = req.body;
 
   try {
-    const newGame = await Videogame.create(name, description, image, price, platform, genre);
+    const newGame = await Videogame.create(req.body); 
+
+    const genreDb = await Genre.findOne({where: {name: genre}})
+    
+    if(!genreDb) {throw new Error("the genre selected doesnt exist in the database, please create one..")}
+
+    await newGame.addGenre(genreDb)
+
+    const platformDb = await Platform.findOne({where: {name: platform}})
+
+    if(!platformDb) {throw new Error("the platform selected doesnt exist in the database, please create one..")} 
+
+    await newGame.addPlatform(platformDb)
+
     res.status(201).json(newGame);
   } catch (error) {
     res.status(400).json({error: error.message});
