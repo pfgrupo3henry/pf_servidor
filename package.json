@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "bcrypt": "^5.1.0"
+  },
+  "scripts": {
+    "start": "cd api/src && npm start"
+  }
+}
