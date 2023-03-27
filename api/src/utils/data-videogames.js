@@ -43,7 +43,7 @@ const videogames= [
         name: "Alien Isolation",
         description: "En una atmósfera que incluye temor, peligro y un alienígena impredecible, los jugadores encarnan el papel de Amanda, quien lucha por sobrevivir y cumplir su objetivo de saber cuál es la verdad detrás de la desaparición de su madre.",
         img: [
-          "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454235/Ps3/Alien%20Isolation/alien-isolation-330x380_lo26fm.jpgs",
+          "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454235/Ps3/Alien%20Isolation/alien-isolation-330x380_lo26fm.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454236/Ps3/Alien%20Isolation/alien-isolation_4-330x185_wdluyt.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454236/Ps3/Alien%20Isolation/alien-isolation_5-330x185_ngtnld.jpg",
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454235/Ps3/Alien%20Isolation/alien-isolation-330x185_y61ab6.jpg"
@@ -331,7 +331,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454315/Ps5/Call%20of%20Duty%20Advanced%20Warfare%20Gold%20Edition/call-of-duty-advanced-warfare-gold-edition_3-330x185_f20d9y.jpg"
         ],
         price: 19600,
-        platform: "PS3",
+        platform: "PS5",
         genre: "Acción"
       },
       {
@@ -532,7 +532,7 @@ const videogames= [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468797/Ps4/Diablo%203%20Eternal%20Collection/diablo-3-eternal-collection-1-330x185_i9kr6b.jpg"
         ],
         price: 24480,
-        platform: "PS3",
+        platform: "PS4",
         genre: "Acción"
       },
       {
@@ -558,7 +558,7 @@ const videogames= [
         platform: "PS3",
         genre: "Acción"
       },     {
-        name: "Diimon World Next Order",
+        name: "Digimon World Next Order",
         description: "Una aventura por el Mundo Digital reúne a los mejores entrenadores y más de 200 digimones para frenar el caos sembrado por los machinedramons. Los jugadores deberán ser estratégicos en la crianza y entrenamiento de sus digimones para ganar esta batalla.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468798/Ps4/Digimon%20World%20Next%20Order/digimon-world-next-order-330x412_aguww8.jpg"
@@ -567,13 +567,13 @@ const videogames= [
         platform: "PS4",
         genre: "Infantiles"
       },     {
-        name: "Diimon World Next Order PS5 Retro",
+        name: "Digimon World Next Order PS5 Retro",
         description: "Una aventura por el Mundo Digital reúne a los mejores entrenadores y más de 200 digimones para frenar el caos sembrado por los machinedramons. Los jugadores deberán ser estratégicos en la crianza y entrenamiento de sus digimones para ganar esta batalla.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468865/Ps5/Digimon%20World%20Next%20Order/digimon-world-next-order-ps5-retro-330x404_rt2xn8.jpg"
         ],
         price: 23040,
-        platform: "PS3",
+        platform: "PS5",
         genre: "Infantiles"
       },     {
         name: "DUCATI 90th Anniversary PS5 Retro",
@@ -1872,7 +1872,7 @@ const videogames= [
       "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333092/Ps3/Prototype%202%20Gold%20Edition%20-%20ps3/prototype-2-gold-edition_2-330x185_tymqlc.jpg"],
       price: 6680,
       platform: "PS3",
-      genre: "Infantiles"
+      genre: "Acción"
     },
     {
       name: "Project Cars 2",
