@@ -1,6 +1,5 @@
 const {Videogame, Genre, Platform} = require('../db');
 const axios = require('axios');
-const {searchGameByName, getAllGames, getGameById} = require('../utils/utils');
 const videogames = require('../utils/data-videogames');
 
 const createVideogameDb = async (req,res) => {
@@ -24,7 +23,6 @@ const createVideogameDb = async (req,res) => {
     }
     catch(e) {res.status(404).json(console.log(e))}
 }
-
 
 const createVideogame = async (req, res) => {
   const {platform, genre} = req.body;
@@ -50,51 +48,79 @@ const createVideogame = async (req, res) => {
   }
 };
 
-const getVideogames = async (req, res) => {
-  const { name } = req.query;
+const searchGameByName = async(name) =>{
+
+  const videogames= await getAllGames();
   
-  try {
-  const results = name ? await searchGameByName(name) : await getAllGames();
-  res.status(200).json(results);
-  } catch (error){
-      res.status(400).json({error: error.message})
-  }
-};
-
-
-const getVideogameById = async (req, res) => {
-  const { id } = req.params;
-  try {
-      const game = await getGameById(id);
-      res.status(201).json(game);
-  } catch (error) {
-      res.status(400).json({ error: "No existe Videogame para ese ID" });
-  }
+      if(!name) {return videogames;
       
+      }else if(name) {
+          const wantedVideogame= videogames.filter(v=> v.name.toLowerCase().includes(name.toLowerCase())); 
+          
+              if(wantedVideogame.length === 0) {throw new Error('Videogame not found')}
+
+              return wantedVideogame
+
+      }
 };
- 
 
+const getGameById = async (value) => {
+   
+  const findDbID= await Videogame.findByPk(value, { include: [Genre, Platform] })
+  const detailOfGame = {
+      id:findDbID.id,
+      name: findDbID.name,
+      description: findDbID.description,
+      image: findDbID.img,
+      price: findDbID.price,
+      platform: findDbID.platforms[0].name,
+      genre: findDbID.genres[0].name
+  }
+  return detailOfGame
 
+};
 
-// const getGameById = async (value) => {
-//     if(value.length>5){
-//         const findDbID= await Videogame.findByPk(value, {include:Genre, Platform})
-//         const detailOfGame = {
-//             id:findDbID.id,
-//             name: findDbID.name,
-//             description: findDbID.description,
-//             image: findDbID.img,
-//             price: findDbID.price,
-//             platform: findDbID.platform.map(m=>m.name),
-//             genre: findDbID.genre.map(m=>m.name)
-//         }
-//         return detailOfGame
-//     }
-// };
+const getAllGames = async () => {
+  let gamesInDb = await Videogame.findAll({
+      include: [
+          {
+              model: Genre,
+              attributes: ['name'],
+              through: {
+                  attributes: [],
+              },
+          },
+          {
+              model: Platform,
+              attributes: ['name'],
+              through: {
+                  attributes: [],
+              }
+          },
+      ],
+  })
+  
+
+      
+  gamesInDb= gamesInDb.map(m=>{
+      return {
+      id: m.id,
+      name: m.name, 
+      description: m.description,
+      img: m.img,
+      price: m.price,
+      genre: m.genres[0].name,
+      platform: m.platforms[0].name
+  }}) 
+  
+  
+  return gamesInDb
+};
 
 module.exports = {
   createVideogame,
   createVideogameDb,
-  getVideogames,
-  getVideogameById
+  getAllGames,
+  getGameById,
+  searchGameByName
 };
