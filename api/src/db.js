@@ -49,7 +49,7 @@ Genre.belongsToMany(Videogame, {through: "Videogames_Genre"});
 Videogame.belongsToMany(Platform, {through: "Platforms_Videogames"});
 Platform.belongsToMany(Videogame, {through: "Platforms_Videogames"});
 
-Cart.belongsTo(User, { foreignKey: 'userId' });
+Cart.belongsTo(User);
 User.hasOne(Cart)
 
 Order.belongsTo(User);
