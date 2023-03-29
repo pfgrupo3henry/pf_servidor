@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
+const { PriceType } = require('../dataType');
 
 module.exports = (sequelize) => {
-    sequelize.define('orderDetail', {
-        
+    sequelize.define('Payment', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
@@ -14,28 +14,19 @@ module.exports = (sequelize) => {
             allowNull: false,
             field: 'OrderId'
         },
-        videogameId: {
-            type: DataTypes.INTEGER,
+        type: {
+            type: DataTypes.ENUM('MercadoPago'), 
             allowNull: false,
-            field: 'VideogameId'
-        },
-        quantity: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            field: 'Quantity',
-            validate:{
-                min: 1,
-              }
-        },
-        unitPrice: {
-            type: PriceType,
-            allowNull: false,
-            field: 'UnitPrice',            
+            defaultValue: 'MercadoPago',
+            field: 'Type'
         },
         totalAmount: {
             type: PriceType,
             allowNull: false,
             field: 'TotalAmount',            
         },
-})
-}
+    }, {
+        timestamps: false,
+        freezeTableName: true
+    });
+};
