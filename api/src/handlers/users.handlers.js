@@ -1,4 +1,5 @@
-const { newUser, getAllUsers, loginUser } = require('../controllers/users.controllers');
+const { newUser, getAllUsers, loginUser, logout } = require('../controllers/users.controllers');
+const { User } = require('../db');
 
 const createUser = async (req, res) => {
     const { firstname, lastname, email, mobile, password, role, nationality, status } = req.body;
@@ -22,7 +23,7 @@ const allUsers= async(req, res)=>{
     }
 }
 
-const loginhandler= async(req, res)=>{
+const loginhandler= async(req, res)=> {
     const { email, password } = req.body;
     
     try{
@@ -38,4 +39,24 @@ const loginhandler= async(req, res)=>{
     }
 }
 
-module.exports = { createUser, allUsers, loginhandler };
+const logoutHandler= async (req, res) => {
+
+    const cookie= req.cookies;
+    try{
+        if (!cookie.refreshToken) throw new Error('No Refresh Token in Cookies');
+        const refreshToken= cookie.refreshToken;
+        const userLogOut= await logout(refreshToken);
+        
+        res.clearCookie('refreshToken', {
+            httpOnly: true,
+            secure: true,
+        });
+        res.status(200).send({userId:userLogOut}); 
+    } catch (error) {
+        res.status(400).json({ message: 'Error in user logout', error: error.message})
+    }
+}
+        
+
+
+module.exports = { createUser, allUsers, loginhandler, logoutHandler };
