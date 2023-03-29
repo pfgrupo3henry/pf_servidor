@@ -7,3 +7,6 @@ const router = Router();
 //router.get('/:id', getUserById);
 //router.put('/modify', modifyUser);
 router.post("/", createUser);
+
+
+module.exports = router
