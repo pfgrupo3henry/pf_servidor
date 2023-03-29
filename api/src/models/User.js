@@ -51,6 +51,10 @@ module.exports = (sequelize) => {
       allowNull: false,
       field: "Nationality",
     },
+    img: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     status: {
       type: StatusType,
       allowNull: false,
