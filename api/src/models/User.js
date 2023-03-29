@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
     },
     mobile: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       unique: true,
     },
     password: {
