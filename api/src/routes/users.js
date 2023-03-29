@@ -10,7 +10,7 @@ router.get("/all-users", allUsers);
 //POST ROUTES:
 // router.post("/cargadeusers", createUSERSDb);
 router.post("/register", createUser);
-router.get("/login", loginhandler);
+router.post("/login", loginhandler);
 router.get("/logout", logoutHandler);
 
 module.exports = router
