@@ -1,4 +1,5 @@
 const { DataTypes, TEXT } = require('sequelize');
+const {StatusType} = require("./../dataType")
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
@@ -9,10 +10,10 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
-      allowNull: false,
-      primaryKey: true
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+      field: "Id"
     },
     description: {
       type: DataTypes.TEXT,
@@ -26,8 +27,10 @@ module.exports = (sequelize) => {
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    rating: {
-      type: DataTypes.FLOAT
-    },
+    status: {
+      type: StatusType, 
+      allowNull: false,
+      defaultValue: 'Active',
+  }
   });
 };
