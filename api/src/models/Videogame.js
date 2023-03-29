@@ -26,8 +26,10 @@ module.exports = (sequelize) => {
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    rating: {
-      type: DataTypes.FLOAT
-    },
+    status: {
+      type: StatusType, 
+      allowNull: false,
+      defaultValue: 'Active',
+  }
   });
 };
