@@ -1,5 +1,7 @@
 const { DataTypes } = require('sequelize');
 const bcrypt= require('bcrypt');
+const {RoleType, StatusType} = require("./../dataType")
+
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
@@ -27,12 +29,12 @@ module.exports = (sequelize) => {
       unique: true,
       field: "Email",
     },
-    mobile: {
+   /*  mobile: {
       type: DataTypes.INTEGER,
       allowNull: false,
       unique: true,
       field: "Mobile",
-    },
+    }, */
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -45,7 +47,7 @@ module.exports = (sequelize) => {
       field: "Role",
     },
     nationality: {
-      type: DataTypes,
+      type: DataTypes.STRING,
       allowNull: false,
       field: "Nationality",
     },

@@ -14,6 +14,6 @@ router.use('/videogames', videogamesRouter);
 router.use('/platforms', platformsRouter);
 router.use('/genres', genresRouter);
 router.use('/cart', cartRouter);
-router.use('/users', usersRouter);
+router.use('/user', usersRouter);
 
 module.exports = router;

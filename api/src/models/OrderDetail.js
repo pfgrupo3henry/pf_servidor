@@ -1,4 +1,5 @@
 const { DataTypes } = require('sequelize');
+const {PriceType} = require("./../dataType")
 
 module.exports = (sequelize) => {
     sequelize.define('orderDetail', {
