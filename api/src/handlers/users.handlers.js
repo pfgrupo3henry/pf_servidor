@@ -75,6 +75,7 @@ const logoutHandler= async (req, res) => {
 
 const getUserReviewsHandler= async (req, res) => {
     const { id } = req.params;
+    // if (Number(req.user.id) !== Number(id)) throw new Error("You cant access to that information");  //ver si es necesario, lo que controlo es que un user logueado no acceda a los reviews de otro user 
     try {
         const reviews= await getUserReviews(id);
         res.status(200).json(reviews);

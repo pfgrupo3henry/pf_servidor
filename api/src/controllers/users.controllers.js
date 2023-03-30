@@ -1,4 +1,4 @@
-const { User, Review } = require('../db');
+const { User, Review, Videogame } = require('../db');
 const users = require('../utils/data-users');
 const { generateToken } = require('../config/jwtToken');
 const { generateRefreshToken } = require('../config/generateRefreshToken');
@@ -95,8 +95,7 @@ const getUserReviews= async (id) => {
             { model: Videogame }
         ],
       });
-
-      if (!userReviews) throw new Error("User doesnt have any review")
+      if (userReviews.length<1) throw new Error("User doesnt have any review")
     
       return userReviews;
 }
