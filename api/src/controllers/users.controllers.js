@@ -1,6 +1,5 @@
 const { User } = require('../db');
 const users = require('../utils/data-users');
-const jwt = require('JsonWebToken');
 const { generateToken } = require('../config/jwtToken');
 const { generateRefreshToken } = require('../config/generateRefreshToken');
 
