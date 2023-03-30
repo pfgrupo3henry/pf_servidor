@@ -72,6 +72,20 @@ const loginUser= async(email, password)=> {
 
 }
 
+const logout= async(refreshToken)=>{
+ 
+    const user= await User.findOne({where: {refreshToken: refreshToken}});
+    
+    if (user) {   
+        await User.update({
+        refreshToken: ""
+        }, {
+        where: {id: user.id}
+        });
+    } 
+    return user.id; 
+}
+
 
 
 //cargo users de prueba
@@ -88,4 +102,4 @@ const createUSERSDb = async (req,res) => {
 }
 
 
-module.exports = { newUser, getAllUsers, loginUser, createUSERSDb };
+module.exports = { newUser, getAllUsers, loginUser, logout, createUSERSDb };
