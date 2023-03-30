@@ -1,25 +1,32 @@
 const {Favorite, Videogame, User} = require('../db');
 const jwt = require("jsonwebtoken")
+const {JWT_SECRET} = process.env
 
 const getAllFavorites = async(token) => {
     try{
  
     if(!token) {
-        throw('User not authorized');
+        throw new Error('User not authorized');
+    }
+  
+    else if(!JWT_SECRET) {
+        throw new Error('JWT_SECRET is not defined')
     }
 
-    const decoded = jwt.verify(token,"secret")
+    const decoded = jwt.verify(token,JWT_SECRET)
 
     const user = await User.findByPk(decoded.id)
-
-    let favorites = await Favorite.findOrCreate({where: {userId: user.id}})
     
-    const products = favorites.products || []
+    let favorites = await Favorite.findOrCreate({where: {userId: user.id}})
 
+    const products = favorites[0].products || []
+ 
     return products
     }
     
-    catch(e) {throw ('GetAllFavorites Error' )}
+    catch(error) {
+        console.error(error)
+        return { message: "An error occurred while getting all products" }}
 };
 
 
@@ -27,10 +34,14 @@ const putProducts = async(products, token) => {
     try{
     
     if(!token) {
-            throw('User not authorized');
+        throw new Error('User not authorized')
     }
 
-    const decoded = jwt.verify(token, "secret")
+    else if(!JWT_SECRET) {
+        throw new Error('JWT_SECRET is not defined')
+    }
+
+    const decoded = jwt.verify(token, JWT_SECRET)
 
     const user = await User.findByPk(decoded.id)
 
@@ -40,10 +51,12 @@ const putProducts = async(products, token) => {
 
     await favorites.save();
 
-    res.status(200).send(products)
+    return { message: "Products updated successfully" }
     }
     
-    catch(e) {res.status(400).send({message: e})}
+    catch(error) {
+        console.error(error)
+        return { message: "An error occurred while updating the products" }}
 }  
 
 
