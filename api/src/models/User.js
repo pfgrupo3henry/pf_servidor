@@ -57,9 +57,19 @@ module.exports = (sequelize) => {
     },
     status: {
       type: StatusType,
-      allowNull: false,
+      // allowNull: false,
       defaultValue: "Active",
       field: "Status",
     },
+    refreshToken: {
+      type: DataTypes.STRING,
+    }
+}, {
+  hooks: {
+    beforeCreate: async (user, options)=>{
+      const salt= await bcrypt.genSaltSync(10);
+      user.password= await bcrypt.hash(user.password, salt);
+    } 
+  },
 })
 }
