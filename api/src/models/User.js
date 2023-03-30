@@ -29,12 +29,11 @@ module.exports = (sequelize) => {
       unique: true,
       field: "Email",
     },
-   /*  mobile: {
+    mobile: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       unique: true,
       field: "Mobile",
-    }, */
+    }, 
     password: {
       type: DataTypes.STRING,
       allowNull: false,

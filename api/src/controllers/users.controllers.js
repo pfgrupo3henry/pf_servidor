@@ -1,6 +1,5 @@
 const { User, Review } = require('../db');
 const users = require('../utils/data-users');
-const jwt = require('JsonWebToken');
 const { generateToken } = require('../config/jwtToken');
 const { generateRefreshToken } = require('../config/generateRefreshToken');
 
@@ -86,12 +85,6 @@ const logout= async(refreshToken)=>{
     return user.id; 
 }
 
-const userById= async (id) => {
-    const user= await User.findByPk(id);   //consultar qué necesito traer de ese user, qué datos? para ver si debo incluir las tablas interm, como el detalle de las ordenes
-    if (!user) throw new Error ("No user matches with that Id");
-    
-    return user;
-} 
 
 const getUserReviews= async (id) => {
     const userReviews= await Review.findAll({ 
@@ -129,4 +122,4 @@ const createUSERSDb = async (req,res) => {
 }
 
 
-module.exports = { newUser, getAllUsers, loginUser, logout, userById, getUserReviews, createUSERSDb };
+module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, createUSERSDb };
