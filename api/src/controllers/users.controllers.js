@@ -1,4 +1,4 @@
-const { User } = require('../db');
+const { User, Review } = require('../db');
 const users = require('../utils/data-users');
 const jwt = require('JsonWebToken');
 const { generateToken } = require('../config/jwtToken');
@@ -86,6 +86,33 @@ const logout= async(refreshToken)=>{
     return user.id; 
 }
 
+const userById= async (id) => {
+    const user= await User.findByPk(id);   //consultar qué necesito traer de ese user, qué datos? para ver si debo incluir las tablas interm, como el detalle de las ordenes
+    if (!user) throw new Error ("No user matches with that Id");
+    
+    return user;
+} 
+
+const getUserReviews= async (id) => {
+    const userReviews= await Review.findAll({ 
+        where: {
+            userId: id 
+        },
+        include: [
+            { model: Videogame }
+        ],
+      });
+
+      if (!userReviews) throw new Error("User doesnt have any review")
+    
+      return userReviews;
+}
+    
+
+
+
+
+
 
 
 //cargo users de prueba
@@ -102,4 +129,4 @@ const createUSERSDb = async (req,res) => {
 }
 
 
-module.exports = { newUser, getAllUsers, loginUser, logout, createUSERSDb };
+module.exports = { newUser, getAllUsers, loginUser, logout, userById, getUserReviews, createUSERSDb };

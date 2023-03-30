@@ -1,4 +1,4 @@
-const { newUser, getAllUsers, loginUser, logout } = require('../controllers/users.controllers');
+const { newUser, getAllUsers, loginUser, logout, userById, getUserReviews } = require('../controllers/users.controllers');
 const { User } = require('../db');
 
 const createUser = async (req, res) => {
@@ -57,6 +57,28 @@ const logoutHandler= async (req, res) => {
     }
 }
         
+const getUserById= async (req, res) => {
+    const { id } = req.params;
+
+    try{
+        const user= await userById(id);
+        res.status(200).json(user);
+
+    } catch (error) {
+        res.status(400).json({ message: 'Error getting User By Id', error: error.message })
+    }
+}
+
+const getUserReviewsHandler= async (req, res) => {
+    const { id } = req.params;
+    try {
+        const reviews= await getUserReviews(id);
+        res.status(200).json(reviews);
+    } catch (error) {
+        res.status(400).json({ message: 'Error getting Users Reviews', error: error.message })
+    }
+};
 
 
-module.exports = { createUser, allUsers, loginhandler, logoutHandler };
+
+module.exports = { createUser, allUsers, loginhandler, logoutHandler, getUserById, getUserReviews };
