@@ -1,4 +1,4 @@
-const { User } = require('../db');
+const { User, Review, Videogame } = require('../db');
 const users = require('../utils/data-users');
 const { generateToken } = require('../config/jwtToken');
 const { generateRefreshToken } = require('../config/generateRefreshToken');
@@ -86,6 +86,26 @@ const logout= async(refreshToken)=>{
 }
 
 
+const getUserReviews= async (id) => {
+    const userReviews= await Review.findAll({ 
+        where: {
+            userId: id 
+        },
+        include: [
+            { model: Videogame }
+        ],
+      });
+      if (userReviews.length<1) throw new Error("User doesnt have any review")
+    
+      return userReviews;
+}
+    
+
+
+
+
+
+
 
 //cargo users de prueba
 const createUSERSDb = async (req,res) => {
@@ -101,4 +121,4 @@ const createUSERSDb = async (req,res) => {
 }
 
 
-module.exports = { newUser, getAllUsers, loginUser, logout, createUSERSDb };
+module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, createUSERSDb };

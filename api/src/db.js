@@ -8,16 +8,15 @@ const {
 } = process.env;
 
 
-/* const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/pfhenry`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/videogamespf`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-}); */
+}); 
 
-
-const sequelize = new Sequelize(DB_DEPLOY, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});
+// const sequelize = new Sequelize(DB_DEPLOY, {
+//   logging: false, // set to console.log to see the raw SQL queries
+//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+// });
 
 
 const basename = path.basename(__filename);
@@ -64,11 +63,14 @@ User.hasMany(Order);
 Favorite.belongsTo(User);
 User.hasOne(Favorite)
 
-/* User.hasMany(Review);
+User.hasMany(Review);
 Review.belongsTo(User);
 
+Videogame.hasMany(Review);
+Review.belongsTo(Videogame);
+
 Order.belongsToMany(Videogame, {through: OrderDetail});
-Videogame.belongsToMany(Order, {through: OrderDetail}) */
+Videogame.belongsToMany(Order, {through: OrderDetail}) 
 
 
 

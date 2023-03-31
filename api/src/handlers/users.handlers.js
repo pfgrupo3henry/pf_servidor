@@ -1,5 +1,4 @@
-
-const { newUser, getAllUsers, loginUser, logout } = require('../controllers/users.controllers');
+const { newUser, getAllUsers, loginUser, logout, getUserReviews } = require('../controllers/users.controllers');
 const { User } = require('../db');
 
 
@@ -17,7 +16,9 @@ const createUser = async (req, res) => {
 const getUserById = async (req, res) => {
     const { id } = req.params;
     try {
-        const user = await User.findByPk(id);
+        const user = await User.findByPk(id, {
+            attributes: ["firstname", "lastname", "email", "mobile", "role", "nationality", "img"]
+            });
         if(!user) {res.status(400).json({ message: 'The id of the user doest exist'})}
         else {res.status(201).send(user);}
 
@@ -72,6 +73,17 @@ const logoutHandler= async (req, res) => {
 }
         
 
+const getUserReviewsHandler= async (req, res) => {
+    const { id } = req.params;
+    // if (Number(req.user.id) !== Number(id)) throw new Error("You cant access to that information");  //ver si es necesario, lo que controlo es que un user logueado no acceda a los reviews de otro user 
+    try {
+        const reviews= await getUserReviews(id);
+        res.status(200).json(reviews);
+    } catch (error) {
+        res.status(400).json({ message: 'Error getting Users Reviews', error: error.message })
+    }
+};
 
-module.exports = { createUser, allUsers, loginhandler, logoutHandler };
 
+
+module.exports = { createUser, allUsers, loginhandler, logoutHandler, getUserById, getUserReviewsHandler };
