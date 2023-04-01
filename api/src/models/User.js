@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, TEXT } = require('sequelize');
 const {RoleType, StatusType} = require("./../dataType")
 
 // Exportamos una funcion que define el modelo
@@ -46,7 +46,7 @@ module.exports = (sequelize) => {
       field: "Nationality",
     },
     img: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(TEXT),
     },
     status: {
       type: StatusType,

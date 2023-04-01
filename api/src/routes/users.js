@@ -10,8 +10,8 @@ const router = Router();
 // GET ROUTES:
 router.get("/logout", logoutHandler);
 router.post("/login", loginhandler);
-router.get("/all-users", authMiddleware, isAdmin, allUsers);
-router.get("/:email", authMiddleware, getUserByEmail);
+router.get("/all-users", allUsers);
+router.get("/:email", getUserByEmail);
 router.get("/:id/review", authMiddleware, getUserReviewsHandler);
 
 //POST ROUTES:
