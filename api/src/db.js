@@ -8,15 +8,15 @@ const {
 } = process.env;
 
 
-/* const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/pfhenry`, {
+ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/pfhenry`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-}); */
+}); 
 
-const sequelize = new Sequelize(DB_DEPLOY, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});
+// const sequelize = new Sequelize(DB_DEPLOY, {
+//   logging: false, // set to console.log to see the raw SQL queries
+//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+// });
 
 
 const basename = path.basename(__filename);
@@ -39,7 +39,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Videogame, Genre, Platform, User, Order, OrderDetail, Review, Cart } = sequelize.models;
+const { Videogame, Genre, Platform, User, Cart, Order, Review, OrdersDetail  } = sequelize.models;
 
 // Aca vendrian las relaciones (probando123)
 // Product.hasMany(Reviews);
@@ -52,15 +52,22 @@ Platform.belongsToMany(Videogame, {through: "Platforms_Videogames"});
 Cart.belongsTo(User, { foreignKey: 'userId' });
 User.hasOne(Cart)
 
-Order.belongsTo(User);
-User.hasMany(Order);
+Cart.hasMany(Order, { foreignKey: 'cartId' });
+Order.belongsTo(Cart, { foreignKey: 'cartId' });
+
+Order.belongsToMany(Videogame, {through: OrdersDetail});
+Videogame.belongsToMany(Order, {through: OrdersDetail}) 
+
+
+// Order.belongsTo(User);
+// User.hasMany(Order);
 
 
 /* User.hasMany(Review);
-Review.belongsTo(User);
+Review.belongsTo(User)
+*/;
 
-Order.belongsToMany(Videogame, {through: OrderDetail});
-Videogame.belongsToMany(Order, {through: OrderDetail}) */
+
 
 
 module.exports = {

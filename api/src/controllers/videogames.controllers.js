@@ -25,6 +25,7 @@ const createVideogameDb = async (req,res) => {
 }
 
 const createVideogame = async (req, res) => {
+  
   const {platform, genre} = req.body;
 
   try {
@@ -81,6 +82,7 @@ const getGameById = async (value) => {
 };
 
 const getAllGames = async () => {
+
   let gamesInDb = await Videogame.findAll({
       include: [
           {

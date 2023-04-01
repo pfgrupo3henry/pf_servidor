@@ -1,39 +1,69 @@
 const {Cart, Videogame} = require('../db');
 
 
-const getCart = async(req,res) => {
-    const { userId, products } = req.body;
-    try{
-    const cart = await Cart.findOne({where: {userId: userId}})
+const getCart = async (req, res) => {
+
+  const { userId } = req.body;
+  
+  try {
+
+    const cart = await Cart.findOne({ where: { userId: userId } });
     
-    if(!cart) {
-        const newCart = await Cart.create({ userId: userId });
-        
-        res.status(200).send(newCart)
+
+    if (!cart) {
+
+      await Cart.create({ userId: userId });
+      res.status(200).send({ userId, products: [] });
+
+    } else {
+
+      const productIds = cart.products.map((product) => product.id);
+
+      const videogames = await Videogame.findAll({ where: { id: productIds } });
+
+      const newProducts = cart.products.map((product) => {
+
+        const videogame = videogames.find((v) => v.id === product.id);
+        return {
+
+          ...product,
+          ...videogame.toJSON(),
+          quantity: product.quantity,
+        };
+      });
+      
+      res.status(200).send({ userId, products: newProducts });
     }
-   
-    else {
-    const newProducts = await Promise.all(products.map( async(el) => {
+  } catch (e) {
+    res.status(400).send(e);
+  }
+};
 
-    let game = await Videogame.findByPk(el.gameId)
-    
-    const newObj = {
-        id: game.id, 
-        name: game.name, 
-        decription: game.description,
-        img: game.img,
-        price: game.price,
-        status: game.status,
-        quantity: el.quantity
+
+  const putCart = async (req, res) => {
+
+    const { userId } = req.body;
+
+    const products = req.body.products || [];
+
+    try {
+
+      let cart = await Cart.findOne({ where: { userId: userId } });
+
+      if (!cart) {
+        cart = await Cart.create({ userId: userId });
+      }
+
+      await cart.update({ products: products });
+
+      res.status(200).send({ userId, products });
+
+    } catch (e) {
+      res.status(400).send(e);
     }
-     
-    return newObj
-    }))
+  };
 
-    res.status(200).send(newProducts)}
-    }
-    catch(e) {res.status(400).send(e)}
-}  
+  
+  module.exports = { getCart, putCart};
+  
 
-
-module.exports = {getCart}
