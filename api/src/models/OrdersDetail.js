@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     subtotal: {
-      type: DataTypes.FLOAT, // Puedes ajustar el tipo de dato según tus necesidades
+      type: DataTypes.FLOAT,
       allowNull: false
     }
   });
