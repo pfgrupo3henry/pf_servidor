@@ -8,15 +8,18 @@ const {
 } = process.env;
 
 
-/* const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/videogamespf`, {
+
+/* const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/pfhenry`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});  */
+}); */
 
- const sequelize = new Sequelize(DB_DEPLOY, {
-   logging: false, // set to console.log to see the raw SQL queries
-   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
- });
+
+const sequelize = new Sequelize(DB_DEPLOY, {
+  logging: false, // set to console.log to see the raw SQL queries
+  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+});
+
 
 
 const basename = path.basename(__filename);
