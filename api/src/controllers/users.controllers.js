@@ -1,11 +1,12 @@
-const { User } = require('../db');
+const { User, Review, Videogame } = require('../db');
 const users = require('../utils/data-users');
 const { generateToken } = require('../config/jwtToken');
 const { generateRefreshToken } = require('../config/generateRefreshToken');
+const { hashPassword } = require ('../config/hashFunction');
 
-const newUser = async (firstname, lastname, email, mobile, password, role, nationality, status) => {
+const newUser = async (firstname, lastname, email, mobile, password, role, nationality, status, img) => {
     
-    const user = await User.findOne({where: {email: email}})
+    const user = await User.findOne({where: {email: email}});
   
     if(user) {
         throw new Error("This e-mail is already in use, please use another email")
@@ -19,7 +20,23 @@ const newUser = async (firstname, lastname, email, mobile, password, role, natio
         password,
         role,
         nationality,
-        status
+        status, 
+        img
+    });
+    
+    const passwordHashed= await hashPassword(userPost);
+    const newPostUser= await userPost.update({password: passwordHashed});
+    return newPostUser.dataValues;
+};
+
+const newUserAuth0= async (email) => {
+    const user= await User.findOne( { where: { email: email } });
+    if (user) {
+        throw new Error("This e-mail is already in use, please insert another email")
+    };
+
+    const userPost= await User.create({
+        email: email
     });
 
     return userPost;
@@ -86,6 +103,26 @@ const logout= async(refreshToken)=>{
 }
 
 
+const getUserReviews= async (id) => {
+    const userReviews= await Review.findAll({ 
+        where: {
+            userId: id 
+        },
+        include: [
+            { model: Videogame }
+        ],
+      });
+      if (userReviews.length<1) throw new Error("User doesnt have any review")
+    
+      return userReviews;
+}
+    
+
+
+
+
+
+
 
 //cargo users de prueba
 const createUSERSDb = async (req,res) => {
@@ -101,4 +138,4 @@ const createUSERSDb = async (req,res) => {
 }
 
 
-module.exports = { newUser, getAllUsers, loginUser, logout, createUSERSDb };
+module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, createUSERSDb };

@@ -64,11 +64,14 @@ User.hasMany(Order);
 Favorite.belongsTo(User);
 User.hasOne(Favorite)
 
-/* User.hasMany(Review);
+User.hasMany(Review);
 Review.belongsTo(User);
 
+Videogame.hasMany(Review);
+Review.belongsTo(Videogame);
+
 Order.belongsToMany(Videogame, {through: OrderDetail});
-Videogame.belongsToMany(Order, {through: OrderDetail}) */
+Videogame.belongsToMany(Order, {through: OrderDetail}) 
 
 
 
