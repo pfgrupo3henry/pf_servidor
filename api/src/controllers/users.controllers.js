@@ -2,10 +2,11 @@ const { User, Review, Videogame } = require('../db');
 const users = require('../utils/data-users');
 const { generateToken } = require('../config/jwtToken');
 const { generateRefreshToken } = require('../config/generateRefreshToken');
+const { hashPassword } = require ('../config/hashFunction');
 
-const newUser = async (firstname, lastname, email, mobile, password, role, nationality, status) => {
+const newUser = async (firstname, lastname, email, mobile, password, role, nationality, status, img) => {
     
-    const user = await User.findOne({where: {email: email}})
+    const user = await User.findOne({where: {email: email}});
   
     if(user) {
         throw new Error("This e-mail is already in use, please use another email")
@@ -19,7 +20,23 @@ const newUser = async (firstname, lastname, email, mobile, password, role, natio
         password,
         role,
         nationality,
-        status
+        status, 
+        img
+    });
+    
+    const passwordHashed= await hashPassword(userPost);
+    const newPostUser= await userPost.update({password: passwordHashed});
+    return newPostUser.dataValues;
+};
+
+const newUserAuth0= async (email) => {
+    const user= await User.findOne( { where: { email: email } });
+    if (user) {
+        throw new Error("This e-mail is already in use, please insert another email")
+    };
+
+    const userPost= await User.create({
+        email: email
     });
 
     return userPost;
@@ -121,4 +138,4 @@ const createUSERSDb = async (req,res) => {
 }
 
 
-module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, createUSERSDb };
+module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, createUSERSDb };
