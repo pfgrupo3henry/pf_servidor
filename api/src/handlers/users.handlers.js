@@ -26,9 +26,9 @@ const getUserByEmail = async (req, res) => {
 };  
 
 const userAuth0Create= async (req, res) => {
-    const { email }= req.body;
+    const { email, img }= req.body;
     try{
-        const user= await newUserAuth0(email);
+        const user= await newUserAuth0(email, img);
         res.status(201).send( { userId: user.id });
     } catch (error) {
         res.status(400).json({ message: 'Error in user creation', error: error.message })
@@ -39,7 +39,7 @@ const modifyUser= async (req, res) => {
 
     try {
         let { email }= req.params;
-        let { firstname, lastname, nationality, mobile }= req.body;
+        let { firstname, lastname, nationality, mobile, img }= req.body;
 
         const user= await User.findOne({
             where: {
@@ -47,7 +47,7 @@ const modifyUser= async (req, res) => {
             }
         });
         
-        if(user){
+        if(!user){
             return res.status(404).json( { message: 'Error in user creation' })
         };
 
@@ -55,7 +55,8 @@ const modifyUser= async (req, res) => {
             firstname: firstname,
             lastname: lastname,
             nationality: nationality,
-            mobile: mobile
+            mobile: mobile,
+            img: img
         });
 
         res.status(201).json(user);
