@@ -1,11 +1,15 @@
-const { User } = require('../db');
+const { User, Review, Videogame } = require('../db');
+const users = require('../utils/data-users');
+const { generateToken } = require('../config/jwtToken');
+const { generateRefreshToken } = require('../config/generateRefreshToken');
+const { hashPassword } = require ('../config/hashFunction');
 
-const newUser = async (firstname, lastname, email, mobile, password, role, nationality, status) => {
+const newUser = async (firstname, lastname, email, mobile, password, role, nationality, status, img) => {
     
-    const user = await User.findOne({where: {email: email}})
+    const user = await User.findOne({where: {email: email}});
   
     if(user) {
-        throw ("This e-mail is alredy in use, please use other")
+        throw new Error("This e-mail is already in use, please use another email")
     }
 
     const userPost = await User.create({
@@ -16,10 +20,123 @@ const newUser = async (firstname, lastname, email, mobile, password, role, natio
         password,
         role,
         nationality,
-        status
+        status, 
+        img
+    });
+    
+    const passwordHashed= await hashPassword(userPost);
+    const newPostUser= await userPost.update({password: passwordHashed});
+    return newPostUser.dataValues;
+};
+
+const newUserAuth0= async (email, img) => {
+    const user= await User.findOne( { where: { email: email } });
+    if (user) {
+        throw new Error("This e-mail is already in use, please insert another email")
+    };
+
+    const userPost= await User.create({
+        email: email,
+        img: img
     });
 
     return userPost;
 };
 
-module.exports = { newUser };
+const getAllUsers= async()=> {
+
+    const users= await User.findAll();
+        
+    return (users.map(user=> ({
+            firstname: user.firstname,
+            lastname: user.lastname,
+            email: user.email,
+            password: user.password,
+            nacionality: user.nacionality,
+            role: user.role,
+            status: user.status
+        })));
+       
+};
+
+
+const loginUser= async(email, password)=> {
+   
+        const findUser= await User.findOne({where: {email: email}});
+        
+        if (findUser && await findUser.isPasswordMatched(password, findUser.password)){
+            const refreshToken= generateRefreshToken(findUser.id);
+            await User.update({
+                refreshToken: refreshToken
+            }, {
+                where: {id: findUser.id}
+            });
+            
+            const userDataLogin= {
+                _id: findUser.id,
+                firstname: findUser.firstname,
+                lastname: findUser.lastname,
+                email: findUser.email,
+                nacionality: findUser.nacionality,
+                token: refreshToken,
+            }
+         
+            return userDataLogin;
+
+        } else { 
+            throw new Error("Invalid Credentials");
+        }
+
+}
+
+const logout= async(refreshToken)=>{
+ 
+    const user= await User.findOne({where: {refreshToken: refreshToken}});
+    
+    if (user) {   
+        await User.update({
+        refreshToken: ""
+        }, {
+        where: {id: user.id}
+        });
+    } 
+    return user.id; 
+}
+
+
+const getUserReviews= async (id) => {
+    const userReviews= await Review.findAll({ 
+        where: {
+            userId: id 
+        },
+        include: [
+            { model: Videogame }
+        ],
+      });
+      if (userReviews.length<1) throw new Error("User doesnt have any review")
+    
+      return userReviews;
+}
+    
+
+
+
+
+
+
+
+//cargo users de prueba
+const createUSERSDb = async (req,res) => {
+    try {
+     
+      await Promise.all(users.map(async (el) => { 
+        const newuser = await User.create(el);
+      })); 
+
+     res.status(201).send("Users de prueba Creados")
+    }
+    catch(e) {res.status(404).json(console.log(e))}
+}
+
+
+module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, createUSERSDb };

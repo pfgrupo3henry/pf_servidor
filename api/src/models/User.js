@@ -1,5 +1,4 @@
-const { DataTypes } = require('sequelize');
-const bcrypt= require('bcrypt');
+const { DataTypes, TEXT } = require('sequelize');
 const {RoleType, StatusType} = require("./../dataType")
 
 // Exportamos una funcion que define el modelo
@@ -15,12 +14,10 @@ module.exports = (sequelize) => {
       },
     firstname: {
       type: DataTypes.STRING,
-      allowNull: false,
       field: "Firstname",
     },
     lastname: {
       type: DataTypes.STRING,
-      allowNull: false,
       field: "Lastname",
       },
     email: {
@@ -29,15 +26,13 @@ module.exports = (sequelize) => {
       unique: true,
       field: "Email",
     },
-   /*  mobile: {
+    mobile: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       unique: true,
       field: "Mobile",
-    }, */
+    }, 
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
       field: "Password",
     },
     role: {
@@ -48,12 +43,10 @@ module.exports = (sequelize) => {
     },
     nationality: {
       type: DataTypes.STRING,
-      allowNull: false,
       field: "Nationality",
     },
     img: {
-      type: DataTypes.STRING,
-      allowNull: true,
+      type: DataTypes.ARRAY(TEXT),
     },
     status: {
       type: StatusType,
@@ -61,5 +54,8 @@ module.exports = (sequelize) => {
       defaultValue: "Active",
       field: "Status",
     },
+    refreshToken: {
+      type: DataTypes.STRING,
+    }
 })
 }
