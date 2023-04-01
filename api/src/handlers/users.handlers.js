@@ -1,11 +1,11 @@
-const { newUser, getAllUsers, loginUser, logout, getUserReviews } = require('../controllers/users.controllers');
+const { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0 } = require('../controllers/users.controllers');
 const { User } = require('../db');
 
 
 const createUser = async (req, res) => {
-    const { firstname, lastname, email, mobile, password, role, nationality, status } = req.body;
+    const { firstname, lastname, email, mobile, password, role, nationality, status, img } = req.body;
     try {
-        const user = await newUser(firstname, lastname, email, mobile, password, role, nationality, status);
+        const user = await newUser(firstname, lastname, email, mobile, password, role, nationality, status, img);
         res.status(201).send({userId: user.id});
 
     } catch (error) {
@@ -13,20 +13,56 @@ const createUser = async (req, res) => {
       }
 };  
 
-const getUserById = async (req, res) => {
-    const { id } = req.params;
+const getUserByEmail = async (req, res) => {
+    const { email } = req.params;
     try {
-        const user = await User.findByPk(id, {
-            attributes: ["firstname", "lastname", "email", "mobile", "role", "nationality", "img"]
-            });
-        if(!user) {res.status(400).json({ message: 'The id of the user doest exist'})}
-        else {res.status(201).send(user);}
+        const user = await User.findOne({where: {email: email}});
+        if(!user) {res.status(400).json({ message: 'The mail of the user doest exist'})}
+        else {res.status(201).send(user)}
 
     } catch (error) {
         res.status(400).json({ message: 'Error to locate User', error: error});
       }
 };  
 
+const userAuth0Create= async (req, res) => {
+    const { email }= req.body;
+    try{
+        const user= await newUserAuth0(email);
+        res.status(201).send( { userId: user.id });
+    } catch (error) {
+        res.status(400).json({ message: 'Error in user creation', error: error.message })
+    }
+};
+
+const modifyUser= async (req, res) => {
+
+    try {
+        let { email }= req.params;
+        let { firstname, lastname, nationality, mobile }= req.body;
+
+        const user= await User.findOne({
+            where: {
+                email: email
+            }
+        });
+        
+        if(user){
+            return res.status(404).json( { message: 'Error in user creation' })
+        };
+
+        user.update({
+            firstname: firstname,
+            lastname: lastname,
+            nationality: nationality,
+            mobile: mobile
+        });
+
+        res.status(201).json(user);
+    } catch (error) {
+        res.status(401).json({ message: error });
+    }
+}; 
 
 const allUsers= async(req, res)=>{
     try {
@@ -40,15 +76,15 @@ const allUsers= async(req, res)=>{
 
 const loginhandler= async(req, res)=> {
     const { email, password } = req.body;
-    
+
     try{
         const loginData= await loginUser(email, password);
          res.cookie('refreshToken', loginData.token, {
                 httpOnly: true,
                 maxAge: 72*60*60*1000,
-            })
+            });
        
-        res.status(201).send(loginData);
+         res.status(201).send(loginData);
     } catch (error) {
         res.status(400).json({ message: 'Error in user login', error: error.message});
     }
@@ -58,7 +94,7 @@ const logoutHandler= async (req, res) => {
 
     const cookie= req.cookies;
     try{
-        if (!cookie.refreshToken) throw new Error('No Refresh Token in Cookies');
+        if (!cookie.refreshToken) throw new Error('No RefreshToken in Cookies');
         const refreshToken= cookie.refreshToken;
         const userLogOut= await logout(refreshToken);
         
@@ -84,6 +120,9 @@ const getUserReviewsHandler= async (req, res) => {
     }
 };
 
+// const setCookies= async(req, res)=> {
+//     res.cookie('my cookie name', 'mi cookie');
+//     res.send('Cookie Enviada!');
+// }
 
-
-module.exports = { createUser, allUsers, loginhandler, logoutHandler, getUserById, getUserReviewsHandler };
+module.exports = { createUser, allUsers, loginhandler, logoutHandler, getUserByEmail, getUserReviewsHandler, userAuth0Create, modifyUser };
