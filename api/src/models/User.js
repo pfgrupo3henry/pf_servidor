@@ -27,7 +27,7 @@ module.exports = (sequelize) => {
       field: "Email",
     },
     mobile: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       unique: true,
       field: "Mobile",
     }, 
