@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, TEXT } = require('sequelize');
 const { PriceType } = require('../dataType');
 
 module.exports = (sequelize) => {
@@ -25,6 +25,9 @@ module.exports = (sequelize) => {
             allowNull: false,
             field: 'TotalAmount',            
         },
+        merchant_order_id: {
+            type: DataTypes.ARRAY(TEXT),
+        }
     }, {
         timestamps: false,
         freezeTableName: true
