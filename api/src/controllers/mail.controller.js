@@ -5,7 +5,7 @@ const {emailToSend} = require('../services/mailService');
 const sendEmail = async(token) =>  {
    try{
 
-    if(!token) {
+    /* if(!token) {
         throw new Error('User not authorized');
     }
   
@@ -40,7 +40,7 @@ const sendEmail = async(token) =>  {
         // Preview only available when sending through an Ethereal account
         console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
          
-        return {success: "email sent!"}
+        return {success: "email sent!"} */
     }
     catch(e) {return {message: "Error Sending Email"}}
 };

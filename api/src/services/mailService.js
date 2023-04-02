@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer")
-var Mailgen = require('mailgen');
+/* var Mailgen = require('mailgen');
 
 // Configure mailgen by setting a theme and your product info
 var mailGenerator = new Mailgen({
@@ -11,7 +11,7 @@ var mailGenerator = new Mailgen({
         // Optional product logo
         // logo: 'https://mailgen.js/img/logo.png'
     }
-});
+}); */
 
 function emailToSend (name, lastname, mail) {
 var email = {
