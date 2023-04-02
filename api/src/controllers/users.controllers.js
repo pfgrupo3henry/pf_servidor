@@ -29,14 +29,15 @@ const newUser = async (firstname, lastname, email, mobile, password, role, natio
     return newPostUser.dataValues;
 };
 
-const newUserAuth0= async (email) => {
+const newUserAuth0= async (email, img) => {
     const user= await User.findOne( { where: { email: email } });
     if (user) {
         throw new Error("This e-mail is already in use, please insert another email")
     };
 
     const userPost= await User.create({
-        email: email
+        email: email,
+        img: img
     });
 
     return userPost;
