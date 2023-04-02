@@ -5,7 +5,7 @@ const {postEmail} = require('../handlers/mail.handlers');
 const nodemailer = require("nodemailer")
 
 
-/* router.post("/", postEmail); */
+router.post("/", postEmail);
 
 
 

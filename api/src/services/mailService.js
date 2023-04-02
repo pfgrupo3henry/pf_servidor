@@ -1,17 +1,16 @@
 const nodemailer = require("nodemailer")
-/* var Mailgen = require('mailgen');
+var Mailgen = require('mailgen');
 
-// Configure mailgen by setting a theme and your product info
+
 var mailGenerator = new Mailgen({
     theme: 'cerberus',
     product: {
         // Appears in header & footer of e-mails
         name: 'HenryGameStore',
         link: 'https://HenryGameStore.com/'
-        // Optional product logo
         // logo: 'https://mailgen.js/img/logo.png'
     }
-}); */
+});
 
 function emailToSend (name, lastname, mail) {
 var email = {
