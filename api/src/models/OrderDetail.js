@@ -1,42 +1,37 @@
 const { DataTypes } = require('sequelize');
-const {PriceType} = require("./../dataType")
 
 module.exports = (sequelize) => {
-    sequelize.define('orderDetail', {
-        
-        id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true,
-            field: 'Id'
-        },
-        orderId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            field: 'OrderId'
-        },
-        videogameId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            field: 'VideogameId'
-        },
-        quantity: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            field: 'Quantity',
-            validate:{
-                min: 1,
-              }
-        },
-        unitPrice: {
-            type: PriceType,
-            allowNull: false,
-            field: 'UnitPrice',            
-        },
-        totalAmount: {
-            type: PriceType,
-            allowNull: false,
-            field: 'TotalAmount',            
-        },
-})
-}
+  const OrdersDetail = sequelize.define('OrdersDetail', {
+    // definición de atributos del modelo
+    orderId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'orders',
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
+    },
+    videogameId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'videogames',
+        key: 'id'
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    subtotal: {
+      type: DataTypes.FLOAT,
+      allowNull: false
+    }
+  });
+
+  return OrdersDetail;
+};

@@ -9,10 +9,10 @@ const {
 
 
 
-/* const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/pfhenry`, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-}); */
+// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/pfhenry`, {
+//   logging: false, // set to console.log to see the raw SQL queries
+//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+// }); 
 
 
 const sequelize = new Sequelize(DB_DEPLOY, {
@@ -42,7 +42,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Videogame, Genre, Platform, User, Order, OrderDetail, Review, Cart, Favorite } = sequelize.models;
+const { Videogame, Genre, Platform, User, Order, OrdersDetail , Review, Cart, Favorite } = sequelize.models;
 
 User.prototype.isPasswordMatched= async(password, passwordFindUser)=>{
   const result= await bcrypt.compare(password, passwordFindUser);
@@ -57,11 +57,17 @@ Genre.belongsToMany(Videogame, {through: "Videogames_Genre"});
 Videogame.belongsToMany(Platform, {through: "Platforms_Videogames"});
 Platform.belongsToMany(Videogame, {through: "Platforms_Videogames"});
 
-Cart.belongsTo(User);
+
+Order.belongsToMany(Videogame, { through: OrdersDetail });
+Videogame.belongsToMany(Order, { through: OrdersDetail });
+
+
+
+Cart.belongsTo(User, { foreignKey: 'userId' });
 User.hasOne(Cart)
 
-Order.belongsTo(User);
-User.hasMany(Order);
+Cart.hasMany(Order, { foreignKey: 'cartId' });
+Order.belongsTo(Cart, { foreignKey: 'cartId' });
 
 Favorite.belongsTo(User);
 User.hasOne(Favorite)
@@ -72,8 +78,6 @@ Review.belongsTo(User);
 Videogame.hasMany(Review);
 Review.belongsTo(Videogame);
 
-Order.belongsToMany(Videogame, {through: OrderDetail});
-Videogame.belongsToMany(Order, {through: OrderDetail}) 
 
 
 
