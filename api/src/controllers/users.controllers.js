@@ -48,6 +48,7 @@ const getAllUsers= async()=> {
     const users= await User.findAll();
         
     return (users.map(user=> ({
+        id: user.id,
             firstname: user.firstname,
             lastname: user.lastname,
             email: user.email,
