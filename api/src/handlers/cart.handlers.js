@@ -9,7 +9,6 @@ const getCart = async (req, res) => {
 
     const cart = await Cart.findOne({ where: { userId: userId } });
     
-
     if (!cart) {
 
       await Cart.create({ userId: userId });
@@ -18,8 +17,8 @@ const getCart = async (req, res) => {
     } else {
 
       const productIds = cart.products.map((product) => product.id);
-
       const videogames = await Videogame.findAll({ where: { id: productIds } });
+      console.log(videogames)
 
       const newProducts = cart.products.map((product) => {
 
@@ -41,30 +40,78 @@ const getCart = async (req, res) => {
 
 
   const putCart = async (req, res) => {
-    console.log('entrooooo')
 
     const { userId } = req.body;
 
-    const products = req.body.products || [];
+    const product = req.body.products || [];
 
     try {
 
       let cart = await Cart.findOne({ where: { userId: userId } });
-      console.log(cart)
-
+      
       if (!cart) {
         cart = await Cart.create({ userId: userId });
       }
+      
 
-      await cart.update({ products: products });
+      let gameInCart = cart.products.filter(el => el.id === product.id)[0];
+      
+      if(gameInCart !== undefined) {
+        gameInCart = {id: gameInCart.id, quantity: gameInCart.quantity + product.quantity}
+        let newProducts = cart.products.filter(el => el.id !== gameInCart.id);
+        newProducts = newProducts.concat(gameInCart)
+        await cart.update({ products: newProducts });
+      }
+      else {
+      let newProducts = cart.products.concat(product)
 
-      res.status(200).send({ userId, products });
+       await cart.update({ products: newProducts });
+      }
+      
+      res.status(200).send(cart);
+
 
     } catch (e) {
       res.status(400).send(e);
     }
   };
 
+  const deleteItemsCart = async (req, res) => {
+
+    const { userId } = req.body;
+
+    const product = req.body.products || [];
+
+    try {
+
+      let cart = await Cart.findOne({ where: { userId: userId } });
+      
+      
+      if (!cart) {
+        cart = await Cart.create({ userId: userId });
+      }
+
+      let gameInCart = cart.products.filter(el => el.id === product.id)[0];
+      
+      if(gameInCart !== undefined && gameInCart.quantity > 1) {
+        gameInCart = {id: gameInCart.id, quantity: gameInCart.quantity - 1}
+        let newProducts = cart.products.filter(el => el.id !== gameInCart.id);
+        newProducts = newProducts.concat(gameInCart)
+        await cart.update({ products: newProducts });
+      }
+      else {
+      let newProducts = cart.products.filter(el => el.id !== product.id)
+
+       await cart.update({ products: newProducts });
+      }
+      
+      res.status(200).send(cart);
+
+
+    } catch (e) {
+      res.status(400).send(e);
+    }
+  };
   
-  module.exports = { getCart, putCart};
+  module.exports = { getCart, putCart, deleteItemsCart};
   

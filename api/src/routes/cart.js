@@ -1,9 +1,10 @@
 const Router = require("express")
 const router = Router()
-const {getCart, putCart} = require("../handlers/cart.handlers")
+const {getCart, putCart, deleteItemsCart} = require("../handlers/cart.handlers")
 
 router.get("/", getCart);
-router.put("/", putCart)
+router.put("/", putCart);
+router.delete("/", deleteItemsCart)
 
 
 
