@@ -56,7 +56,6 @@ const paymentPostController = async (req, res) => {
         { 
           id: prod.id,
           title: prod.name,
-          quantity: prod.quantity,
           currency_id: 'ARS',
           category_id: 'art',
           unit_price: totalPrice,
