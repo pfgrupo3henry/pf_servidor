@@ -19,8 +19,26 @@ const getAllFavorites = async(token) => {
     
     let favorites = await Favorite.findOrCreate({where: {userId: user.id}})
 
-    const products = favorites[0].products || []
+    let products = favorites[0].products || []
  
+    if (products.length === 0) {
+        return products
+    }
+    
+    products = await Promise.all(products.map( async(el) => {
+    
+    let game = await Videogame.findByPk(el.id)
+    return {
+        id: game.id,
+        name: game.name,
+        description: game.description,
+        img: game.img,
+        price: game.price,
+        status: game.status
+    }
+     
+    } ))
+     
     return products
     }
     
