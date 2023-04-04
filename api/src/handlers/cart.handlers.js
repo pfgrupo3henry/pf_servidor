@@ -145,7 +145,34 @@ const getCart = async (req, res) => {
     }
   };
 
+  const emptyCart = async (req,res) => {
+    try {
+      const token = req.cookies.refreshToken
+      
+      if(!token) {
+        throw new Error('User not authorized')
+      }
+      
+      else if(!JWT_SECRET) {
+        throw new Error('JWT_SECRET is not defined')
+      }
+      
+      const decoded = jwt.verify(token, JWT_SECRET)
+
+    const user = await User.findByPk(decoded.id)
+    
+    let cart = await Cart.findOne({ where: { userId: user.id } });
+      
+    await cart.update({ products: [] });
+      
+    res.status(200).send(cart);
+
+
+    } catch (e) {
+      res.status(400).send(e);
+    }
+  }
 
 
 
-  module.exports = { getCart, putCart, deleteItemsCart, throwItemsCart};
+  module.exports = { getCart, putCart, deleteItemsCart, throwItemsCart, emptyCart};
