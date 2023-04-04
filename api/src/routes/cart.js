@@ -3,8 +3,9 @@ const router = Router()
 const {getCart, putCart, deleteItemsCart} = require("../handlers/cart.handlers")
 
 router.get("/:id", getCart);
-router.put("/", putCart);
-router.delete("/", deleteItemsCart)
+router.put("/:id", putCart);
+router.delete("/:id", deleteItemsCart)
+
 
 
 
