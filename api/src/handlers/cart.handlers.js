@@ -3,15 +3,15 @@ const {Cart, Videogame} = require('../db');
 
 const getCart = async (req, res) => {
 
-  const { userId } = req.body;
+  const { id } = req.params;
   
   try {
 
-    const cart = await Cart.findOne({ where: { userId: userId } });
+    const cart = await Cart.findOne({ where: { userId: id } });
     
     if (!cart) {
 
-      await Cart.create({ userId: userId });
+      await Cart.create({ userId: id });
       res.status(200).send({ userId, products: [] });
 
     } else {
