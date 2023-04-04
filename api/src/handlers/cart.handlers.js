@@ -116,27 +116,22 @@ const getCart = async (req, res) => {
   const throwItemsCart = async (req, res) => {
 
     let { gameId } = req.params;
-console.log(gameId)
-   gameId = parseInt(gameId)
+    gameId = parseInt(gameId)
     try {
       const token = req.cookies.refreshToken
-
-      if (!cart) {
-        cart = await Cart.create({ userId: id });
-      }
-      else if(!token) {
+      
+      if(!token) {
         throw new Error('User not authorized')
-    }
-
-    else if(!JWT_SECRET) {
+      }
+      
+      else if(!JWT_SECRET) {
         throw new Error('JWT_SECRET is not defined')
-    }
-
-    const decoded = jwt.verify(token, JWT_SECRET)
+      }
+      
+      const decoded = jwt.verify(token, JWT_SECRET)
 
     const user = await User.findByPk(decoded.id)
-
-    console.log(user)
+    
     let cart = await Cart.findOne({ where: { userId: user.id } });
       
     let deleteGameInCart = cart.products.filter(el => el.id !== gameId);
