@@ -12,7 +12,7 @@ const getCart = async (req, res) => {
     if (!cart) {
 
       await Cart.create({ userId: id });
-      res.status(200).send({ userId, products: [] });
+      res.status(200).send({ id, products: [] });
 
     } else {
 
@@ -31,7 +31,7 @@ const getCart = async (req, res) => {
         };
       });
       
-      res.status(200).send({ userId, products: newProducts });
+      res.status(200).send({ id, products: newProducts });
     }
   } catch (e) {
     res.status(400).send(e);
