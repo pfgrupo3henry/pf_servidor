@@ -1,11 +1,19 @@
 const Router = require("express")
 const router = Router()
-const {getCart, putCart, deleteItemsCart, throwItemsCart} = require("../handlers/cart.handlers")
+const {getCart, putCart, deleteItemsCart, throwItemsCart, emptyCart} = require("../handlers/cart.handlers")
 
+//GET
 router.get("/:id", getCart);
+//PUT
+/* router.put("/", emptyCart) */
+//POST
 router.post("/restQuantity",deleteItemsCart);
 router.post("/addQuantity", putCart);
-router.delete("/:gameId", throwItemsCart)
+router.post("/delete", throwItemsCart);
+router.post("/empty", emptyCart);
+
+
+//DELETE
 
 
 
