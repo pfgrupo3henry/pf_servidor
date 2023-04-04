@@ -3,16 +3,16 @@ const {Cart, Videogame} = require('../db');
 
 const getCart = async (req, res) => {
 
-  const { userId } = req.body;
+  const { id } = req.params;
   
   try {
 
-    const cart = await Cart.findOne({ where: { userId: userId } });
+    const cart = await Cart.findOne({ where: { userId: id } });
     
     if (!cart) {
 
-      await Cart.create({ userId: userId });
-      res.status(200).send({ userId, products: [] });
+      await Cart.create({ userId: id });
+      res.status(200).send({ id, products: [] });
 
     } else {
 
@@ -31,7 +31,7 @@ const getCart = async (req, res) => {
         };
       });
       
-      res.status(200).send({ userId, products: newProducts });
+      res.status(200).send({ id, products: newProducts });
     }
   } catch (e) {
     res.status(400).send(e);
@@ -41,16 +41,16 @@ const getCart = async (req, res) => {
 
   const putCart = async (req, res) => {
 
-    const { userId } = req.body;
+    const { id } = req.params;
 
     const product = req.body.products || [];
 
     try {
 
-      let cart = await Cart.findOne({ where: { userId: userId } });
+      let cart = await Cart.findOne({ where: { userId: id } });
       
       if (!cart) {
-        cart = await Cart.create({ userId: userId });
+        cart = await Cart.create({ userId: id });
       }
       
 
@@ -78,17 +78,17 @@ const getCart = async (req, res) => {
 
   const deleteItemsCart = async (req, res) => {
 
-    const { userId } = req.body;
+    const { id } = req.params;
 
     const product = req.body.products || [];
 
     try {
 
-      let cart = await Cart.findOne({ where: { userId: userId } });
+      let cart = await Cart.findOne({ where: { userId: id } });
       
       
       if (!cart) {
-        cart = await Cart.create({ userId: userId });
+        cart = await Cart.create({ userId: id });
       }
 
       let gameInCart = cart.products.filter(el => el.id === product.id)[0];
