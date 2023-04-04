@@ -24,7 +24,6 @@ const getCart = async (req, res) => {
       const newProducts = cart.products.map((product) => {
 
         const videogame = videogames.find((v) => v.id === product.id);
-        console.log(videogame)
         return {
 
           ...product,
