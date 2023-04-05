@@ -46,6 +46,7 @@ const createOrder = async (req, res) => {
 };
 
 const getOrders = async (req, res) => {
+  
   const { userId } = req.body;
 
   try {
@@ -75,7 +76,92 @@ const getOrders = async (req, res) => {
   }
 };
 
+const pendingOrder = async (req, res) => {
+  
+
+  const { orderId } = req.body;
+
+  console.log(orderId)
+
+  try {
+    const order = await Order.findOne({ where: { id: orderId } });
+    console.log(order)
+
+    if (!order) {
+      return res.status(404).json({ message: 'No se encontró la orden' });
+    }
+
+    order.status = 'Pending Pay';
+
+    await order.save();
+
+    return res.status(200).json({ message: 'El estado de la orden se ha actualizado correctamente' });
+
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ message: 'Ocurrió un error al actualizar la orden' });
+  }
+
+};
+
+const succesOrder = async (req, res) => {
+  
+
+  const { orderId } = req.body;
+
+  console.log(orderId)
+
+  try {
+    const order = await Order.findOne({ where: { id: orderId } });
+    console.log(order)
+
+    if (!order) {
+      return res.status(404).json({ message: 'No se encontró la orden' });
+    }
+
+    order.status = 'Completed Pay';
+
+    await order.save();
+
+    return res.status(200).json({ message: 'El estado de la orden se ha actualizado correctamente' });
+
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ message: 'Ocurrió un error al actualizar la orden' });
+  }
+
+};
+
+const canceledOrder = async (req, res) => {
+  
+
+  const { orderId } = req.body;
+
+  console.log(orderId)
+
+  try {
+    
+    const order = await Order.findOne({ where: { id: orderId } });
+    console.log(order)
+
+    if (!order) {
+      return res.status(404).json({ message: 'No se encontró la orden' });
+    }
+
+    order.status = 'Canceled';
+
+    await order.save();
+
+    return res.status(200).json({ message: 'El estado de la orden se ha actualizado correctamente' });
+
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ message: 'Ocurrió un error al actualizar la orden' });
+  }
+
+};
 
 
 
-module.exports = { createOrder, getOrders };
+
+module.exports = { createOrder, getOrders, pendingOrder, succesOrder, canceledOrder };
