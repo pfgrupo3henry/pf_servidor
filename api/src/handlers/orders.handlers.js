@@ -41,7 +41,7 @@ const createOrder = async (req, res) => {
     
   } catch (e) {
     console.error(e);
-    res.status(500).send({ error: 'Internal server error' });
+    res.status(500).send({ error: 'Error en la creacion de la orden' });
   }
 };
 
@@ -70,9 +70,10 @@ const getOrders = async (req, res) => {
     });
 
     res.status(200).send({ orders });
+      
   } catch (e) {
     console.error(e);
-    res.status(500).send({ error: 'Internal server error' });
+    res.status(500).send({ error: 'Error al intentar obtener las ordenes' });
   }
 };
 
