@@ -124,11 +124,26 @@ const getCart = async (req, res) => {
     let cart = await Cart.findOne({ where: { userId: user.id} });
      
     let deleteGameInCart = cart.products.filter(el => el.id !== gameId);
+    
     await cart.update({ products: deleteGameInCart });
+
+    const productIds = deleteGameInCart.map((product) => product.id);
+
+      const videogames = await Videogame.findAll({ where: { id: productIds } });
       
-    res.status(200).send(cart);
+      const newProducts = cart.products.map((product) => {
 
+        const videogame = videogames.find((v) => v.id === product.id);
+        return {
 
+          ...product,
+          ...videogame.toJSON(),
+          quantity: product.quantity,
+        };
+      });
+
+      res.status(200).send({ id: userId, products: newProducts });
+    
     } catch (e) {
       res.status(400).send(e);
     }
