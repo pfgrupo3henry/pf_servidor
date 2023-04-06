@@ -46,7 +46,7 @@ module.exports = (sequelize) => {
       field: "Nationality",
     },
     img: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(TEXT),
     },
     status: {
       type: StatusType,
