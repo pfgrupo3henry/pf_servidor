@@ -1,4 +1,4 @@
-const { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0 } = require('../controllers/users.controllers');
+const { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, promoteUser, blockUser, unblockUser } = require('../controllers/users.controllers');
 const { User } = require('../db');
 
 

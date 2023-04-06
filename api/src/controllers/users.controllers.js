@@ -118,12 +118,42 @@ const getUserReviews= async (id) => {
     
       return userReviews;
 }
+
     
+const promoteUser= async (id) => {
+    const findUser= await User.findByPk(id);
+
+    if(findUser.role === "Admin") throw new Error ("This user is already admin");
+    
+    const modifiedUser= await findUser.update({
+          role: "Admin"
+    });
+    
+    return modifiedUser;
+} 
+
+const blockUser= async (id) => {
+    const findUser= await User.findByPk(id);
+    if (!findUser) throw new Error ('Cannot find User with that ID');
+
+    const blockUser= await findUser.update({
+        status: 'Disabled',
+    });
+    return blockUser;
+};
+
+const unblockUser= async (id) => {
+    const findUser= await User.findByPk(id);
+    if (!findUser) throw new Error ('Cannot find User with that ID');
+
+    const unblockUser= await findUser.update({
+        status: 'Active',
+    });
+    return unblockUser;
+}
 
 
 
 
 
-
-
-module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0 };
+module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, promoteUser, blockUser, unblockUser };
