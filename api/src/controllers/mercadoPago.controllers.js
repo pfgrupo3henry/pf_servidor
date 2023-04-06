@@ -8,10 +8,48 @@ mercadopago.configure({
 
 const paymentPostController = async (req, res) => {
 
- 
-  const {prod, userId} = req.body;
+//   const token = req.body.token;
+//   const { email, description, amount } = req.body;
+
+//   // Inicializar Mercado Pago con sus credenciales
+//   mercadopago.configure({
+//     access_token: process.env.ACCESS_TOKEN,
+// });
+
+//   // Crear el objeto de pago
+//   const payment_data = {
+//     transaction_amount: parseFloat(amount),
+//     token: token,
+//     description: description,
+//     payer: {
+//       email: email
+//     }
+//   };
+
+//   mercadopago.payment.save(req.body)
+//   .then(function(response) {
+//     const { status, status_detail, id } = response.body;
+//     res.status(response.status).json({ status, status_detail, id });
+//   })
+//   .catch(function(error) {
+//     console.error(error);
+//   });
+
+//   try {
+//     // Enviar solicitud de pago a la API de Mercado Pago
+//     const payment = await mercadopago.payment.save(payment_data);
+
+//     // Redirigir al usuario a la página de pago de Mercado Pago
+//     const url = payment.response.init_point;
+//     return res.redirect(url);
+//   } catch (error) {
+//     console.error(error);
+//     return res.status(500).json({ message: 'Error al procesar el pago' });
+//   }
+
+  const prod = req.body;
   const totalPrice = req.body.totalPrice;
- 
+
   try {
     const preference = {
       items: [
@@ -40,12 +78,7 @@ const paymentPostController = async (req, res) => {
     };
 
     return await mercadopago.preferences.create(preference).then((response) => {
-      try{
-        axios.post("https://pfservidor-production.up.railway.app/cart/empty", {userId: userId});
-
-      res.status(200).send({ response: response });}
-      catch(error) {throw "error en la ruta cart/empty al momento de vaciar el carrito"}
-      
+      res.status(200).send({ response: response });
     });
   } catch (error) {
     res.status(400).json({error: error.message})
