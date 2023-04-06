@@ -11,8 +11,8 @@ const {
 /*  const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/pfhenry`, {
    logging: false, // set to console.log to see the raw SQL queries
    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
- });
- */
+ }); */
+
 
 const sequelize = new Sequelize(DB_DEPLOY, {
   logging: false, // set to console.log to see the raw SQL queries
@@ -72,10 +72,10 @@ Favorite.belongsTo(User);
 User.hasOne(Favorite)
 
 User.hasMany(Review);
-Review.belongsTo(User);
+Review.belongsTo(User, { foreignKey: 'userId' });
 
 Videogame.hasMany(Review);
-Review.belongsTo(Videogame);
+Review.belongsTo(Videogame, { foreignKey: 'videogameId' });
 
 
 
