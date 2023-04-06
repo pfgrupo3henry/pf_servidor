@@ -118,26 +118,42 @@ const getUserReviews= async (id) => {
     
       return userReviews;
 }
+
     
+const promoteUser= async (id) => {
+    const findUser= await User.findByPk(id);
 
+    if(findUser.role === "Admin") throw new Error ("This user is already admin");
+    
+    const modifiedUser= await findUser.update({
+          role: "Admin"
+    });
+    
+    return modifiedUser;
+} 
 
+const blockUser= async (id) => {
+    const findUser= await User.findByPk(id);
+    if (!findUser) throw new Error ('Cannot find User with that ID');
 
+    const blockUser= await findUser.update({
+        status: 'Disabled',
+    });
+    return blockUser;
+};
 
+const unblockUser= async (id) => {
+    const findUser= await User.findByPk(id);
+    if (!findUser) throw new Error ('Cannot find User with that ID');
 
-
-
-//cargo users de prueba
-const createUSERSDb = async (req,res) => {
-    try {
-     
-      await Promise.all(users.map(async (el) => { 
-        const newuser = await User.create(el);
-      })); 
-
-     res.status(201).send("Users de prueba Creados")
-    }
-    catch(e) {res.status(404).json(console.log(e))}
+    const unblockUser= await findUser.update({
+        status: 'Active',
+    });
+    return unblockUser;
 }
 
 
-module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, createUSERSDb };
+
+
+
+module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, promoteUser, blockUser, unblockUser };

@@ -1,6 +1,6 @@
 const Router = require('express');
 
-const { allUsers, createUser, loginhandler, logoutHandler, getUserByEmail, getUserReviewsHandler, userAuth0Create, modifyUser } = require('../handlers/users.handlers');
+const { allUsers, createUser, loginhandler, logoutHandler, getUserByEmail, getUserReviewsHandler, userAuth0Create, modifyUser, promoteOrBlockUser } = require('../handlers/users.handlers');
 const {createUSERSDb }= require('../controllers/users.controllers');
 const { isAdmin } = require('../middlewares/adminMiddleware');
 const { authMiddleware } = require('../middlewares/authMiddleware');
@@ -21,6 +21,7 @@ router.post("/auth0", userAuth0Create);
 
 //PUT ROUTES:
 router.put("/modify/:email", modifyUser);
+router.put("/promote-or-block/:id", promoteOrBlockUser);
 
 
 
