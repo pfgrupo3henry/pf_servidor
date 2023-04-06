@@ -55,7 +55,8 @@ const getAllUsers= async()=> {
             password: user.password,
             nacionality: user.nacionality,
             role: user.role,
-            status: user.status
+            status: user.status,
+            img: user.img
         })));
        
 };
