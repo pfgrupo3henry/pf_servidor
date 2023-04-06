@@ -41,11 +41,12 @@ const createOrder = async (req, res) => {
     
   } catch (e) {
     console.error(e);
-    res.status(500).send({ error: 'Internal server error' });
+    res.status(500).send({ error: 'Error en la creacion de la orden' });
   }
 };
 
 const getOrders = async (req, res) => {
+  
   const { userId } = req.body;
 
   try {
@@ -69,13 +70,99 @@ const getOrders = async (req, res) => {
     });
 
     res.status(200).send({ orders });
+      
   } catch (e) {
     console.error(e);
-    res.status(500).send({ error: 'Internal server error' });
+    res.status(500).send({ error: 'Error al intentar obtener las ordenes' });
   }
+};
+
+const pendingOrder = async (req, res) => {
+  
+
+  const { orderId } = req.body;
+
+  console.log(orderId)
+
+  try {
+    const order = await Order.findOne({ where: { id: orderId } });
+    console.log(order)
+
+    if (!order) {
+      return res.status(404).json({ message: 'No se encontró la orden' });
+    }
+
+    order.status = 'Pending Pay';
+
+    await order.save();
+
+    return res.status(200).json({ message: 'El estado de la orden se ha actualizado correctamente' });
+
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ message: 'Ocurrió un error al actualizar la orden' });
+  }
+
+};
+
+const succesOrder = async (req, res) => {
+  
+
+  const { orderId } = req.body;
+
+  console.log(orderId)
+
+  try {
+    const order = await Order.findOne({ where: { id: orderId } });
+    console.log(order)
+
+    if (!order) {
+      return res.status(404).json({ message: 'No se encontró la orden' });
+    }
+
+    order.status = 'Completed Pay';
+
+    await order.save();
+
+    return res.status(200).json({ message: 'El estado de la orden se ha actualizado correctamente' });
+
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ message: 'Ocurrió un error al actualizar la orden' });
+  }
+
+};
+
+const canceledOrder = async (req, res) => {
+  
+
+  const { orderId } = req.body;
+
+  console.log(orderId)
+
+  try {
+    
+    const order = await Order.findOne({ where: { id: orderId } });
+    console.log(order)
+
+    if (!order) {
+      return res.status(404).json({ message: 'No se encontró la orden' });
+    }
+
+    order.status = 'Canceled';
+
+    await order.save();
+
+    return res.status(200).json({ message: 'El estado de la orden se ha actualizado correctamente' });
+
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ message: 'Ocurrió un error al actualizar la orden' });
+  }
+
 };
 
 
 
 
-module.exports = { createOrder, getOrders };
+module.exports = { createOrder, getOrders, pendingOrder, succesOrder, canceledOrder };
