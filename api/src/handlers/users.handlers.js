@@ -122,9 +122,28 @@ const getUserReviewsHandler= async (req, res) => {
     }
 };
 
-// const setCookies= async(req, res)=> {
-//     res.cookie('my cookie name', 'mi cookie');
-//     res.send('Cookie Enviada!');
-// }
 
-module.exports = { createUser, allUsers, loginhandler, logoutHandler, getUserByEmail, getUserReviewsHandler, userAuth0Create, modifyUser };
+const promoteOrBlockUser= async (req, res)=> {
+    const { id } = req.params;
+    const { promote, block } = req.body;
+   
+    try {
+        if (promote === undefined && block === undefined) throw new Error ('You must send if you want to promote or block/unblock the user');
+        if (promote) {
+            const userPromoted= await promoteUser(id);
+            res.status(200).json({ message: "User has been promoted to administrator successfully", user: userPromoted });
+        } else if (block) {
+            const userBlocked= await blockUser(id);
+            res.status(200).json({ message: "User has been blocked successfully", user: userBlocked });
+        } else if (block===false) {
+            const unblockedUser= await unblockUser(id);
+            res.status(200).json({ message: "User has been unblocked successfully", user: unblockedUser });
+        }
+    } catch (error) {
+        res.status(400).json({ error: error.message })
+    }
+}
+
+
+
+module.exports = { createUser, allUsers, loginhandler, logoutHandler, getUserByEmail, getUserReviewsHandler, userAuth0Create, modifyUser, promoteOrBlockUser };

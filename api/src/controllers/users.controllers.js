@@ -126,18 +126,4 @@ const getUserReviews= async (id) => {
 
 
 
-//cargo users de prueba
-const createUSERSDb = async (req,res) => {
-    try {
-     
-      await Promise.all(users.map(async (el) => { 
-        const newuser = await User.create(el);
-      })); 
-
-     res.status(201).send("Users de prueba Creados")
-    }
-    catch(e) {res.status(404).json(console.log(e))}
-}
-
-
-module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, createUSERSDb };
+module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0 };
