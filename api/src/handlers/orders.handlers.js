@@ -77,6 +77,36 @@ const getOrders = async (req, res) => {
   }
 };
 
+const getAllOrders = async (req, res) => {
+  
+  try {
+    const carts = await Cart.findAll();
+    const orderPromises = carts.map(async (cart) => {
+      const order = await Order.findOne({
+        where: { cartId: cart.id },
+        include: [
+          {
+            model: Videogame,
+            through: {
+              model: OrdersDetail,
+              attributes: ['quantity', 'subtotal']
+            }
+          }
+        ]
+      });
+      return order;
+    });
+    const orders = await Promise.all(orderPromises);
+    const filteredOrders = orders.filter(order => order !== null);
+    res.status(200).send({ All_Orders: filteredOrders });
+  } catch (e) {
+    console.error(e);
+    res.status(500).send({ error: 'Error al intentar obtener las ordenes' });
+  }
+};
+
+
+
 const pendingOrder = async (req, res) => {
   
 
@@ -165,4 +195,4 @@ const canceledOrder = async (req, res) => {
 
 
 
-module.exports = { createOrder, getOrders, pendingOrder, succesOrder, canceledOrder };
+module.exports = { createOrder, getAllOrders, getOrders, pendingOrder, succesOrder, canceledOrder };

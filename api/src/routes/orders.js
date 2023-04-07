@@ -1,11 +1,12 @@
 const Router = require('express');
 const router = Router();
-const {createOrder, getOrders, succesOrder, canceledOrder, pendingOrder} = require("../handlers/orders.handlers")
+const {createOrder, getOrders, getAllOrders, succesOrder, canceledOrder, pendingOrder} = require("../handlers/orders.handlers")
 
 
 router.post("/", createOrder);
-
 router.get("/", getOrders);
+
+router.get("/allOrders", getAllOrders );
 
 //para recuperar una orden que fue cancelada devolviendole el valor original que cuando fue creada
 router.put("/pending", pendingOrder)
