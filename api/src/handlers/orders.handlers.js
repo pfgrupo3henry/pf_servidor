@@ -140,25 +140,54 @@ const succesOrder = async (req, res) => {
 
   const { orderId } = req.body;
 
-  console.log(orderId)
+  // console.log(orderId)
 
   try {
-    const order = await Order.findOne({ where: { id: orderId } });
-    console.log(order)
+    const order = await Order.findOne({ 
+      where: { id: orderId },
+      include: [
+        {
+          model: Videogame,
+          through: {
+            model: OrdersDetail,
+            attributes: ['quantity', 'subtotal']
+          }
+        }
+      ]
+    });
+    // console.log(order);
 
     if (!order) {
       return res.status(404).json({ message: 'No se encontró la orden' });
-    }
+    };
+
+    let allVideogames= await Videogame.findAll();
+   
+    const videogamesOrder= order.videogames.map(v => ({
+      id: v.id,
+      quantity: v.OrdersDetail.quantity
+    }));
+  
+    videogamesOrder.forEach(async (v) => {
+      const product= allVideogames.find( p=> p.dataValues.id === v.id );
+      if (product.dataValues.stock < 1) return res.status(500).json({message: `Without Stock of: "${product.dataValues.name}" videogame`});
+      product.dataValues.stock -= v.quantity; 
+      const findVideogame= await Videogame.findByPk(product.dataValues.id);
+      await findVideogame.update({
+        stock: product.dataValues.stock
+      });
+    });
+    
+
 
     order.status = 'Completed Pay';
 
     await order.save();
 
-    return res.status(200).json({ message: 'El estado de la orden se ha actualizado correctamente' });
+    return res.status(200).json({ message: 'El estado de la orden se ha actualizado correctamente'});
 
-  } catch (e) {
-    console.error(e);
-    return res.status(500).json({ message: 'Ocurrió un error al actualizar la orden' });
+  } catch (error) {
+    res.status(500).json({ message: 'Ocurrió un error al actualizar la orden', error: error.message });
   }
 
 };

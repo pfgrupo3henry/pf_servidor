@@ -1,5 +1,4 @@
 const { User, Review, Videogame } = require('../db');
-const users = require('../utils/data-users');
 const { generateToken } = require('../config/jwtToken');
 const { generateRefreshToken } = require('../config/generateRefreshToken');
 const { hashPassword } = require ('../config/hashFunction');
