@@ -31,10 +31,6 @@ module.exports = (sequelize) => {
       type: StatusType, 
       allowNull: false,
       defaultValue: 'Active',
-  },
-  stock: {
-    type: DataTypes.INTEGER,
-    defaultValue: 10
   }
   });
 };
