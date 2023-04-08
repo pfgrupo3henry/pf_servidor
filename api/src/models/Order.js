@@ -35,9 +35,8 @@ module.exports = (sequelize) => {
     //     allowNull: true
     // },
 
-    // payment_id:{
-    //     type: DataTypes.INTEGER,
-    //     defaultValue: 0
-    // },
+     /* paymentId:{
+         type: DataTypes.INTEGER
+     }, */
   });
 };

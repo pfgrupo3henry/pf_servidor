@@ -27,9 +27,9 @@ const getUserByEmail = async (req, res) => {
 };  
 
 const userAuth0Create= async (req, res) => {
-    const { email, img }= req.body;
+    const { email, img, firstname }= req.body;
     try{
-        const user= await newUserAuth0(email, img);
+        const user= await newUserAuth0(email, img, firstname);
         res.status(201).send( { userId: user.id });
     } catch (error) {
         res.status(400).json({ message: 'Error in user creation', error: error.message })
