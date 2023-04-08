@@ -1,9 +1,13 @@
 const {Review} = require('../db');
 
 const createReview = async (req, res) => {
+    const {videogameId} = req.body
+    console.log(videogameId)
     try { 
-        const review = await Review.create(req.body);
-        res.status(201).json(review);
+        await Review.create(req.body);
+        
+        const allReviews = await Review.findAll({ where: { videogameId: videogameId } })
+        res.status(201).json(allReviews);
     } catch (error) {
         res.status(400).json({ error: "Error al crear la Review" });
     }
