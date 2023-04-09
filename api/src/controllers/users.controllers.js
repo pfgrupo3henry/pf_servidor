@@ -133,6 +133,18 @@ const promoteUser= async (id) => {
     return modifiedUser;
 } 
 
+const changeAdminRole= async (id) => {
+    const findUser= await User.findByPk(id);
+
+    if(findUser.role === "User") throw new Error ("This user has 'user' role");
+    
+    const modifiedUser= await findUser.update({
+          role: "User"
+    });
+    
+    return modifiedUser;
+}
+
 const blockUser= async (id) => {
     const findUser= await User.findByPk(id);
     if (!findUser) throw new Error ('Cannot find User with that ID');
@@ -157,4 +169,4 @@ const unblockUser= async (id) => {
 
 
 
-module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, promoteUser, blockUser, unblockUser };
+module.exports = { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, promoteUser, blockUser, unblockUser, changeAdminRole };
