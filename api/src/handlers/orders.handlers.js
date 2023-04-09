@@ -18,7 +18,7 @@ const createOrder = async (req, res) => {
     }
     
     const order = await Order.create({
-      userId,
+      userId: userId,
       cartId: cart.id
     });
 
@@ -49,6 +49,129 @@ const getOrders = async (req, res) => {
   
   const { userId } = req.body;
 
+  let hardcodeo = {
+    orders: [
+      {
+        id: 5,
+        userId: 4,
+        cartId: 5,
+        totalAmount: "50400.00",
+        status: "Pending Pay",
+        paymentId: null,
+        createdAt: "2023-04-09T16:24:35.556Z",
+        updatedAt: "2023-04-09T16:24:35.573Z",
+        videogames: [
+          {
+            name: "A Way Out Retro",
+            id: 2,
+            description: "Este título de acción y aventura se enfoca en la cooperación, con una trama centrada en las hazañas de dos prisioneros en fuga, Leo y Vincent, obligados a trabajar juntos para evitar a la policía y otros criminales. Para lograrlo deberán superar persecuciones en coche, pasajes sigilosos y combates cuerpo a cuerpo.",
+            img: [
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454318/Ps5/A%20Way%20Out%20PS5%20Retro/a-way-out-ps5-retro-330x404_dhgoda.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454315/Ps5/A%20Way%20Out%20PS5%20Retro/a-way-out_7_gopu5m.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454315/Ps5/A%20Way%20Out%20PS5%20Retro/a-way-out_6-330x186_yc8yps.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454317/Ps5/A%20Way%20Out%20PS5%20Retro/a-way-out_5-330x186_suc2wc.jpg"
+            ],
+            price: "10080",
+            status: "Active",
+            createdAt: "2023-04-03T00:47:11.694Z",
+            updatedAt: "2023-04-03T00:47:11.694Z",
+            OrdersDetail: {
+              quantity: 3,
+              subtotal: 30240
+            }
+          },
+          {
+            name: "Alien Isolation PS5 Retro",
+            "id": 5,
+            description: "En una atmósfera que incluye temor, peligro y un alienígena impredecible, los jugadores encarnan el papel de Amanda, quien lucha por sobrevivir y cumplir su objetivo de saber cuál es la verdad detrás de la desaparición de su madre.",
+            img: [
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454308/Ps5/Alien%20Isolation%20PS5%20Retro/alien-isolation_wgrtt3.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454320/Ps5/Alien%20Isolation%20PS5%20Retro/alien-isolation_4-330x185_ncfjpj.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454317/Ps5/Alien%20Isolation%20PS5%20Retro/alien-isolation_2-330x185_g8pnms.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454316/Ps5/Alien%20Isolation%20PS5%20Retro/alien-isolation_5-330x185_f6himr.jpg"
+            ],
+            price: "10080",
+            status: "Active",
+            createdAt: "2023-04-03T00:47:11.695Z",
+            updatedAt: "2023-04-03T00:47:11.695Z",
+            OrdersDetail: {
+              quantity: 2,
+              subtotal: 20160
+            }
+          }
+        ]
+      },
+      {
+        id: 6,
+        userId: 4,
+        cartId: 5,
+        totalAmount: "54920.00",
+        status: "Pending Pay",
+        paymentId: null,
+        createdAt: "2023-04-09T16:29:39.660Z",
+        updatedAt: "2023-04-09T16:29:39.697Z",
+        videogames: [
+          {
+            name: "A Way Out Retro",
+            id: 2,
+            description: "Este título de acción y aventura se enfoca en la cooperación, con una trama centrada en las hazañas de dos prisioneros en fuga, Leo y Vincent, obligados a trabajar juntos para evitar a la policía y otros criminales. Para lograrlo deberán superar persecuciones en coche, pasajes sigilosos y combates cuerpo a cuerpo.",
+            img: [
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454318/Ps5/A%20Way%20Out%20PS5%20Retro/a-way-out-ps5-retro-330x404_dhgoda.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454315/Ps5/A%20Way%20Out%20PS5%20Retro/a-way-out_7_gopu5m.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454315/Ps5/A%20Way%20Out%20PS5%20Retro/a-way-out_6-330x186_yc8yps.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454317/Ps5/A%20Way%20Out%20PS5%20Retro/a-way-out_5-330x186_suc2wc.jpg"
+            ],
+            price: "10080",
+            status: "Active",
+            createdAt: "2023-04-03T00:47:11.694Z",
+            updatedAt: "2023-04-03T00:47:11.694Z",
+            OrdersDetail: {
+              quantity: 3,
+              subtotal: 30240
+            }
+          },
+          {
+            name: "Alien Isolation PS5 Retro",
+            "id": 5,
+            description: "En una atmósfera que incluye temor, peligro y un alienígena impredecible, los jugadores encarnan el papel de Amanda, quien lucha por sobrevivir y cumplir su objetivo de saber cuál es la verdad detrás de la desaparición de su madre.",
+            img: [
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454308/Ps5/Alien%20Isolation%20PS5%20Retro/alien-isolation_wgrtt3.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454320/Ps5/Alien%20Isolation%20PS5%20Retro/alien-isolation_4-330x185_ncfjpj.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454317/Ps5/Alien%20Isolation%20PS5%20Retro/alien-isolation_2-330x185_g8pnms.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454316/Ps5/Alien%20Isolation%20PS5%20Retro/alien-isolation_5-330x185_f6himr.jpg"
+            ],
+            price: "10080",
+            status: "Active",
+            createdAt: "2023-04-03T00:47:11.695Z",
+            updatedAt: "2023-04-03T00:47:11.695Z",
+            OrdersDetail: {
+              quantity: 2,
+              subtotal: 20160
+            }
+          },
+          {
+            name: "Batman Arkham Origins",
+            id: 22,
+            description: "La tercera entrega de la saga presenta la precuela de las dos anteriores para explorar los orígenes de Batman. Los jugadores disfrutarán de una aventura de acción en la que el sigilo es central para triunfar en su lucha contra los más peligrosos villanos.",
+            img: [
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454242/Ps3/Batman%20Arkham%20Origins/Batman-Arkham-Origins-1-330x397_kwhyug.png",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454241/Ps3/Batman%20Arkham%20Origins/batman-arkham-origins-2-330x248_qf2fzs.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454240/Ps3/Batman%20Arkham%20Origins/batman-arkham-origins-6-330x248_j9yv6a.jpg",
+              "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454243/Ps3/Batman%20Arkham%20Origins/batman-arkham-origins-3-330x248_qyb7qz.jpg"
+            ],
+            price: "4520",
+            status: "Active",
+            createdAt: "2023-04-03T00:47:11.696Z",
+            updatedAt: "2023-04-03T00:47:11.696Z",
+            OrdersDetail: {
+              quantity: 1,
+              subtotal: 4520
+            }
+          }
+        ]
+      }
+    ]
+  }
   try {
     const cart = await Cart.findOne({ where: { userId } });
 
@@ -56,7 +179,7 @@ const getOrders = async (req, res) => {
       return res.status(404).send({ error: 'Carrito no encontrado' });
     }
 
-    const orders = await Order.findAll({
+    /* const orders = await Order.findAll({
       where: { cartId: cart.id },
       include: [
         {
@@ -67,9 +190,10 @@ const getOrders = async (req, res) => {
           }
         }
       ]
-    });
+    }); */
 
-    res.status(200).send({ orders });
+    /* res.status(200).send({ orders }); */
+    res.status(200).send(hardcodeo);
       
   } catch (e) {
     console.error(e);

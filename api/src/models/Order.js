@@ -9,6 +9,9 @@ module.exports = (sequelize) => {
       primaryKey: true,
       field: "Id",
     },
+    userId: {
+      type: DataTypes.INTEGER
+    },
     cartId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -35,8 +38,8 @@ module.exports = (sequelize) => {
     //     allowNull: true
     // },
 
-     /* paymentId:{
+     paymentId:{
          type: DataTypes.INTEGER
-     }, */
+     },
   });
 };
