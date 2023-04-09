@@ -8,7 +8,7 @@ const {
 } = process.env;
 
 
-/*  const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/pfhenry`, {
+ /* const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/pfhenry`, {
    logging: false, // set to console.log to see the raw SQL queries
    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
  }); */
@@ -77,8 +77,8 @@ Review.belongsTo(User, { foreignKey: 'userId' });
 Videogame.hasMany(Review);
 Review.belongsTo(Videogame, { foreignKey: 'videogameId' });
 
-/* Order.hasOne(Payment, { foreignKey: 'paymentId' });
-Payment.belongsTo(Order) */
+Order.hasOne(Payment, { foreignKey: 'paymentId' });
+Payment.belongsTo(Order)
 
 
 
