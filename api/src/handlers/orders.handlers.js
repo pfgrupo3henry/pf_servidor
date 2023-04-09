@@ -47,7 +47,7 @@ const createOrder = async (req, res) => {
 
 const getOrders = async (req, res) => {
   
-  const { userId } = req.body;
+  /* const { userId } = req.body; */
 
   let hardcodeo = {
     orders: [
@@ -103,8 +103,8 @@ const getOrders = async (req, res) => {
       },
       {
         id: 6,
-        userId: 4,
-        cartId: 5,
+        userId: 5,
+        cartId: 6,
         totalAmount: "54920.00",
         status: "Pending Pay",
         paymentId: null,
@@ -173,11 +173,11 @@ const getOrders = async (req, res) => {
     ]
   }
   try {
-    const cart = await Cart.findOne({ where: { userId } });
+    /* const cart = await Cart.findOne({ where: { userId } });
 
     if (!cart) {
       return res.status(404).send({ error: 'Carrito no encontrado' });
-    }
+    } */
 
     /* const orders = await Order.findAll({
       where: { cartId: cart.id },
