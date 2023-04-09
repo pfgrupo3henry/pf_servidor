@@ -1,4 +1,4 @@
-const { Cart, Order, Videogame, OrdersDetail } = require('../db');
+const { Cart, Order, Videogame, OrdersDetail, User } = require('../db');
 
 const createOrder = async (req, res) => {
   
@@ -218,7 +218,22 @@ const getAllOrders = async (req, res) => {
           }
         ]
       });
-      return order;
+
+      const idUser= order.userId; 
+      const findUser= await User.findOne({
+        where: {id: idUser},
+        attributes: ['firstname', 'lastname', 'email', 'img'],
+      });
+
+  
+      const updatedOrder = {
+        ...order, // se copian todas las propiedades del objeto original
+        userData: findUser, // se agrega la nueva propiedad con su valor
+      };
+      // const newOrder= orderPromises.map(async (or)) 
+
+
+      return updatedOrder;
     });
     const orders = await Promise.all(orderPromises);
     const filteredOrders = orders.filter(order => order !== null);
