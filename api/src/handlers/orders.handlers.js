@@ -224,16 +224,10 @@ const getAllOrders = async (req, res) => {
         where: {id: idUser},
         attributes: ['firstname', 'lastname', 'email', 'img'],
       });
+      
+      order.userId= findUser;
 
-  
-      const updatedOrder = {
-        ...order, // se copian todas las propiedades del objeto original
-        userData: findUser, // se agrega la nueva propiedad con su valor
-      };
-      // const newOrder= orderPromises.map(async (or)) 
-
-
-      return updatedOrder;
+      return order;
     });
     const orders = await Promise.all(orderPromises);
     const filteredOrders = orders.filter(order => order !== null);
