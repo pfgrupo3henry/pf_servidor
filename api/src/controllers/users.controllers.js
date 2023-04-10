@@ -80,6 +80,8 @@ const loginUser= async(email, password)=> {
                 lastname: findUser.lastname,
                 email: findUser.email,
                 nacionality: findUser.nacionality,
+                status: findUser.status,
+                role: findUser.role,
                 token: refreshToken,
             }
          
