@@ -1,4 +1,4 @@
-const { Cart, Order, Videogame, OrdersDetail } = require('../db');
+const { Cart, Order, Videogame, OrdersDetail, User } = require('../db');
 
 const createOrder = async (req, res) => {
   
@@ -218,6 +218,15 @@ const getAllOrders = async (req, res) => {
           }
         ]
       });
+
+      const idUser= order.userId; 
+      const findUser= await User.findOne({
+        where: {id: idUser},
+        attributes: ['firstname', 'lastname', 'email', 'img'],
+      });
+      
+      order.userId= findUser;
+
       return order;
     });
     const orders = await Promise.all(orderPromises);
