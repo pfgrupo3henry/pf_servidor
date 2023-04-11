@@ -1,5 +1,5 @@
 const { createVideogame, searchGameByName, getGameById, getAllGames } = require ('../controllers/videogames.controllers.js');
-const {Videogame} = require('../db');
+const {Videogame, Platform, Genre} = require('../db');
 
 // const createVideogameHandler = async (req, res) => {
 //   const {name, description, image, price, platform, genre} = req.body;
@@ -34,17 +34,119 @@ const getVideogameById = async (req, res) => {
 };
 
 const modifyVideogameHandler = async (req, res) => {
-  const{ name, description, price } = req.body;
+  const{ name, newName, description, img, platform, genre } = req.body;
+
   try {
-      const actualizado = await Videogame.update({
-        description: description,
-        price: price,
-      },{
-          where: { name }
+    const actualizado = await Videogame.update({
+      description: description, img: img
+    },{
+      where: { name: name }
+    });
+  
+    let videogame = await Videogame.findOne({
+      where: { name: name },
+      include: [
+        {
+          model: Platform,
+          attributes: ['name']
+        },
+        {
+          model: Genre,
+          attributes: ['name']
+        }
+      ],
+    });
+
+    if(!videogame) {
+      throw "The videogame with the name selected isn't available" 
+    }
+
+
+    if(platform) {
+
+    const platformDb = await Platform.findOne({where: {name: platform}})
+
+    await videogame.setPlatforms([]);
+
+    await videogame.addPlatform(platformDb, { through: { status: platform } });
+
+    }
+
+
+    if(genre) {
+
+      const genreDb = await Genre.findOne({where: {name: genre}})
+  
+      await videogame.setGenres([]);
+  
+      await videogame.addGenre(genreDb, { through: { status: genre} });
+  
+      }
+
+    if(newName) {
+        await Videogame.update({
+        name: newName},{
+        where: { name: name }
       });
-      res.status(201).json(actualizado);
+
+
+      videogame = await Videogame.findOne({
+        where: { name: newName },
+        include: [
+          {
+            model: Platform,
+            attributes: ['name']
+          },
+          {
+            model: Genre,
+            attributes: ['name']
+          }
+        ],
+      });
+ 
+    videogame= {
+      id: videogame.id,
+      name: videogame.name, 
+      description: videogame.description,
+      img: videogame.img,
+      price: videogame.price,
+      genre: videogame.genres[0].name,
+      platform: videogame.platforms[0].name
+      } 
+
+    res.status(201).json(videogame);
+
+    }
+    else {
+      videogame = await Videogame.findOne({
+        where: { name: name },
+        include: [
+          {
+            model: Platform,
+            attributes: ['name']
+          },
+          {
+            model: Genre,
+            attributes: ['name']
+          }
+        ],
+      });
+ 
+    videogame= {
+      id: videogame.id,
+      name: videogame.name, 
+      description: videogame.description,
+      img: videogame.img,
+      price: videogame.price,
+      genre: videogame.genres[0].name,
+      platform: videogame.platforms[0].name,
+      stock: videogame.stock
+      } 
+
+    res.status(201).json(videogame);
+  }
   } catch(error) {
-      res.status(400).json({ error: "Error al modificar" });
+      res.status(400).json({ error: "Error al modificar", message: error });
   }
 };
 
