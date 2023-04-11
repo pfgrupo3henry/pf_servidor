@@ -1,5 +1,5 @@
 const { createVideogame, searchGameByName, getGameById, getAllGames } = require ('../controllers/videogames.controllers.js');
-const {Videogame} = require('../db');
+const {Videogame, Platform, Genre} = require('../db');
 
 // const createVideogameHandler = async (req, res) => {
 //   const {name, description, image, price, platform, genre} = req.body;
@@ -34,15 +34,70 @@ const getVideogameById = async (req, res) => {
 };
 
 const modifyVideogameHandler = async (req, res) => {
-  const{ name, description, price } = req.body;
+  const{ id, name, description, img, platform, genre } = req.body;
+
   try {
-      const actualizado = await Videogame.update({
-        description: description,
-        price: price,
-      },{
-          where: { name }
-      });
-      res.status(201).json(actualizado);
+    
+    const actualizado = await Videogame.update({
+      name: name, description: description, img: img
+    },{
+      where: { id: id }
+    });
+
+    let videogame = await Videogame.findByPk(id, {
+      include: [
+        {
+          model: Platform,
+          through: "Platforms_Videogames",
+        },
+      ],
+    });
+
+    if(platform) {
+
+    const platformDb = await Platform.findOne({where: {name: platform}})
+
+    await videogame.setPlatforms([]);
+
+    await videogame.addPlatform(platformDb, { through: { status: platform } });
+
+    }
+
+
+    if(genre) {
+
+      const genreDb = await Genre.findOne({where: {name: genre}})
+  
+      await videogame.setGenres([]);
+  
+      await videogame.addGenre(genreDb, { through: { status: genre} });
+  
+      }
+
+    videogame = await Videogame.findByPk(id, {
+      include: [
+        {
+          model: Platform,
+          attributes: ['name']
+        },
+        {
+          model: Genre,
+          attributes: ['name']
+        }
+      ],
+    });
+ 
+    videogame= {
+      id: videogame.id,
+      name: videogame.name, 
+      description: videogame.description,
+      img: videogame.img,
+      price: videogame.price,
+      genre: videogame.genres[0].name,
+      platform: videogame.platforms[0].name
+      } 
+
+    res.status(201).json(videogame);
   } catch(error) {
       res.status(400).json({ error: "Error al modificar" });
   }
