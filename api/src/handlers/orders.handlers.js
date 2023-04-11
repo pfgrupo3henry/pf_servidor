@@ -1,4 +1,4 @@
-const { Cart, Order, Videogame, OrdersDetail , Payment} = require('../db');
+const { Cart, Order, Videogame, OrdersDetail , Payment, User} = require('../db');
 
 const createOrder = async (req, res) => {
   
@@ -47,7 +47,7 @@ const createOrder = async (req, res) => {
 
 const getOrders = async (req, res) => {
   
-  const { userId } = req.body;
+  const userId  = req.params.id;
 
   
   try {
@@ -84,7 +84,7 @@ const getAllOrders = async (req, res) => {
     const carts = await Cart.findAll();
     const orderPromises = carts.map(async (cart) => {
       const order = await Order.findAll({
-        where: { cartId: cart.id},
+        where: { cartId: cart.id },
         include: [
           {
             model: Videogame,
@@ -95,13 +95,14 @@ const getAllOrders = async (req, res) => {
           }
         ]
       });
+      
       return order;
     });
     const orders = await Promise.all(orderPromises);
-
     const filteredOrders = orders.filter(order => order !== null);
-
+  
     let sliceOrders = filteredOrders.flat()
+    console.log(sliceOrders.length)
     res.status(200).send({ All_Orders: sliceOrders });
   } catch (e) {
     console.error(e);

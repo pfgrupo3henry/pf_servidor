@@ -5,7 +5,7 @@ const {createOrder, getOrders, getAllOrders, succesOrder, canceledOrder, pending
 
 router.get("/allOrders", getAllOrders );
 router.post("/", createOrder);
-router.get("/", getOrders);
+router.get("/:id", getOrders);
 
 
 //para recuperar una orden que fue cancelada devolviendole el valor original que cuando fue creada
