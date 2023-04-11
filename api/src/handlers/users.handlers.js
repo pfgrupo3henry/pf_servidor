@@ -1,4 +1,4 @@
-const { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, promoteUser, blockUser, unblockUser } = require('../controllers/users.controllers');
+const { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, promoteUser, blockUser, unblockUser, changeAdminRole } = require('../controllers/users.controllers');
 const { User } = require('../db');
 
 
@@ -129,10 +129,19 @@ const promoteOrBlockUser= async (req, res)=> {
    
     try {
         if (promote === undefined && block === undefined) throw new Error ('You must send if you want to promote or block/unblock the user');
-        if (promote) {
-            const userPromoted= await promoteUser(id);
-            res.status(200).json({ message: "User has been promoted to administrator successfully", user: userPromoted });
-        } else if (block) {
+        switch (promote) {
+            case true:
+                const userPromoted= await promoteUser(id);
+                res.status(200).json({ message: "User has been promoted to administrator successfully", user: userPromoted });
+                break;
+            case false: 
+                const changeAdmin= await changeAdminRole(id);
+                res.status(200).json({ message: "User has been changed to user role successfully", user: changeAdmin });
+                break;
+                
+            default: { break }
+        };
+        if (block) {
             const userBlocked= await blockUser(id);
             res.status(200).json({ message: "User has been blocked successfully", user: userBlocked });
         } else if (block===false) {
