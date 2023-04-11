@@ -14,6 +14,7 @@ const {
  });  */
 
 
+
 const sequelize = new Sequelize(DB_DEPLOY, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
@@ -67,6 +68,11 @@ User.hasOne(Cart)
 
 Cart.hasMany(Order, { foreignKey: 'cartId' });
 Order.belongsTo(Cart, { foreignKey: 'cartId' });
+
+User.hasMany(Order, { foreignKey: 'userId'});
+Order.belongsTo(User, { foreignKey: 'userId'});
+
+
 
 Favorite.belongsTo(User);
 User.hasOne(Favorite)
