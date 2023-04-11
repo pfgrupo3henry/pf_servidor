@@ -55,7 +55,7 @@ async function approveOrder(orderId) {
   // console.log(order);
 
   if (!order) {
-    return res.status(404).json({ message: 'No se encontró la orden' });
+    throw new Error ('No se encontró la orden');
   };
 
   let allVideogames= await Videogame.findAll();
@@ -67,7 +67,7 @@ async function approveOrder(orderId) {
 
   videogamesOrder.forEach(async (v) => {
     const product= allVideogames.find( p=> p.dataValues.id === v.id );
-    if (product.dataValues.stock < 1) return res.status(500).json({message: `Without Stock of: "${product.dataValues.name}" videogame`});
+    if (product.dataValues.stock < 1) throw new Error (`Without Stock of: "${product.dataValues.name}" videogame`);
     product.dataValues.stock -= v.quantity; 
     const findVideogame= await Videogame.findByPk(product.dataValues.id);
     await findVideogame.update({
