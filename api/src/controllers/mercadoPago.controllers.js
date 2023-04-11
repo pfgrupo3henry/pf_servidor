@@ -43,7 +43,7 @@ const prod = req.body
         pending: '',
       },
       auto_return: "approved",
-      notification_url: `https://b748-2800-810-451-668-48ce-17a0-ccde-af9c.ngrok-free.app/payment/${userId}`,
+      notification_url: `https://pfservidor-production.up.railway.app/payment/${userId}`,
       statement_descriptor: "Henry Game Store",
       // para que no se puedan hacer pagos pendientes (rapipago, etc)
       binary_mode: true,
