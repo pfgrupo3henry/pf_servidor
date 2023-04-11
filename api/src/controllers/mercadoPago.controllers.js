@@ -136,7 +136,7 @@ var merchantOrder;
 
   res.status(200).send()
 }
-catch (e) {res.status(500).send({message: e})}
+catch (error) {res.status(500).send({message: error.message})}
 }
 
 
