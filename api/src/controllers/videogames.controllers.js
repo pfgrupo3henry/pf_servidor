@@ -110,7 +110,8 @@ const getAllGames = async () => {
       img: m.img,
       price: m.price,
       genre: m.genres[0].name,
-      platform: m.platforms[0].name
+      platform: m.platforms[0].name,
+      stock: m.stock
   }}) 
   
   

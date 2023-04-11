@@ -34,24 +34,33 @@ const getVideogameById = async (req, res) => {
 };
 
 const modifyVideogameHandler = async (req, res) => {
-  const{ id, name, description, img, platform, genre } = req.body;
+  const{ name, newName, description, img, platform, genre } = req.body;
 
   try {
-    
     const actualizado = await Videogame.update({
-      name: name, description: description, img: img
+      description: description, img: img
     },{
-      where: { id: id }
+      where: { name: name }
     });
-
-    let videogame = await Videogame.findByPk(id, {
+  
+    let videogame = await Videogame.findOne({
+      where: { name: name },
       include: [
         {
           model: Platform,
-          through: "Platforms_Videogames",
+          attributes: ['name']
         },
+        {
+          model: Genre,
+          attributes: ['name']
+        }
       ],
     });
+
+    if(!videogame) {
+      throw "The videogame with the name selected isn't available" 
+    }
+
 
     if(platform) {
 
@@ -74,18 +83,26 @@ const modifyVideogameHandler = async (req, res) => {
   
       }
 
-    videogame = await Videogame.findByPk(id, {
-      include: [
-        {
-          model: Platform,
-          attributes: ['name']
-        },
-        {
-          model: Genre,
-          attributes: ['name']
-        }
-      ],
-    });
+    if(newName) {
+        await Videogame.update({
+        name: newName},{
+        where: { name: name }
+      });
+
+
+      videogame = await Videogame.findOne({
+        where: { name: newName },
+        include: [
+          {
+            model: Platform,
+            attributes: ['name']
+          },
+          {
+            model: Genre,
+            attributes: ['name']
+          }
+        ],
+      });
  
     videogame= {
       id: videogame.id,
@@ -98,8 +115,38 @@ const modifyVideogameHandler = async (req, res) => {
       } 
 
     res.status(201).json(videogame);
+
+    }
+    else {
+      videogame = await Videogame.findOne({
+        where: { name: name },
+        include: [
+          {
+            model: Platform,
+            attributes: ['name']
+          },
+          {
+            model: Genre,
+            attributes: ['name']
+          }
+        ],
+      });
+ 
+    videogame= {
+      id: videogame.id,
+      name: videogame.name, 
+      description: videogame.description,
+      img: videogame.img,
+      price: videogame.price,
+      genre: videogame.genres[0].name,
+      platform: videogame.platforms[0].name,
+      stock: videogame.stock
+      } 
+
+    res.status(201).json(videogame);
+  }
   } catch(error) {
-      res.status(400).json({ error: "Error al modificar" });
+      res.status(400).json({ error: "Error al modificar", message: error });
   }
 };
 
