@@ -16,13 +16,18 @@ const createReview = async (req, res) => {
 
 
 const getReviewsOfGame = async (req, res) => {
+
     const { gameId} = req.params;
     try { 
+        if(gameId){
         const review = await Review.findAll({ where: { videogameId: gameId } });
         
         if(!review) {return new Error("no existen reviews de este juego")}
-        
         res.status(201).json(review);
+        }
+        else { const reviews = await Review.findAll();
+            if(!reviews) {return new Error("no existen reviews de ningún juego")}
+            res.status(201).json(reviews)}
     } catch (error) {
         res.status(400).json({ error: "Error al traer las reviews", message: error });
     }

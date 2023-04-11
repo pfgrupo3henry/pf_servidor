@@ -77,7 +77,7 @@ Review.belongsTo(User, { foreignKey: 'userId' });
 Videogame.hasMany(Review);
 Review.belongsTo(Videogame, { foreignKey: 'videogameId' });
 
-Order.hasOne(Payment, { foreignKey: 'paymentId' });
+Order.hasOne(Payment);
 Payment.belongsTo(Order)
 
 
