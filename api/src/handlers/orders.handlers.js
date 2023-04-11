@@ -1,4 +1,4 @@
-const { Cart, Order, Videogame, OrdersDetail } = require('../db');
+const { Cart, Order, Videogame, OrdersDetail , Payment} = require('../db');
 
 const createOrder = async (req, res) => {
   
@@ -47,9 +47,9 @@ const createOrder = async (req, res) => {
 
 const getOrders = async (req, res) => {
   
-  /* const { userId } = req.body; */
+  const { userId } = req.body;
 
-  let hardcodeo = {
+  /* let hardcodeo = {
     orders: [
       {
         id: 5,
@@ -171,15 +171,15 @@ const getOrders = async (req, res) => {
         ]
       }
     ]
-  }
+  } */
   try {
-    /* const cart = await Cart.findOne({ where: { userId } });
+     const cart = await Cart.findOne({ where: { userId } });
 
     if (!cart) {
       return res.status(404).send({ error: 'Carrito no encontrado' });
-    } */
+    } 
 
-    /* const orders = await Order.findAll({
+     const orders = await Order.findAll({
       where: { cartId: cart.id },
       include: [
         {
@@ -190,10 +190,9 @@ const getOrders = async (req, res) => {
           }
         }
       ]
-    }); */
+    }); 
 
-    /* res.status(200).send({ orders }); */
-    res.status(200).send(hardcodeo);
+     res.status(200).send({ orders }); 
       
   } catch (e) {
     console.error(e);
@@ -206,8 +205,8 @@ const getAllOrders = async (req, res) => {
   try {
     const carts = await Cart.findAll();
     const orderPromises = carts.map(async (cart) => {
-      const order = await Order.findOne({
-        where: { cartId: cart.id },
+      const order = await Order.findAll({
+        where: { cartId: cart.id},
         include: [
           {
             model: Videogame,
@@ -221,8 +220,11 @@ const getAllOrders = async (req, res) => {
       return order;
     });
     const orders = await Promise.all(orderPromises);
+
     const filteredOrders = orders.filter(order => order !== null);
-    res.status(200).send({ All_Orders: filteredOrders });
+
+    let sliceOrders = filteredOrders.flat()
+    res.status(200).send({ All_Orders: sliceOrders });
   } catch (e) {
     console.error(e);
     res.status(500).send({ error: 'Error al intentar obtener las ordenes' });
@@ -332,7 +334,7 @@ const canceledOrder = async (req, res) => {
       return res.status(404).json({ message: 'No se encontró la orden' });
     }
 
-    order.status = 'Canceled';
+    order.status = 'Rejected Pay';
 
     await order.save();
 

@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
       field: "TotalAmount",
     },
     status: {
-      type: DataTypes.ENUM("Pending Pay", "Completed Pay", "Canceled"),
+      type: DataTypes.ENUM("Pending Pay", "Completed Pay", "Rejected Pay"),
       allowNull: false,
       defaultValue: "Pending Pay",
       field: "Status",
@@ -38,8 +38,5 @@ module.exports = (sequelize) => {
     //     allowNull: true
     // },
 
-     paymentId:{
-         type: DataTypes.INTEGER
-     },
   });
 };

@@ -2,24 +2,25 @@ const mercadopago = require("mercadopago");
 const { User, Review, Payment, Order } = require('../db');
 const { Videogame } = require('../models/Videogame');
 const { query } = require("express");
+const { generateOrder, approveOrder, rejectOrder } = require("./orders.controllers");
 const product = Videogame;
 mercadopago.configure({
   access_token: process.env.ACCESS_TOKEN,
 });
 
-const succesPayment = async (req,res) => {
-
-
-
+const getAllPayment = async (req,res) => {
+try {
+const payments = await Payment.findAll()
+res.status(200).json(payments)
+}
+catch(e) {res.status(500).json({message: e})}
 };
 
 
 const paymentPostController = async (req, res) => {
+const prod = req.body
 
- 
-  const prod = req.body;
-  const totalPrice = req.body.totalPrice;
-  const userId = req.body.userId;
+  const {totalPrice, userId} = req.body
  
   try {
     const preference = {
@@ -42,7 +43,7 @@ const paymentPostController = async (req, res) => {
         pending: '',
       },
       auto_return: "approved",
-      notification_url: 'https://405f-2800-810-451-668-48ce-17a0-ccde-af9c.ngrok-free.app/payment',
+      notification_url: `https://b748-2800-810-451-668-48ce-17a0-ccde-af9c.ngrok-free.app/payment/${userId}`,
       statement_descriptor: "Henry Game Store",
       // para que no se puedan hacer pagos pendientes (rapipago, etc)
       binary_mode: true,
@@ -60,11 +61,34 @@ const paymentPostController = async (req, res) => {
 
 // para recibir la info del pago
 const getPaymentInfo = async (req, res, next) => {
+  try{
+  const userId = req.params.id
   const {query} = req
-  let hola = req.query[data.id]
-  let pay = req.query.type
-  console.log("holaaaaaaaaaaa", hola, pay)
-  const topic = query.topic
+  console.log(query)
+  const payment_id = req.query["data.id"]
+  const payment_switch = req.query.type
+
+  if(payment_switch === "payment") {
+    const payment = await mercadopago.payment.findById(payment_id);
+    console.log(payment)
+    /* const paymentModel = await Payment.create({info : payment.body}) */
+    
+    if(payment.response.status === "approved"){
+      let order_info = await generateOrder(userId)
+      order_info = await approveOrder(order_info.id)
+    /* order_info.paymentId = paymentModel.id */
+  
+    
+    res.status(200).send({Order: order_info})
+  }
+  else if (payment.response.status === "rejected") {
+    let order_info = await generateOrder(userId)
+    order_info = await rejectOrder(order_info.id)
+    
+    res.status(200).send({Order: order_info})
+  }
+
+  }
   // const payment_id = req.query.payment_id;
   // const payment_status = req.query.status;
   // const external_reference = req.query.external_reference;
@@ -72,7 +96,7 @@ const getPaymentInfo = async (req, res, next) => {
   
 var merchantOrder;  
 
-switch (topic) {
+/* switch (topic) {
   case "payment":
     // mercadopago.payment.get(req.query.id).then((payment) => {
     //   mercadopago.merchant_orders.get(payment.order.id).then((order) => {
@@ -96,7 +120,7 @@ switch (topic) {
     console.log(" este merchantOrder", merchantOrder)
     
   break;
-}
+} */
 /* console.log(merchantOrder.body.payments);
 
   const paidAmount = 0;
@@ -112,6 +136,8 @@ switch (topic) {
 
   res.status(200).send()
 }
+catch (e) {res.status(500).send({message: e})}
+}
 
 
-module.exports = {paymentPostController, getPaymentInfo};
+module.exports = {paymentPostController, getPaymentInfo, getAllPayment};
