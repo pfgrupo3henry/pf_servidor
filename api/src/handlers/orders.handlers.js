@@ -1,6 +1,4 @@
-
-const { Cart, Order, Videogame, OrdersDetail, User } = require('../db');
-
+const { Cart, Order, Videogame, OrdersDetail , Payment, User} = require('../db');
 
 const createOrder = async (req, res) => {
   
@@ -81,7 +79,7 @@ const getOrders = async (req, res) => {
 };
 
 const getAllOrders = async (req, res) => {
-
+  
   try {
     const carts = await Cart.findAll();
     const orderPromises = carts.map(async (cart) => {
@@ -93,8 +91,8 @@ const getAllOrders = async (req, res) => {
             through: {
               model: OrdersDetail,
               attributes: ['quantity', 'subtotal']
-
             }
+          }
         ]
       });
       
@@ -104,8 +102,8 @@ const getAllOrders = async (req, res) => {
     const filteredOrders = orders.filter(order => order !== null);
   
     let sliceOrders = filteredOrders.flat()
+    console.log(sliceOrders.length)
     res.status(200).send({ All_Orders: sliceOrders });
-
   } catch (e) {
     console.error(e);
     res.status(500).send({ error: 'Error al intentar obtener las ordenes' });
