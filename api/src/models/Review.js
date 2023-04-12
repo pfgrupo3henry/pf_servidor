@@ -3,6 +3,11 @@ const {StatusType} = require("./../dataType");
 
 module.exports = (sequelize) => {
   const Review = sequelize.define('Review', {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+      },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
