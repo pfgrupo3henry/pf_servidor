@@ -1,4 +1,5 @@
 const {Review} = require('../db');
+const { editReview } = require('../controllers/review.controller');
 
 const createReview = async (req, res) => {
     const {videogameId} = req.body
@@ -33,4 +34,15 @@ const getReviewsOfGame = async (req, res) => {
     }
 };
 
-module.exports = {createReview, getReviewsOfGame}
+const putReview = async (req, res) => {
+    const {userId} = req.params;
+    const { videogameId, comment, rate, status } = req.body;
+    try {
+        const editedProduct = await editReview(userId, videogameId, comment, rate, status);
+        res.status(200).json(editedProduct);
+    } catch (error) {
+        res.status(400).json({ error: "Error al editar las reviews", message: error });
+    }
+}
+
+module.exports = {createReview, getReviewsOfGame, putReview}
