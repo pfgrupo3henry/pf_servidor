@@ -38,8 +38,8 @@ const prod = req.body
       ],
       back_urls: {
         //rutas de acuerdo a como haya salido la transacion
-        success: 'http://localhost:3000/home',
-        failure: 'http://localhost:3000/home',
+        success: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
+        failure: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
         pending: '',
       },
       auto_return: "approved",
