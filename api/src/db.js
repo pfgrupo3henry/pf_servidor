@@ -8,10 +8,10 @@ const {
 } = process.env;
 
 
- /* const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/pfhenry`, {
-   logging: false, // set to console.log to see the raw SQL queries
-   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
- });  */
+//  const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_HOST}/pfhenry`, {
+//    logging: false, // set to console.log to see the raw SQL queries
+//    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+//  });  
 
 
 
@@ -73,12 +73,11 @@ User.hasMany(Order, { foreignKey: 'userId'});
 Order.belongsTo(User, { foreignKey: 'userId'});
 
 
-
 Favorite.belongsTo(User);
 User.hasOne(Favorite)
 
 User.hasMany(Review);
-Review.belongsTo(User, { foreignKey: 'userId' });
+Review.belongsTo(User, { foreignKey: 'userId', as: 'userInfo' });
 
 Videogame.hasMany(Review);
 Review.belongsTo(Videogame, { foreignKey: 'videogameId' });
