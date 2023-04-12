@@ -1,4 +1,4 @@
-const {Review} = require('../db');
+const {Review, User} = require('../db');
 const { editReview } = require('../controllers/review.controller');
 
 const createReview = async (req, res) => {
@@ -21,14 +21,18 @@ const getReviewsOfGame = async (req, res) => {
     const { gameId} = req.params;
     try { 
         if(gameId){
-        const review = await Review.findAll({ where: { videogameId: gameId } });
+
+            const review = await Review.findAll({
+                where: { videogameId: gameId },
+                include: [{ model: User, as: 'userInfo' }]
+              });
         
         if(!review) {return new Error("no existen reviews de este juego")}
+        
         res.status(201).json(review);
+
         }
-        else { const reviews = await Review.findAll();
-            if(!reviews) {return new Error("no existen reviews de ningún juego")}
-            res.status(201).json(reviews)}
+        
     } catch (error) {
         res.status(400).json({ error: "Error al traer las reviews", message: error });
     }
