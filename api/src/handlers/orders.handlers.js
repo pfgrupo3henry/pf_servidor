@@ -56,6 +56,10 @@ const getOrders = async (req, res) => {
   try {
     const cart = await Cart.findOne({ where: { userId } });
 
+    const users= await User.findOne({ where: { id: cart.userId } });
+
+      
+console.log(users)
     if (!cart) {
       return res.status(404).send({ error: "Carrito no encontrado" });
     }
@@ -73,10 +77,31 @@ const getOrders = async (req, res) => {
       ],
     });
 
-    res.status(200).send({ orders });
+    const filteredOrders = orders.filter((order) => order !== null).flat();
+
+    const groupedOrders = filteredOrders.reduce((result, currentOrder) => {
+      
+      const existingOrder = result.find(
+        (order) => order.userId === currentOrder.userId
+      );
+
+      if (existingOrder) {
+        existingOrder.orders.push(currentOrder);
+      } else {
+        result.push({
+          userId: currentOrder.userId,
+          userInfo: users,
+          orders: [currentOrder],
+        });
+      }
+
+      return result;
+    }, []);
+
+    res.status(200).send({userOrder: groupedOrders });
   } catch (e) {
     console.error(e);
-    res.status(500).send({ error: "Error al intentar obtener las ordenes" });
+    res.status(500).send({ error: "Error al intentar obtener las ordenes del usuario" });
   }
 };
 
