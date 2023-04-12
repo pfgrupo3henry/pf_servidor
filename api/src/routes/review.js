@@ -7,7 +7,7 @@ router.post("/", createReview);
 
 router.get("/:gameId", getReviewsOfGame);
 
-router.put("/:userId", putReview);
+router.put("/:id", putReview);
 
 
 

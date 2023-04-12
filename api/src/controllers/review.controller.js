@@ -1,13 +1,10 @@
-const { Review } = require("../models/Review");
+const {Review} = require('../db');
 
-const editReview = async (userId, videogameId, comment, rate, status) => {
+const editReview = async (id, status) => {
   
-  let review = await Review.findById(userId);
+  let review = await Review.findByPk(id);
 
   await review.update({
-    videogameId,
-    comment,
-    rate,
     status,
   });
 
