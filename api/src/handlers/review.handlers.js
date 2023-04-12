@@ -35,10 +35,10 @@ const getReviewsOfGame = async (req, res) => {
 };
 
 const putReview = async (req, res) => {
-    const {userId} = req.params;
-    const { videogameId, comment, rate, status } = req.body;
+    const {id} = req.params;
+    const { status } = req.body;
     try {
-        const editedProduct = await editReview(userId, videogameId, comment, rate, status);
+        const editedProduct = await editReview(id, status);
         res.status(200).json(editedProduct);
     } catch (error) {
         res.status(400).json({ error: "Error al editar las reviews", message: error });
