@@ -1,7 +1,7 @@
 const mercadopago = require("mercadopago");
 const { User, Review, Payment, Order } = require('../db');
 const { Videogame } = require('../models/Videogame');
-const { query } = require("express");
+const { mailer } = require("../services/mailService");
 const { generateOrder, approveOrder, rejectOrder } = require("./orders.controllers");
 const product = Videogame;
 mercadopago.configure({
@@ -48,7 +48,6 @@ const prod = req.body
       // para que no se puedan hacer pagos pendientes (rapipago, etc)
       binary_mode: true,
     };
-
      // 1. Crear la preferencia de pago
      return await mercadopago.preferences.create(preference).then((response) => {
 
@@ -59,25 +58,50 @@ const prod = req.body
   }
 };
 
+async function sendMail(customerId, orderId) {
+  // Send event to customer
+  try {
+    const customer = await User.findByPk(customerId);
+    const to = customer.email;
+    const subject = `HenryGameStore - Compra realizada con éxito. Pedido N° ${orderId}`;
+    const body = {
+        name: customer.firstname,  // Nombre del sitio
+        greeting: "Hola",
+        signature: "Saludos cordiales",
+        intro: `Hemos recibido el pago por su pedido N° ${orderId}.`,
+        outro: 
+          "Acceda con sus datos al sitio para ver el detalle de su pedido." 
+    }
+    await mailer(to, subject, body);
+  } catch (error) {
+     console.log(error);
+    // throw new ValidationError(
+    //     'Email notification error',
+    //     {
+    //         notificationError: constants.EMAIL_NOTIFICATION_ERROR
+    //     },
+    //     httpStatusCodes.INTERNAL_SERVER
+    // );
+  }
+}
+
 // para recibir la info del pago
 const getPaymentInfo = async (req, res, next) => {
   try{
   const userId = req.params.id
   const {query} = req
-  console.log(query)
   const payment_id = req.query["data.id"]
   const payment_switch = req.query.type
 
   if(payment_switch === "payment") {
     const payment = await mercadopago.payment.findById(payment_id);
-    console.log(payment)
     /* const paymentModel = await Payment.create({info : payment.body}) */
     
     if(payment.response.status === "approved"){
       let order_info = await generateOrder(userId)
       order_info = await approveOrder(order_info.id)
     /* order_info.paymentId = paymentModel.id */
-  
+      sendMail(userId, order_info.id)
     
     res.status(200).send({Order: order_info})
   }

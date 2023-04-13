@@ -1,19 +1,23 @@
 const nodemailer = require("nodemailer")
 var Mailgen = require('mailgen');
 
-/* // Configure mailgen by setting a theme and your product info
+
+
+async function mailer(to, subject, body){
+// Configure mailgen by setting a theme and your product info
+
 var mailGenerator = new Mailgen({
-    theme: 'default',
+    theme: 'cerberus',
     product: {
         // Appears in header & footer of e-mails
-        name: 'Mailgen',
-        link: 'https://mailgen.js/'
+        name: 'HenryGameStore',
+        link: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home'
         // Optional product logo
         // logo: 'https://mailgen.js/img/logo.png'
     }
 });
 
-var email = {
+/* var email = {
     body: {
         name: 'John',
         intro: 'Your email has been registered!',
@@ -27,44 +31,54 @@ var email = {
         },
         outro: 'Thank you for registering!'
     }
-};
+}; */
 
 
-var emailBody = mailGenerator.generate(email);
-var emailText = mailGenerator.generatePlaintext(email);
-var emailToSend = {
+
+
+var emailBody = mailGenerator.generate({body});
+var emailText = mailGenerator.generatePlaintext({body});
+/* var emailToSend = {
     from: 'pfgrupo3henry@gmail.com',
     to: 'tazza.personal@gmail.com', // <-- Direccion del destinatario
     subject: 'Confirm your email',
     html: emailBody,
     text: emailText
-};
+}; */
 
 
-let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'pfgrupo3henry@gmail.com', // Tu email
-        pass: 'henrygamestore' // Tu contraseña
+     let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+          user: "pfgrupo3henry@gmail.com", // generated ethereal user
+          pass: "nhdqnfcuiffjyavg", // generated ethereal password
+        },
+      });
+
+
+    
+      // send mail with defined transport object
+      let info = await transporter.sendMail({
+        from: '"HenryGameStore" <pfgrupo3henry@gmail.com>', // sender address
+        to: `${to}`, // list of receivers
+        subject: subject, // Subject line
+        text: emailText, // plain text body
+        html: emailBody, // html body
+      });
+
+      console.log(`(^-^) Email sent to ${to}`, info);
     }
-});
 
-// Enviar el correo electrónico
-transporter.sendMail(emailToSend, function(error, info) {
-    if (error) {
-        console.log(error);
-    } else {
-        console.log('Email sent: ' + info.response);
-    }
-});
- */
- 
+
+ module.exports = {mailer}
 
 // async..await is not allowed in global scope, must use a wrapper
 
 
   // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
+  /* let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
     secure: false, // true for 465, false for other ports
@@ -72,7 +86,5 @@ transporter.sendMail(emailToSend, function(error, info) {
       user: "noemie2@ethereal.email", // generated ethereal user
       pass: 'qPKtU3KpKNQb1Q7HXm', // generated ethereal password
     },
-  });
+  }); */
 
-
-transporter.verify().then(() => console.log("ready for send emails"))

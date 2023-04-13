@@ -34,11 +34,11 @@ const getVideogameById = async (req, res) => {
 };
 
 const modifyVideogameHandler = async (req, res) => {
-  const{ name, newName, description, img, platform, genre } = req.body;
+  const{ name, newName, description, img, platform, genre, price, stock } = req.body;
 
   try {
     const actualizado = await Videogame.update({
-      description: description, img: img
+      description: description, img: img, price: price, stock: stock
     },{
       where: { name: name }
     });
@@ -111,7 +111,8 @@ const modifyVideogameHandler = async (req, res) => {
       img: videogame.img,
       price: videogame.price,
       genre: videogame.genres[0].name,
-      platform: videogame.platforms[0].name
+      platform: videogame.platforms[0].name,
+      stock: videogame.stock
       } 
 
     res.status(201).json(videogame);
