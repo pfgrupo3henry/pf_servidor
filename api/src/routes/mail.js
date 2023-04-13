@@ -1,7 +1,7 @@
 const Router = require('express');
 const router = Router();
 const {createGenres, getGenres} = require('../controllers/genres.controllers');
-const nodemailer = require("nodemailer")
+const nodemailer = require("nodemailer");
 
 
 router.post("/", async(req,res)=> {
@@ -20,7 +20,7 @@ router.post("/", async(req,res)=> {
     
       // send mail with defined transport object
       let info = await transporter.sendMail({
-        from: '"Fred Foo 👻" <tazza.personal@gmail.com>', // sender address
+        from: '"HenryGameStore" <pfgrupo3henry@gmail.com>', // sender address
         to: `${email}`, // list of receivers
         subject: "Hello aguante el Barca✔", // Subject line
         text: "Hello world?", // plain text body
