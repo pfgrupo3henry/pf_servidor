@@ -11,6 +11,7 @@ const paymentRouter = require('./payment');
 const mailRouter = require('./mail');
 const usersOrders = require('./orders');
 const reviewRouter = require('./review');
+const webReviewRouter = require('./webReview');
 
 const router = Router();
 // Configurar los routers
@@ -24,12 +25,7 @@ router.use('/user', usersRouter);
 router.use('/favorites', favoritesRouter);
 router.use('/payment', paymentRouter);
 router.use('/review', reviewRouter);
-// router.use('/notification', (req, res) => {
-//     console.log("Notificar");
-//     const { body, query } = req;
-//     console.log({ body, query } );
-//     res.send();
-// });
+router.use('/webreview', webReviewRouter);
 router.use('/mail', mailRouter);
 
 module.exports = router;

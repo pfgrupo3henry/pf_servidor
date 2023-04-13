@@ -42,7 +42,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Videogame, Genre, Platform, User, Order, OrdersDetail , Review, Cart, Favorite, Payment } = sequelize.models;
+const { Videogame, Genre, Platform, User, Order, OrdersDetail , Review, Cart, Favorite, Payment, WebReview } = sequelize.models;
 
 User.prototype.isPasswordMatched= async(password, passwordFindUser)=>{
   const result= await bcrypt.compare(password, passwordFindUser);
@@ -78,6 +78,9 @@ User.hasOne(Favorite)
 
 User.hasMany(Review);
 Review.belongsTo(User, { foreignKey: 'userId', as: 'userInfo' });
+
+User.hasOne(WebReview);
+WebReview.belongsTo(User, { foreignKey: 'userId', as: 'userInfo' });
 
 Videogame.hasMany(Review);
 Review.belongsTo(Videogame, { foreignKey: 'videogameId' });
