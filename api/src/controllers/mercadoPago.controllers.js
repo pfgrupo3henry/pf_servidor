@@ -72,7 +72,6 @@ async function sendMail(customerId, orderId) {
         outro: 
           "Acceda con sus datos al sitio para ver el detalle de su pedido." 
     }
-    console.log({to: to}, {subject: subject}, {body: body})
     await mailer(to, subject, body);
   } catch (error) {
      console.log(error);
@@ -102,7 +101,6 @@ const getPaymentInfo = async (req, res, next) => {
       let order_info = await generateOrder(userId)
       order_info = await approveOrder(order_info.id)
     /* order_info.paymentId = paymentModel.id */
-    console.log("getPyamentInfo pa", {user: userId}, {order: order_info.id})
       sendMail(userId, order_info.id)
     
     res.status(200).send({Order: order_info})
