@@ -60,11 +60,12 @@ const getCart = async (req, res) => {
         gameInCart = {id: gameInCart.id, quantity: gameInCart.quantity + product.quantity}
         let newProducts = cart.products.filter(el => el.id !== gameInCart.id);
         newProducts = newProducts.concat(gameInCart)
+        newProducts.sort((a, b) => a.id - b.id);
         await cart.update({ products: newProducts });
       }
       else {
       let newProducts = cart.products.concat(product)
-
+      newProducts.sort((a, b) => a.id - b.id);
        await cart.update({ products: newProducts });
       }
       
