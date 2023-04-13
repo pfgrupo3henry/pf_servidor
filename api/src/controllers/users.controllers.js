@@ -22,18 +22,10 @@ const newUser = async (firstname, lastname, email, mobile, password, role, natio
 
     if(img){
     // Generate The output url    
-    const res = cloudinary.uploader.upload(`${img}`, {folder: "img_profile", public_email: `profile-${email}`})
-    // Upload
-    const url = cloudinary.url(`profile-${email}`, {
-      width: 400,
-      height: 400,
-      Crop: 'fill'
-    });
-    // https://res.cloudinary.com/<cloud_name>/image/upload/h_400,w_400/profile-email
-    
-    
-    img[0] = url
-}
+    const res = await cloudinary.uploader.upload(`${img[0]}`, {folder: "img_profile", public_id: `profile-${email}`})
+
+    img[0] = res.url
+    }
 
     const userPost = await User.create({
         firstname,
