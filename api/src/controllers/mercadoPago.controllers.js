@@ -38,12 +38,12 @@ const prod = req.body
       ],
       back_urls: {
         //rutas de acuerdo a como haya salido la transacion
-        success: 'http://localhost:3000/home',
-        failure: 'http://localhost:3000/home',
+        success: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
+        failure: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
         pending: '',
       },
       auto_return: "approved",
-      notification_url: `https://5e27-2800-810-451-848d-dd2b-a6f7-e4c9-4d07.ngrok-free.app/payment/${userId}`,
+      notification_url: `https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/payment/${userId}`,
       statement_descriptor: "Henry Game Store",
       // para que no se puedan hacer pagos pendientes (rapipago, etc)
       binary_mode: true,
