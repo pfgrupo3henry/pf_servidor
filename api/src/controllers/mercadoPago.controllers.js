@@ -43,7 +43,7 @@ const prod = req.body
         pending: '',
       },
       auto_return: "approved",
-      notification_url: `https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/payment/${userId}`,
+      notification_url: `https://pfservidor-production.up.railway.app/payment/${userId}`,
       statement_descriptor: "Henry Game Store",
       // para que no se puedan hacer pagos pendientes (rapipago, etc)
       binary_mode: true,
