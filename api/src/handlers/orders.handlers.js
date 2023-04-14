@@ -239,6 +239,12 @@ const succesOrder = async (req, res) => {
     order.status = "Completed Pay";
 
     await order.save();
+    // Obtener el objeto de la sesión del usuario
+    const session = req.session;
+    // Obtener el carrito de compras de la sesión del usuario
+    const cart = session.cart || [];
+    // Borrar el carrito de la sesión del usuario
+    delete session.cart;
 
     return res.status(200).json({
       message: "El estado de la orden se ha actualizado correctamente",
