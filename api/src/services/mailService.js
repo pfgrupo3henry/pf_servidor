@@ -1,10 +1,40 @@
 const nodemailer = require("nodemailer")
 var Mailgen = require('mailgen');
+const { Order, Videogame, OrdersDetail } = require("../db");
 
 
+ async function generateSaleTemplate(orderId) {
+
+  const order = await Order.findByPk(orderId, {include: [
+    {
+      model: Videogame,
+      through: {
+        model: OrdersDetail,
+        attributes: ["quantity", "subtotal"],
+      },
+    },
+  ]})
+  
+  let itemsBody = order.videogames.map(el => {
+    return {
+      Cantidad: el.OrdersDetail.quantity,
+      Juego: el.name,
+      xUnidad: "$" + el.price,
+      Valor: "$" + el.OrdersDetail.subtotal
+    }
+  })
+
+  itemsBody[itemsBody.length] = {
+    Cantidad: '',
+    Juego: '',
+    xUnidad: '',
+    Valor: "Total: $" + order.totalAmount.split(".")[0]}//el monto total trae un punto para indicar los centavos, aca se los sacamos debido a la devaluacion que sufrimos en la argentina ahr 
+
+
+    return itemsBody
+}
 
 async function mailer(to, subject, body){
-// Configure mailgen by setting a theme and your product info
 
 var mailGenerator = new Mailgen({
     theme: 'cerberus',
@@ -17,34 +47,8 @@ var mailGenerator = new Mailgen({
     }
 });
 
-/* var email = {
-    body: {
-        name: 'John',
-        intro: 'Your email has been registered!',
-        action: {
-            instructions: 'Click the button below to confirm your email:',
-            button: {
-                color: '#33b5e5',
-                text: 'Confirm your account',
-                link: 'https://example.com/confirm'
-            }
-        },
-        outro: 'Thank you for registering!'
-    }
-}; */
-
-
-
-
 var emailBody = mailGenerator.generate({body});
 var emailText = mailGenerator.generatePlaintext({body});
-/* var emailToSend = {
-    from: 'pfgrupo3henry@gmail.com',
-    to: 'tazza.personal@gmail.com', // <-- Direccion del destinatario
-    subject: 'Confirm your email',
-    html: emailBody,
-    text: emailText
-}; */
 
 
      let transporter = nodemailer.createTransport({
@@ -72,19 +76,6 @@ var emailText = mailGenerator.generatePlaintext({body});
     }
 
 
- module.exports = {mailer}
+ module.exports = {mailer, generateSaleTemplate}
 
-// async..await is not allowed in global scope, must use a wrapper
-
-
-  // create reusable transporter object using the default SMTP transport
-  /* let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: "noemie2@ethereal.email", // generated ethereal user
-      pass: 'qPKtU3KpKNQb1Q7HXm', // generated ethereal password
-    },
-  }); */
 
