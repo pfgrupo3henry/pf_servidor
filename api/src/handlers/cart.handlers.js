@@ -55,7 +55,7 @@ const getCart = async (req, res) => {
       }
       
       // Verificar si el usuario ha finalizado la compra
-      if (product.length === 0) {
+      if (product.length > 0) {
          await cart.update({ products: [] });
               res.status(200).send(cart);
          return;
