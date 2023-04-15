@@ -2,6 +2,15 @@ const { User, Review, Videogame } = require('../db');
 const { generateToken } = require('../config/jwtToken');
 const { generateRefreshToken } = require('../config/generateRefreshToken');
 const { hashPassword } = require ('../config/hashFunction');
+const cloudinary = require('cloudinary').v2;
+
+// Configuration 
+cloudinary.config({
+  cloud_name: "dapq4icmj",
+  api_key: "182849148671358",
+  api_secret: "LiNdU8c3mGXxCnRed_xiA9xQtLk"
+});
+
 
 const newUser = async (firstname, lastname, email, mobile, password, role, nationality, status, img) => {
     
@@ -9,6 +18,13 @@ const newUser = async (firstname, lastname, email, mobile, password, role, natio
   
     if(user) {
         throw new Error("This e-mail is already in use, please use another email")
+    }
+
+    if(img){
+    // Generate The output url    
+    const res = await cloudinary.uploader.upload(`${img[0]}`, {folder: "img_profile", public_id: `profile-${email}`})
+
+    img[0] = res.url
     }
 
     const userPost = await User.create({

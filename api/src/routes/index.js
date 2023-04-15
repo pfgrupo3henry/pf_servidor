@@ -12,6 +12,8 @@ const mailRouter = require('./mail');
 const usersOrders = require('./orders');
 const reviewRouter = require('./review');
 const chatbotRouter= require('./chatbot');
+const webReviewRouter = require('./webReview');
+
 const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -31,6 +33,7 @@ router.use('/chat', chatbotRouter);
 //     console.log({ body, query } );
 //     res.send();
 // });
+router.use('/webreview', webReviewRouter);
 router.use('/mail', mailRouter);
 
 module.exports = router;

@@ -1,78 +1,81 @@
 const nodemailer = require("nodemailer")
 var Mailgen = require('mailgen');
+const { Order, Videogame, OrdersDetail } = require("../db");
 
-/* // Configure mailgen by setting a theme and your product info
+
+ async function generateSaleTemplate(orderId) {
+
+  const order = await Order.findByPk(orderId, {include: [
+    {
+      model: Videogame,
+      through: {
+        model: OrdersDetail,
+        attributes: ["quantity", "subtotal"],
+      },
+    },
+  ]})
+  
+  let itemsBody = order.videogames.map(el => {
+    return {
+      Cantidad: el.OrdersDetail.quantity,
+      Juego: el.name,
+      xUnidad: "$" + el.price,
+      Valor: "$" + el.OrdersDetail.subtotal
+    }
+  })
+
+  itemsBody[itemsBody.length] = {
+    Cantidad: '',
+    Juego: '',
+    xUnidad: '',
+    Valor: "Total: $" + order.totalAmount.split(".")[0]}//el monto total trae un punto para indicar los centavos, aca se los sacamos debido a la devaluacion que sufrimos en la argentina ahr 
+
+
+    return itemsBody
+}
+
+async function mailer(to, subject, body){
+
 var mailGenerator = new Mailgen({
-    theme: 'default',
+    theme: 'cerberus',
     product: {
         // Appears in header & footer of e-mails
-        name: 'Mailgen',
-        link: 'https://mailgen.js/'
+        name: 'HenryGameStore',
+        link: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home'
         // Optional product logo
         // logo: 'https://mailgen.js/img/logo.png'
     }
 });
 
-var email = {
-    body: {
-        name: 'John',
-        intro: 'Your email has been registered!',
-        action: {
-            instructions: 'Click the button below to confirm your email:',
-            button: {
-                color: '#33b5e5',
-                text: 'Confirm your account',
-                link: 'https://example.com/confirm'
-            }
+var emailBody = mailGenerator.generate({body});
+var emailText = mailGenerator.generatePlaintext({body});
+
+
+     let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+          user: "pfgrupo3henry@gmail.com", // generated ethereal user
+          pass: "nhdqnfcuiffjyavg", // generated ethereal password
         },
-        outro: 'Thank you for registering!'
+      });
+
+
+    
+      // send mail with defined transport object
+      let info = await transporter.sendMail({
+        from: '"HenryGameStore" <pfgrupo3henry@gmail.com>', // sender address
+        to: `${to}`, // list of receivers
+        subject: subject, // Subject line
+        text: emailText, // plain text body
+        html: emailBody, // html body
+      });
+
+      console.log(`(^-^) Email sent to ${to}`, info);
     }
-};
 
 
-var emailBody = mailGenerator.generate(email);
-var emailText = mailGenerator.generatePlaintext(email);
-var emailToSend = {
-    from: 'pfgrupo3henry@gmail.com',
-    to: 'tazza.personal@gmail.com', // <-- Direccion del destinatario
-    subject: 'Confirm your email',
-    html: emailBody,
-    text: emailText
-};
+ module.exports = {mailer, generateSaleTemplate}
 
 
-let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'pfgrupo3henry@gmail.com', // Tu email
-        pass: 'henrygamestore' // Tu contraseña
-    }
-});
-
-// Enviar el correo electrónico
-transporter.sendMail(emailToSend, function(error, info) {
-    if (error) {
-        console.log(error);
-    } else {
-        console.log('Email sent: ' + info.response);
-    }
-});
- */
- 
-
-// async..await is not allowed in global scope, must use a wrapper
-
-
-  // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: "noemie2@ethereal.email", // generated ethereal user
-      pass: 'qPKtU3KpKNQb1Q7HXm', // generated ethereal password
-    },
-  });
-
-
-transporter.verify().then(() => console.log("ready for send emails"))

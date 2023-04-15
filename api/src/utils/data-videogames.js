@@ -1,7 +1,7 @@
 const videogames= [
 
     {
-        name: "A Way Out",
+        name: "A Way Out PS4",
         description: "Este título de acción y aventura se enfoca en la cooperación, con una trama centrada en las hazañas de dos prisioneros en fuga, Leo y Vincent, obligados a trabajar juntos para evitar a la policía y otros criminales. Para lograrlo deberán superar persecuciones en coche, pasajes sigilosos y combates cuerpo a cuerpo.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454264/Ps4/A%20Way%20Out/a-way-out-330x404_g6xu5s.jpg",
@@ -14,7 +14,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "A Way Out Retro",
+        name: "A Way Out PS5 Retro",
         description: "Este título de acción y aventura se enfoca en la cooperación, con una trama centrada en las hazañas de dos prisioneros en fuga, Leo y Vincent, obligados a trabajar juntos para evitar a la policía y otros criminales. Para lograrlo deberán superar persecuciones en coche, pasajes sigilosos y combates cuerpo a cuerpo.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454318/Ps5/A%20Way%20Out%20PS5%20Retro/a-way-out-ps5-retro-330x404_dhgoda.jpg",
@@ -27,7 +27,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Alien Isolation",
+        name: "Alien Isolation PS4",
         description: "En una atmósfera que incluye temor, peligro y un alienígena impredecible, los jugadores encarnan el papel de Amanda, quien lucha por sobrevivir y cumplir su objetivo de saber cuál es la verdad detrás de la desaparición de su madre.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454275/Ps4/Alien%20Isolation/alien-isolation-5_espz0u.png",
@@ -40,7 +40,7 @@ const videogames= [
         genre: "Acción"
       },
       {
-        name: "Alien Isolation",
+        name: "Alien Isolation PS3",
         description: "En una atmósfera que incluye temor, peligro y un alienígena impredecible, los jugadores encarnan el papel de Amanda, quien lucha por sobrevivir y cumplir su objetivo de saber cuál es la verdad detrás de la desaparición de su madre.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679454235/Ps3/Alien%20Isolation/alien-isolation-330x380_lo26fm.jpg",
@@ -366,7 +366,7 @@ const videogames= [
         genre: 'Multijugador'
       },
       {
-        name: "Call of Duty Black Ops 3",
+        name: "Call of Duty Black Ops 3 PS4",
         description: "En 2065, surge una nueva clase de soldados de operaciones encubiertas. Mientras tanto, la línea que separa a la humanidad de la alta tecnología robótica se vuelve difusa y afecta a los conflictos armados.",
         img: [
           "https://res.cloudinary.com/dapq4icmj/image/upload/v1679468797/Ps4/Call%20Of%20Duty%20Black%20Ops%203/Call-of-Duty-Black-Ops-3-330x404_jqybd6.jpg",
@@ -575,21 +575,7 @@ const videogames= [
         price: 23040,
         platform: "PS5",
         genre: "Infantiles"
-      },     {
-        name: "DUCATI 90th Anniversary PS5 Retro",
-        description: "Un juego totalmente dedicado a la emblemática marca Ducati acerca un juego que reúne a los modelos más emblemáticos de toda su historia. Los jugadores podrán elegir entre 39 modelos, 5 pistas, 8 circuitos oficiales y 7 épocas para redescubrir la historia detrás de cada moto.",
-        img: [
-          "https://res.cloudinary.com/dapq4icmj/image/upload/v1679511213/Ps5/DUCATI%2090th%20Anniversary/ducati-90th-anniversary-ps5-retro-330x404_kstpjc.jpg",
-          "https://res.cloudinary.com/dapq4icmj/image/upload/v1679511214/Ps5/DUCATI%2090th%20Anniversary/ducati-90th-anniversary_5-330x185_fc0qz6.jpg",
-          "https://res.cloudinary.com/dapq4icmj/image/upload/v1679511214/Ps5/DUCATI%2090th%20Anniversary/ducati-90th-anniversary_4-330x185_li5tbq.jpg",
-          "https://res.cloudinary.com/dapq4icmj/image/upload/v1679511213/Ps5/DUCATI%2090th%20Anniversary/ducati-90th-anniversary_2-330x185_fx3o0q.jpg"
-        ],
-        price: 3480,
-        platform: "PS5",
-        genre: "Acción"
-      },
-    
-
+      },  
     {
     
         name: "DUCATI 90th Anniversary",
@@ -618,7 +604,7 @@ const videogames= [
         
         name: "eFootball PES 2020 PS5 Retro",
         description: "Con nuevas licencias y equipos, esta entrega del juego logra recrear la capacidad de los jugadores de analizar los espacios alrededor de ellos y deslizarse por una línea defensiva que, de otro modo, sería impenetrable.",
-        img: ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679511214/Ps5/eFootball%20PES%202021/efootball-pes-2021-ps5-330x404_cpeudt.jpg"],
+        img: ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679511214/Ps5/eFootball%20PES%202020/efootball-pes-2020-ps5-retro-330x404_evr7uv.jpg"],
         price: 6800,
         platform : "PS5",
         genre: "Deportes"
@@ -760,7 +746,7 @@ const videogames= [
         genre: "Aventura"
     },{
         
-        name: "Five Nights at Freddys Security Breach",
+        name: "Five Nights at Freddys Security Breach PS5",
         description: "Esta nueva entrega de la saga de juegos de terror para toda la familia se desarrolla en Freddy Fazbears Mega Pizzaplex, con una variedad de atracciones para recorrer… incluso las alcantarillas. En la piel del joven Gregory, los jugadores contarán con la ayuda del mismísimo Freddy Fazbear para sobrevivir a una serie de amenazas terroríficas.",
         img: ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679511220/Ps5/Five%20Nights%20at%20Freddys%20Security%20Breach/five-nights-at-freddys-security-breach-ps5-330x404_ik3oed.jpg","https://res.cloudinary.com/dapq4icmj/image/upload/v1679511046/Ps4/Five%20Nights%20at%20Freddys%20Security%20Breach/five-nights-at-freddys-security-breach-1-330x186_pcabwv.jpg","https://res.cloudinary.com/dapq4icmj/image/upload/v1679511046/Ps4/Five%20Nights%20at%20Freddys%20Security%20Breach/five-nights-at-freddys-security-breach_2-330x186_nctiko.jpg","https://res.cloudinary.com/dapq4icmj/image/upload/v1679511046/Ps4/Five%20Nights%20at%20Freddys%20Security%20Breach/five-nights-at-freddys-security-breach_3-330x186_saldsw.jpg","https://res.cloudinary.com/dapq4icmj/image/upload/v1679511046/Ps4/Five%20Nights%20at%20Freddys%20Security%20Breach/five-nights-at-freddys-security-breach_5-330x186_tazc85.jpg","https://res.cloudinary.com/dapq4icmj/image/upload/v1679511046/Ps4/Five%20Nights%20at%20Freddys%20Security%20Breach/five-nights-at-freddys-security-breach_6-330x186_sc0hgr.jpg"],
         price: 14000,
@@ -984,7 +970,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "Rise of the Tomb Raider",
+        name: "Rise of the Tomb Raider PS5 Retro",
         description:"Con contenido y modos especiales, esta experiencia permite disfrutar de ambientes, trajes, armas y aventuras de una forma totalmente renovada. Los jugadores deberán acompañar a Lara Croft en su primera expedición a las remotas tierras de Siberia y ayudarla a cumplir su misión.",
         img:    ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333001/Ps5/Rise%20of%20the%20Tomb%20Raider%20-%20ps5/rise-of-the-tomb-raider-ps5-retro-330x404_rmvlo6.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333002/Ps5/Rise%20of%20the%20Tomb%20Raider%20-%20ps5/rise-of-the-tomb-raider_5-330x185_g1pwfb.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333001/Ps5/Rise%20of%20the%20Tomb%20Raider%20-%20ps5/rise-of-the-tomb-raider_4-330x185_e9ahfv.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333001/Ps5/Rise%20of%20the%20Tomb%20Raider%20-%20ps5/rise-of-the-tomb-raider_3-330x185_jenkid.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333001/Ps5/Rise%20of%20the%20Tomb%20Raider%20-%20ps5/rise-of-the-tomb-raider_2-330x185_rp8phd.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333001/Ps5/Rise%20of%20the%20Tomb%20Raider%20-%20ps5/rise-of-the-tomb-raider-1-330x185_o9kezk.jpg"],
         price:  10080 ,
@@ -1000,7 +986,7 @@ const videogames= [
         genre: "Deportes"
     },
     {
-        name: "Rocket League",
+        name: "Rocket League PS5",
         description: "Una experiencia híbrida que combina fútbol de estilo arcade con vehículos fáciles de controlar. Los jugadores deberán mostrar sus habilidades físicas para controlar un juego tan caótico como divertido, con opciones de personalización y modos de juego interminables.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333002/Ps5/Rocket%20League%20-%20ps5/rocket-league-ps5-retro-330x404_zzjseh.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333002/Ps5/Rocket%20League%20-%20ps5/rocket-league_5-330x185_slgqyp.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333002/Ps5/Rocket%20League%20-%20ps5/rocket-league_4-330x185_uctyrf.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333002/Ps5/Rocket%20League%20-%20ps5/rocket-league_2-330x185_jkdfme.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333002/Ps5/Rocket%20League%20-%20ps5/rocket-league_3-330x185_olrqdz.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333002/Ps5/Rocket%20League%20-%20ps5/rocket-league-330x185_mrjcri.jpg"],
         price:  6800 ,
@@ -1016,7 +1002,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "Saint Seiya Soldiers Soul",
+        name: "Saint Seiya Soldiers Soul PS4",
         description: "Esta aventura junto a los Caballeros del Zodíaco combina los personajes más famosos del animé con enfrentamientos estilo arcade 3D. Los jugadores podrán elegir a su guerrero favorito para terminar con un nuevo enemigo que se presenta tras los sucedido en la Saga de Hades.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333063/Ps4/Saint%20Seiya%20Soldiers%20Soul%20-%20ps4/saint-seiya-soldiers-soul-330x411_km0kmb.jpg"],
         price:  19800 ,
@@ -1024,7 +1010,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "Saint Seiya Soldiers Soul",
+        name: "Saint Seiya Soldiers Soul PS5 Retro",
         description: "Esta aventura junto a los Caballeros del Zodíaco combina los personajes más famosos del animé con enfrentamientos estilo arcade 3D. Los jugadores podrán elegir a su guerrero favorito para terminar con un nuevo enemigo que se presenta tras los sucedido en la Saga de Hades.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333003/Ps5/Saint%20Seiya%20Soldiers%20Soul%20-%20ps5/saint-seiya-soldiers-soul-ps5-retro-330x404_ssbaol.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333003/Ps5/Saint%20Seiya%20Soldiers%20Soul%20-%20ps5/saint-seiya-soldiers-soul_5-330x185_kotia9.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333003/Ps5/Saint%20Seiya%20Soldiers%20Soul%20-%20ps5/saint-seiya-soldiers-soul_4-330x185_h1cod4.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333003/Ps5/Saint%20Seiya%20Soldiers%20Soul%20-%20ps5/saint-seiya-soldiers-soul_3-330x185_srbvv2.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333003/Ps5/Saint%20Seiya%20Soldiers%20Soul%20-%20ps5/saint-seiya-soldiers-soul_2-330x185_pcdevx.jpg","https://res.cloudinary.com/dapq4icmj/image/upload/v1679333002/Ps5/Saint%20Seiya%20Soldiers%20Soul%20-%20ps5/saint-seiya-soldiers-soul-1-330x185_eumlnf.jpg"],
         price:  19600 ,
@@ -1064,7 +1050,7 @@ const videogames= [
         genre: "Aventura"
     },
     {
-        name: "Spyro Reignited Trilogy",
+        name: "Spyro Reignited Trilogy PS5",
         description: "Esta trilogía remasterizada revive las aventuras del dragón más famoso con Spyro The Dragon, Spyro 2 y Spyro Año del Dragón. Los jugadores acompañarán al protagonista en divertidas aventuras para sortear obstáculos inesperados y salvar a todo un reino que depende de él.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333010/Ps5/Spyro%20Reignited%20Trilogy%20-%20ps5/spyro-reignited-trilogyps5-retro-330x404_qr137e.jpg"],
         price:  13120,
@@ -1088,7 +1074,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "STAR WARS Battlefront 2",
+        name: "STAR WARS Battlefront 2 PS5 Retro",
         description: "Una aventura en medio de las Guerras Clon que combina batallas terrestres, invasiones y destrucción. En entornos desafiantes y abiertos, los jugadores podrán emplear una amplia variedad de tácticas, soldados y vehículos para atacar, defender y dominar distintas zonas.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333010/Ps5/STAR%20WARS%20Battlefront%202%20-%20ps5/star-wars-battlefront-2-ps5-retro-330x404_ikrst1.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333013/Ps5/STAR%20WARS%20Battlefront%202%20-%20ps5/star-wars-battlefront-2_2-330x185_mddhho.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333011/Ps5/STAR%20WARS%20Battlefront%202%20-%20ps5/star-wars-battlefront-2_5-330x185_ny8l6t.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333011/Ps5/STAR%20WARS%20Battlefront%202%20-%20ps5/star-wars-battlefront-2_4-330x185_q3fpyt.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333011/Ps5/STAR%20WARS%20Battlefront%202%20-%20ps5/star-wars-battlefront-2_3-330x185_mqltff.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333010/Ps5/STAR%20WARS%20Battlefront%202%20-%20ps5/star-wars-battlefront-2-330x185_jctwuf.jpg"],
         price:  6800,
@@ -1112,7 +1098,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "The Evil Within",
+        name: "The Evil Within PS5 Retro",
         description: "Una historia intrincada con entornos altamente elaborados y realistas garantizan una experiencia integral de horror. Los jugadores vivirán la tensión junto al detective Sebastian Castellanos quien descubrirá un misterioso secreto que lo dejará inmerso en una pesadilla de la que sólo saldrá vivo si emplea estratégicamente los pocos recursos disponibles.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333025/Ps5/The%20Evil%20Within%20-%20ps5/the-evil-within-ps5-retro-330x404_wsikyy.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333020/Ps5/The%20Evil%20Within%20-%20ps5/the-evil-within_4-330x185_dqinym.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333019/Ps5/The%20Evil%20Within%20-%20ps5/the-evil-within-330x185_kgtcuo.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333019/Ps5/The%20Evil%20Within%20-%20ps5/the-evil-within_2-330x185_nhrh7f.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333019/Ps5/The%20Evil%20Within%20-%20ps5/the-evil-within_3-330x185_o5gsma.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333019/Ps5/The%20Evil%20Within%20-%20ps5/the-evil-within_5-330x185_njluf7.jpg"],
         price:  6680,
@@ -1128,7 +1114,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "The Forest",
+        name: "The Forest PS5",
         description: "Como el único superviviente de un accidente de avión de pasajeros, el jugador se encontrará en un bosque misterioso luchando por mantenerse con vida contra una sociedad de mutantes caníbales. Deberá construir, explorar y sobrevivir en este aterrador simulador de terror de supervivencia en primera persona.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333024/Ps5/The%20Forest%20-%20ps5/the-forest-ps5-retro-330x404_uhbxl5.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333019/Ps5/The%20Forest%20-%20ps5/38951Ruins_In_The_Forest-330x186_swtquu.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333019/Ps5/The%20Forest%20-%20ps5/forest-2-330x186_vjqgry.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333018/Ps5/The%20Forest%20-%20ps5/the-forest-11-330x186_fie8gq.jpg"],
         price:  6680,
@@ -1144,7 +1130,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "The King of Fighters 2000",
+        name: "The King of Fighters 2000 PS5 Retro",
         description: "Los jugadores se pondrán en la piel de sus luchadores favoritos para protagonizar enfrentamientos apasionantes y frenar los ambiciosos planes de NESTS de controlar el mundo.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333029/Ps5/The%20King%20of%20Fighters%202000%20-%20ps5/the-king-of-fighters-2000-ps5-retro-330x404_cl4b3v.jpg"],
         price:  3480,
@@ -1160,7 +1146,7 @@ const videogames= [
         genre: "Multijugador"
     },
     {
-        name: "The King Of Fighters XV",
+        name: "The King Of Fighters XV PS5",
         description: "Los jugadores se pondrán en la piel de sus luchadores favoritos para protagonizar enfrentamientos apasionantes y frenar los ambiciosos planes de NESTS de controlar el mundo.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333024/Ps5/The%20King%20Of%20Fighters%20XV%20-%20ps5/the-king-of-fighters-xv-ps5-330x404_z0prca.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333022/Ps5/The%20King%20Of%20Fighters%20XV%20-%20ps5/the-king-of-fighters-xv-1-330x198_zjxzqg.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333021/Ps5/The%20King%20Of%20Fighters%20XV%20-%20ps5/the-king-of-fighters-xv_3-330x186_xlw7xq.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333021/Ps5/The%20King%20Of%20Fighters%20XV%20-%20ps5/the-king-of-fighters-xv_5-330x179_ecud6z.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333020/Ps5/The%20King%20Of%20Fighters%20XV%20-%20ps5/the-king-of-fighters-xv_4-330x144_pvv6u1.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333019/Ps5/The%20King%20Of%20Fighters%20XV%20-%20ps5/the-king-of-fighters-xv_2-330x186_t7w9mo.jpg"],
         price:  19600,
@@ -1176,7 +1162,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "Tom Clancys RainbowSix Siege",
+        name: "Tom Clancys RainbowSix Siege PS5",
         description: "Un shooter emocionante para disfrutar de escenarios bélicos en múltiples modalidades de juego. Los jugadores podrán vivir el caos terrorista desde la perspectiva del orden o desde el propio terrorismo y potenciar sus habilidades de estrategias y uso de armas según esa elección.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333049/Ps5/Tom%20Clancys%20RainbowSix%20Siege%20-%20ps5/tom-clancys-rainbow-six-siege-ps5-retro-330x404_bhdea9.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333029/Ps5/Tom%20Clancys%20RainbowSix%20Siege%20-%20ps5/tom-clancys-rainbowsix-siege_2-330x185_inndqe.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333029/Ps5/Tom%20Clancys%20RainbowSix%20Siege%20-%20ps5/tom-clancys-rainbowsix-siege_5-330x185_uugqan.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333029/Ps5/Tom%20Clancys%20RainbowSix%20Siege%20-%20ps5/tom-clancys-rainbowsix-siege-1-330x185_uorygs.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333028/Ps5/Tom%20Clancys%20RainbowSix%20Siege%20-%20ps5/tom-clancys-rainbowsix-siege_4-330x185_eyuifg.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333028/Ps5/Tom%20Clancys%20RainbowSix%20Siege%20-%20ps5/tom-clancys-rainbowsix-siege_3-330x185_avm9hs.jpg"],
         price:  13120,
@@ -1209,7 +1195,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "Tom Clancys The Division 2",
+        name: "Tom Clancys The Division 2 PS5 Retro",
         description: "La segunda parte de la saga brinda una experiencia de juego de rol y acción en un mundo abierto, dinámico y hostil. En misiones cooperativas online, los jugadores deberán salvar un país al borde del colapso y restablecer el orden junto con un equipo de agentes de elite.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333029/Ps5/Tom%20Clancys%20The%20Division%202%20-%20ps5/tom-clancys-the-division-2-ps5-330x404_a9eksk.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333033/Ps5/Tom%20Clancys%20The%20Division%202%20-%20ps5/tom-clancys-the-division-2_7-330x185_mdcwwx.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333030/Ps5/Tom%20Clancys%20The%20Division%202%20-%20ps5/tom-clancys-the-division-2_6-330x185_uihwxy.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333030/Ps5/Tom%20Clancys%20The%20Division%202%20-%20ps5/tom-clancys-the-division-2_5-330x185_plozoe.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333030/Ps5/Tom%20Clancys%20The%20Division%202%20-%20ps5/tom-clancys-the-division-2_4-330x185_km9m0z.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333030/Ps5/Tom%20Clancys%20The%20Division%202%20-%20ps5/tom-clancys-the-division-2_8-330x185_zqukvz.jpg"],
         price:  10080,
@@ -1217,7 +1203,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "Tom Clancys The Division",
+        name: "Tom Clancys The Division PS5 Retro",
         description: "Una guerra moderna es el escenario de la primera entrega de esta aventura de acción protagonizada por un escuadrón de elite. Los jugadores se enfrentarán a un devastador virus que se extiende por todo Nueva York y amenaza con hacer desaparecer la ciudad y todo lo que habita en ella.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333041/Ps5/Tom%20Clancys%20The%20Division%20-%20ps5/tom-clancys-the-division-ps5-retro-330x404_en4eos.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333031/Ps5/Tom%20Clancys%20The%20Division%20-%20ps5/tom-clancys-the-division_4-330x185_mxw1zx.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333030/Ps5/Tom%20Clancys%20The%20Division%20-%20ps5/tom-clancys-the-division_5-330x185_m1ges3.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333030/Ps5/Tom%20Clancys%20The%20Division%20-%20ps5/tom-clancys-the-division_3-330x185_wtfe16.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333028/Ps5/Tom%20Clancys%20The%20Division%20-%20ps5/tom-clancys-the-division_2-330x185_bx0hjp.jpg"],
         price:  10080,
@@ -1249,7 +1235,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "Watch Dogs 2",
+        name: "Watch Dogs 2 PS5",
         description: "En esta entrega, un nuevo protagonista dará vida a las aventuras más emocionantes por las calles de San Francisco. Los jugadores se pondrán en la piel del brillante hacker Marcus Holloway, quien será más partícipe de la cultura del hacktivismo que de persecuciones y tiroteos como en su precuela.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333040/Ps5/Watch%20Dogs%202%20-%20ps5/watch-dogs-2-ps5-retro-330x404_qp3gro.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333041/Ps5/Watch%20Dogs%202%20-%20ps5/watch-dogs-2-1-330x185_nmwpau.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333039/Ps5/Watch%20Dogs%202%20-%20ps5/watch-dogs-2_4-330x185_qnvmx3.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333038/Ps5/Watch%20Dogs%202%20-%20ps5/watch-dogs-2_5-330x185_lkf53k.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333038/Ps5/Watch%20Dogs%202%20-%20ps5/watch-dogs-2_3-330x185_idrcub.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333038/Ps5/Watch%20Dogs%202%20-%20ps5/watch-dogs-2_2-330x185_nadiej.jpg"],
         price:  16360,
@@ -1257,7 +1243,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "Watch Dogs Legion ",
+        name: "Watch Dogs Legion",
         description: "En esta entrega, Londres se encuentra en un futuro cercano frente a una pesadilla tecnológica. Los jugadores deberán construir una resistencia y devolver la ciudad a la gente, con personajes únicos que tienen su propia historia de fondo y conjunto de habilidades.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333071/Ps4/Watch%20Dogs%20Legion%20-%20ps4/Watch-Dogs-Legion-330x404_rigclx.jpg"],
         price:  19600,
@@ -1265,7 +1251,7 @@ const videogames= [
         genre: "Aventura"
     },
     {
-        name: "Watch Dogs Legion ",
+        name: "Watch Dogs Legion PS5",
         description: "En esta entrega, Londres se encuentra en un futuro cercano frente a una pesadilla tecnológica. Los jugadores deberán construir una resistencia y devolver la ciudad a la gente, con personajes únicos que tienen su propia historia de fondo y conjunto de habilidades.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333039/Ps5/Watch%20Dogs%20Legion%20-%20ps5/Watch-Dogs-Legion-PS5-330x404_fofpt6.jpg"],
         price:  19600,
@@ -1273,7 +1259,7 @@ const videogames= [
         genre: "Aventura"
     },
     {
-        name: "Watch Dogs",
+        name: "Watch Dogs PS5 Retro",
         description: "Una historia protagonizada por un brillante hacker y un pasado criminal que ocultar. En un futuro cercano, los jugadores darán vida a Aiden Pearce y sus aventuras por las calles de Chicago donde deberá sobrevivir a peligrosos enemigos unidos en una enorme conspiración en su contra.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333042/Ps5/Watch%20Dogs%20-%20ps5/watch-dogs-ps5-retro-330x404_a32vvq.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333038/Ps5/Watch%20Dogs%20-%20ps5/watch-dogs_4-330x185_gy3ayx.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333038/Ps5/Watch%20Dogs%20-%20ps5/watch-dogs_3-330x185_dyqxxr.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333037/Ps5/Watch%20Dogs%20-%20ps5/watch-dogs_2-330x185_mzbo1b.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333037/Ps5/Watch%20Dogs%20-%20ps5/watch-dogs_5-330x185_zzoi2z.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333037/Ps5/Watch%20Dogs%20-%20ps5/watch-dogs-330x185_qijimage.jpg"],
         price:  6800,
@@ -1289,7 +1275,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "Wolfenstein 2 The New Colossus",
+        name: "Wolfenstein 2 The New Colossus PS5 Retro",
         description: "Esta secuela se ambienta en los Estados Unidos de la época nazi y busca reunir a los líderes de la resistencia más audaces. En la piel de BJ Blazkowicz, los jugadores deberán ser los mejores en sus habilidades tácticas para destruir a quienes sembraron miedo y caos en el mundo.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333041/Ps5/Wolfenstein%202%20The%20New%20Colossus%20-%20ps5/wolfenstein-2-the-new-colossus-ps5-retro-330x404_fw3jcz.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333048/Ps5/Wolfenstein%202%20The%20New%20Colossus%20-%20ps5/wolfenstein-2-the-new-colossus_2-330x185_vma1uj.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333045/Ps5/Wolfenstein%202%20The%20New%20Colossus%20-%20ps5/wolfenstein-2-the-new-colossus_3-330x185_rgx03x.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333044/Ps5/Wolfenstein%202%20The%20New%20Colossus%20-%20ps5/wolfenstein-2-the-new-colossus-330x185_vhzvzb.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333042/Ps5/Wolfenstein%202%20The%20New%20Colossus%20-%20ps5/wolfenstein-2-the-new-colossus_5-330x185_u0fizn.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333042/Ps5/Wolfenstein%202%20The%20New%20Colossus%20-%20ps5/wolfenstein-2-the-new-colossus_4-330x185_q2ufge.jpg"],
         price:  13120,
@@ -1313,7 +1299,7 @@ const videogames= [
         genre: "Conducción"
     },
     {
-        name: "Sebastien Loeb Rally EVO",
+        name: "Sebastien Loeb Rally EVO PS5",
         description: "Con leyendas del pasado, como Stratos y Celica, hasta auténticas joyas modernas, como Citroën DS3 y C4, hay 186 millas de pistas por recorrer. Los jugadores podrán disfrutarlas en 58 autos y 5 circuitos para revivir los éxitos del 9 veces campeón del mundo.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333003/Ps5/Sebastien%20Loeb%20Rally%20EVO%20-%20ps5/sebastien-loeb-rally-evo-ps5-retro-330x404_yhhjza.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333004/Ps5/Sebastien%20Loeb%20Rally%20EVO%20-%20ps5/sebastien-loeb-rally-evo_5-330x185_phyk0v.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333004/Ps5/Sebastien%20Loeb%20Rally%20EVO%20-%20ps5/sebastien-loeb-rally-evo_4-330x185_g1lf9b.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333004/Ps5/Sebastien%20Loeb%20Rally%20EVO%20-%20ps5/sebastien-loeb-rally-evo_3-330x185_ocemkv.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333004/Ps5/Sebastien%20Loeb%20Rally%20EVO%20-%20ps5/sebastien-loeb-rally-evo_2-330x185_wq6ce1.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333003/Ps5/Sebastien%20Loeb%20Rally%20EVO%20-%20ps5/sebastien-loeb-rally-evo-330x185_io4xzh.jpg"],
         price:  6800,
@@ -1329,7 +1315,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "Sekiro Shadows Die Twice",
+        name: "Sekiro Shadows Die Twice PS5",
         description: "Esta gran aventura es protagonizada por un guerrero rescatado del borde de la muerte. Los jugadores deberán ayudarlo a salvar a su joven amo mientras busca la venganza y se enfrenta en combates sigilosos y sangrientos con enemigos letales.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333004/Ps5/Sekiro%20Shadows%20Die%20Twice%20-%20ps5/sekiro-shadows-die-twice-ps5-330x404_akw9gj.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333005/Ps5/Sekiro%20Shadows%20Die%20Twice%20-%20ps5/sekiro-shadows-die-twice_4-330x185_flkxja.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333005/Ps5/Sekiro%20Shadows%20Die%20Twice%20-%20ps5/sekiro-shadows-die-twice_5-330x185_azjsa5.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333004/Ps5/Sekiro%20Shadows%20Die%20Twice%20-%20ps5/sekiro-shadows-die-twice_3-330x185_xivjov.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333004/Ps5/Sekiro%20Shadows%20Die%20Twice%20-%20ps5/sekiro-shadows-die-twice_2-330x185_allp68.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333004/Ps5/Sekiro%20Shadows%20Die%20Twice%20-%20ps5/sekiro-shadows-die-twice-330x185_igeebx.jpg"],
         price:  25080,
@@ -1345,7 +1331,7 @@ const videogames= [
         genre: "Aventura"
     },
     {
-        name: "Tomb Raider Definitive Edition",
+        name: "Tomb Raider Definitive Edition PS5",
         description: "Esta edición definitiva trae a Lara Croft con un nivel de detalle inédito. En escenarios hiperrealistas, los jugadores podrán experimentar los combates y la aventura de supervivencia como nunca antes, disfrutando de los clásicos arsenales de armas y equipos para cumplir importantes misiones.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333041/Ps5/Tomb%20Raider%20Definitive%20Edition%20-%20ps5/tomb-raider-definitive-edition-ps5-retro-330x404_pws6hg.jpg"],
         price:  6800,
@@ -1361,7 +1347,7 @@ const videogames= [
         genre: "Deportes"
     },
     {
-        name: "Tony Hawks Pro Skater 1 y 2",
+        name: "Tony Hawks Pro Skater 1 y 2 PS5",
         description: "En esta remasterización de una colección épica, los jugadores patinarán como el legendario Tony Hawk y otros profesionales, tanto originales como nuevos. Podrán llevar el skate al límite, hacer combinaciones de trucos y competir mostrando su propio estilo.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333031/Ps5/Tony%20Hawks%20Pro%20Skater%201%20y%202%20-%20ps5/tony-hawks-pro-skater-1-y-2-ps5-retro-330x404_pnkwnp.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333031/Ps5/Tony%20Hawks%20Pro%20Skater%201%20y%202%20-%20ps5/tony-hawks-pro-skater-1-y-2_5-330x185_cpks8s.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333031/Ps5/Tony%20Hawks%20Pro%20Skater%201%20y%202%20-%20ps5/tony-hawks-pro-skater-1-y-2_4-330x185_vwxudb.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333031/Ps5/Tony%20Hawks%20Pro%20Skater%201%20y%202%20-%20ps5/tony-hawks-pro-skater-1-y-2_2-330x185_xrufwg.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333030/Ps5/Tony%20Hawks%20Pro%20Skater%201%20y%202%20-%20ps5/tony-hawks-pro-skater-1-y-2_3-330x185_wv1rm3.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333030/Ps5/Tony%20Hawks%20Pro%20Skater%201%20y%202%20-%20ps5/tony-hawks-pro-skater-1-y-2-330x185_l1xty2.jpg"],
         price: 13120,
@@ -1377,7 +1363,7 @@ const videogames= [
         genre: "Acción"
     },
     {
-        name: "Uncharted 4",
+        name: "Uncharted 4 PS5",
         description: "El cazafortunas Nathan Drake regresa junto con su hermano Sam en una aventura que incluye conspiraciones, tesoros piratas y robos. Los jugadores deben explorar islas, ciudades y montañas mientras ponen a prueba sus límites físicos para dar con la fortuna perdida del capitán Henry Avery.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333031/Ps5/Uncharted%204%20-%20ps5/uncharted-4-ps5-retro-330x404_zq1i2h.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333033/Ps5/Uncharted%204%20-%20ps5/uncharted-4_5-330x185_pqtoz3.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333032/Ps5/Uncharted%204%20-%20ps5/uncharted-4-1-330x185_lsggd8.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333032/Ps5/Uncharted%204%20-%20ps5/uncharted-4_4-330x185_jnjvnd.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333032/Ps5/Uncharted%204%20-%20ps5/uncharted-4_3-330x185_se8au6.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333032/Ps5/Uncharted%204%20-%20ps5/uncharted-4_2-330x185_vclzma.jpg"],
         price: 6800,
@@ -1393,7 +1379,7 @@ const videogames= [
         genre: "Aventura"
     },
     {
-        name: "World of Final Fantasy",
+        name: "World of Final Fantasy PS5",
         description: "Aventuras de acción y combate tienen lugar en Grymoire, un encantador mundo de fantasía. Junto a los gemelos Reynn y Lann, los jugadores deberán explorar lugares desconocidos en busca de criaturas con las que combatir en intensas batallas.",
         img:   ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333050/Ps5/World%20of%20Final%20Fantasy%20-%20ps5/world-of-final-fantasy-ps5-retro-330x404_cqudxn.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333050/Ps5/World%20of%20Final%20Fantasy%20-%20ps5/world-of-final-fantasy_5-330x185_w6cxgz.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333047/Ps5/World%20of%20Final%20Fantasy%20-%20ps5/world-of-final-fantasy-330x185_lmjr6o.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333043/Ps5/World%20of%20Final%20Fantasy%20-%20ps5/world-of-final-fantasy_2-330x185_jyklg8.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333042/Ps5/World%20of%20Final%20Fantasy%20-%20ps5/world-of-final-fantasy_3-330x185_dszqtg.jpg", "https://res.cloudinary.com/dapq4icmj/image/upload/v1679333042/Ps5/World%20of%20Final%20Fantasy%20-%20ps5/world-of-final-fantasy_4-330x185_ix36li.jpg"],
         price: 8440,
@@ -1417,7 +1403,7 @@ const videogames= [
         genre: "Acción"
     },
     { 
-      name: "Mafia Trilogy" ,
+      name: "Mafia Trilogy PS5" ,
       description: "Esta trilogía de acción y venganza, incluye las ediciones definitivas y remasterizadas tanto de los juegos principales como de los DLC de Mafia, Mafia II y Mafia III, donde los jugadores vivirán la vida de un gángster en tres épocas distintas del crimen organizado en Estados Unidos.",
       img: ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332956/Ps5/Mafia%20Trilogy%20-%20ps5/mafia-trilogy-ps5-retro-330x404_duyhld.jpg"],
       price: 19600,
@@ -1441,7 +1427,7 @@ const videogames= [
       genre: "Acción" 
     },
     {
-      name: "Marvel Spider Man" ,
+      name: "Marvel Spider Man PS5" ,
       description: "Con un impactante realismo en los ambientes y un experimentado Peter Parker en la lucha contra el crimen, el juego brinda un enfoque completamente nuevo de la historia del hombre araña. Los jugadores podrán disfrutar de la mejor experiencia en combate de improvisación, acrobacias dinámicas e interacciones con el ambiente.",
       img: ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332957/Ps5/Marvel%20Spider%20Man%20-%20ps5/marvel-spider-man-ps5-330x404_nijkbo.jpg"],
       price: 13120,
@@ -1449,7 +1435,7 @@ const videogames= [
       genre: "Acción" 
     },
     {
-      name: "Marvel Spider Man Miles Morales" ,
+      name: "Marvel Spider Man Miles Morales PS5" ,
       description: "Para salvar a toda Nueva York, Miles Morales deberá tomar en serio su rol como un nuevo Spider-Man. Los jugadores se encontrarán con excepcionales efectos de audio y una mecánica de combate alucinante y divertida, junto con un esquema de progresión que permitirá desarrollar sus habilidades.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332957/Ps5/Marvel%20Spider%20Man%20Miles%20Morales%20-%20ps5/marvel-spider-man-miles-morales-ps5-330x404_qts4pt.jpg",
@@ -1491,7 +1477,7 @@ const videogames= [
       genre: "Acción" 
     },
     {
-      name: "Marvel vs Capcom Infinite" ,
+      name: "Marvel vs Capcom Infinite PS5" ,
       description: "Los héroes de cada universo se reúnen para luchar contra el plan de Ultron Sigma de terminar con la vida en la Tierra. Ya sea como Iron Man, Capitán América, Ryu o Mega Man X, los jugadores podrán disfrutar enfrentamientos de jugador contra jugador llenos de acción y alianzas imprevisibles.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332957/Ps5/Marvel%20vs%20Capcom%20Infinite%20-%20ps5/marvel-vs-capcom-infinite-ps5-retro-330x404_yeoup1.jpg",
@@ -1519,7 +1505,7 @@ const videogames= [
       genre: "Aventura"
     },
     {
-      name: "Monster Hunter World" ,
+      name: "Monster Hunter World PS5" ,
       description: "Un cazador, junto a al dragón Zorah Magdaros, se enfrentan a monstruos feroces en un ecosistema viviente. Recorriendo el Nuevo Mundo, los jugadores necesitarán derrotar a peligrosas criaturas para construir, con sus partes, nuevas armas y armaduras y sobrevivir a esta aventura.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332964/Ps5/Monster%20Hunter%20World%20-%20ps5/monster-hunter-world-ps5-retro-330x404_ykzvht.jpg",
@@ -1533,7 +1519,7 @@ const videogames= [
       genre: "Aventura"
     },
     {
-      name: "Mortal Kombat 11" ,
+      name: "Mortal Kombat 11 PS5" ,
       description: "Con actualizaciones de su apartado visual y técnico, esta entrega muestra cada momento de la lucha, acercando a los jugadores tanto a la pelea que pueden sentirla. Presentando una lista de luchadores nuevos y clásicos, Mortal Kombat 11 mejora una saga épica de más de 25 años de historia.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332964/Ps5/Mortal%20Kombat%2011%20-%20ps5/Mortal-Kombat-11-PS5-330x404_z8hvhc.jpg",
@@ -1584,7 +1570,7 @@ const videogames= [
       genre: "Acción"
     },
     {
-      name: "NBA 2K23" ,
+      name: "NBA 2K23 PS5" ,
       description: "NBA 2K23 permitirá a los jugadores desarrollar todo su potencial en el mundo del básquet. Podrán combinar a los All-Stars de hoy con leyendas atemporales en MyTEAM o llevar a la NBA en una nueva dirección con MyLEAGUE. Además, deberán dominar la cancha en cada temporada de la NBA o la WNBA.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332972/Ps5/NBA%202K23%20-%20ps5/nba-2k23-ps5-retro-330x404_uvk8lx.jpg",
@@ -1625,7 +1611,7 @@ const videogames= [
       genre: "Conducción"
     },
     {
-      name: "Need For Speed" ,
+      name: "Need For Speed PS5" ,
       description: "Las carreras y persecuciones urbanas son la marca registrada de esta saga. En esta entrega, los jugadores podrán disfrutar de un enorme mundo abierto para probar sus habilidades de manejo con múltiples modos de juego y expresar un estilo único con sus autos gracias a las variadas opciones de personalización.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332973/Ps5/Need%20For%20Speed%20-%20ps5/need-for-speed-ps5-330x404_maoio9.jpg",
@@ -1638,7 +1624,7 @@ const videogames= [
       genre: "Conducción"
     },
     {
-      name: "Nickelodeon All Star Brawl" ,
+      name: "Nickelodeon All Star Brawl PS5" ,
       description: "Un poderoso elenco de héroes del universo de Nickelodeon reúne a las estrellas de Bob Esponja, Las Tortugas Ninja, Hey Arnold!, Rugrats y más para determinar el dominio definitivo de la animación. Con movimientos y ataques únicos inspirados en sus personalidades, cada personaje tiene un estilo de juego individual que permite una acción sin fin.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332976/Ps5/Nickelodeon%20All%20Star%20Brawl%20-%20ps5/nickelodeon-all-star-brawl-ps5-330x404_ontxmn.jpg",
@@ -1666,7 +1652,7 @@ const videogames= [
       genre: "Infantiles"
     },
     {
-      name: "Need for Speed Heat" ,
+      name: "Need for Speed Heat PS5" ,
       description: "Las persecuciones urbanas son la marca registrada de esta saga. En esta entrega, los jugadores vivirán la adrenalina en las pistas con carreras legales durante el día y lo arriesgarán todo en circuitos ilegales durante la noche con impresionantes opciones de personalización de sus autos.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332974/Ps5/Need%20for%20Speed%20Heat%20-%20ps5/need-for-speed-heat-ps5-330x404_cmwl99.jpg",
@@ -1709,7 +1695,7 @@ const videogames= [
       genre: "Acción"
     },
     {
-      name: "No Mans Sky" ,
+      name: "No Mans Sky PS5" ,
       description: "Esta aventura épica de ciencia ficción está ambientada en un universo infinito, con mundos nunca antes vistos y formas de vida únicas. El viaje estará lleno de peligros, encontrando criaturas hostiles y feroces piratas. Ya sea que los jugadores decidan pelear, comerciar o explorar, cada decisión que tomen tendrá consecuencias en el cosmos.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332977/Ps5/No%20Mans%20Sky%20-%20ps5/no-man-s-sky-ps5-retro-330x404_gsub2v.jpg",
@@ -1724,7 +1710,7 @@ const videogames= [
       genre: "Acción"
     },
     {
-      name: "Outlast 2" ,
+      name: "Outlast 2 PS5" ,
       description: "En la piel del periodista Blake Langermann, los secretos mejor guardados de corrupción y poder saldrán a la luz cueste lo que cueste. Los jugadores vivirán intensas aventuras junto a su esposa Lynn para investigar el asesinato de Jane Doe y desentrañar las oscuras tramas detrás de ese crimen.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332978/Ps5/Outlast%202%20-%20ps5/outlast-2-ps5-330x404_kivpgb.jpg",
@@ -1766,7 +1752,7 @@ const videogames= [
       genre: "Acción"
     },
     {
-      name: "Outriders" ,
+      name: "Outriders PS5" ,
       description: "Mientras la humanidad vive un infierno en las trincheras de Enoch, los jugadores deberán crear su Outrider, eligiendo entre cuatro clases de personajes para definir su estilo de juego: destructor, ilusionista, piromante o tecnomante. Se embarcarán en una aventura por un mundo hostil, con desiertos, bosques y montañas, siguiendo la pista de una misteriosa señal.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332978/Ps5/Outriders%20-%20ps5/outriders-ps5-330x404_pzsbc1.jpg",
@@ -1780,7 +1766,7 @@ const videogames= [
       genre: "Acción"
     },
     {
-      name: "Overwatch Game of the Year Edition" ,
+      name: "Overwatch Game of the Year Edition PS5" ,
       description: "Con numerosos personajes y escenarios, la experiencia competitiva y cooperativa parece ser infinita. Los jugadores podrán disfrutar de la mejor acción en primera persona junto a un gran equipo con el que deberán salvar al universo de poderosos robots.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332980/Ps5/Overwatch%20Game%20of%20the%20Year%20Edition%20-%20ps5/overwatch-game-of-the-year-edition-ps5-retro-330x404_vrp8u9.jpg"],
@@ -1798,7 +1784,7 @@ const videogames= [
       genre: "Acción"
     },
     {
-      name: "PAW Patrol Mighty Pups Save Adventure Bay" ,
+      name: "PAW Patrol Mighty Pups Save Adventure Bay PS5" ,
       description: "La caída de un meteorito ha dado a los cachorros súper poderes y ha dejado a Adventure Bay en un gran lío. Los jugadores se embarcarán en misiones súper heroicas, explorando la ciudad y realizando divertidas misiones mientras rescatan a sus amigos, ya sea de forma individual o en el modo de 2 jugadores.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332980/Ps5/PAW%20Patrol%20Mighty%20Pups%20Save%20Adventure%20Bay%20-%20ps5/paw-patrol-mighty-pups-save-adventure-bay-ps5-retro-330x404_s6gzjr.jpg",
@@ -1826,7 +1812,7 @@ const videogames= [
       genre: "Multijugador"
     },
     {
-      name: "Plants vs Zombies Battle for Neighborville",
+      name: "Plants vs Zombies Battle for Neighborville PS5",
       description: "En Neighborville reina la paz hasta que despierta una nueva guerra entre plantas y zombies. Los jugadores deberán librar sus batallas en tres regiones diferentes que vuelve esta aventura más larga, impredecible y divertida",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332983/Ps5/Plants%20vs%20Zombies%20Battle%20for%20Neighborville%20-%20ps5/plants-vs-zombies-battle-for-neighborville-ps5-retro-330x404_ltdvfb.jpg",
@@ -1875,7 +1861,7 @@ const videogames= [
       genre: "Acción"
     },
     {
-      name: "Project Cars 2",
+      name: "Project Cars 2 PS5",
       description: "Con más de 180 vehículos, 40 modelos y superficies de hielo, tierra y barro, las horas de emoción sobre ruedas son infinitas. Los jugadores podrán vivir las mejores carreras ahora también con obstáculos climáticos en 200 pistas diferentes",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332986/Ps5/Project%20Cars%202%20-%20ps5/project-cars-2-ps5-retro-330x404_wknn9i.jpg",
@@ -1917,7 +1903,7 @@ const videogames= [
       genre: "Acción"
     },
     {
-      name: "Red Dead Redemption 2",
+      name: "Red Dead Redemption 2 PS5 Retro",
       description: "Un grupo de vaqueros fuera de la ley recorren un impresionante y salvaje oeste robando y sobreviviendo como cazarrecompensas. Con un nivel de realismo sin precedentes e historias individuales apasionantes, los jugadores deberán lograr que esta pandilla no se divida antes de que termine la aventura",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332989/Ps5/Red%20Dead%20Redemption%202%20-%20ps5/red-dead-redemption-ps5-330x404_hfx0rs.jpg",
@@ -1931,7 +1917,7 @@ const videogames= [
       genre: "Acción"
     },
     {
-      name: "Remnant From the Ashes",
+      name: "Remnant From the Ashes PS5",
       description: "En una historia de acción y supervivencia en tercera persona, ambientada en un mundo postapocalíptico invadido por monstruosas criaturas, los jugadores saldrán solos o junto a otros dos supervivientes para enfrentar enemigos mortales. La humanidad está luchando por sobrevivir y deberá abrir portales a otras realidades para descubrir el origen del mal.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332989/Ps5/Remnant%20From%20the%20Ashes%20-%20ps5/remnant-from-the-ashes-ps5-retro-330x404_ga4vg7.jpg",
@@ -1973,7 +1959,7 @@ const videogames= [
       genre: "Acción"
     },
     {
-      name: "Resident Evil 4 Remake",
+      name: "Resident Evil 4 Remake PS5",
       description: "Con una jugabilidad modernizada, una historia reimaginada y gráficos vívidamente detallados, Resident Evil 4 Remake revive la pesadilla que revolucionó el horror de supervivencia. El agente Leon S. Kennedy ha sido enviado a rescatar a la hija secuestrada del presidente en esta historia donde se cruzan la vida y la muerte.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332994/Ps5/Resident%20Evil%204%20Remake%20-%20ps5/resident-evil-4-remake-ps5-1-330x404_auhnls.jpg",
@@ -1987,7 +1973,7 @@ const videogames= [
       genre: "Acción"
     },
     {
-      name: "Resident Evil Village",
+      name: "Resident Evil Village PS5",
       description: "En esta entrega de Resident Evil, los jugadores se encontrarán con una increíble ambientación y un salto evolutivo en la historia de Ethan Winters. En este pueblo desconocido, los habitantes no son lo que parecen y la paz se verá interrumpida por hechos monstruosos.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679332998/Ps5/Resident%20Evil%20Village%20-%20ps5/resident-evil-village-ps5-330x404_j2l7yg.jpg",
@@ -2017,7 +2003,7 @@ const videogames= [
       genre: "Acción"
     },
     {
-      name: "Riders Republic",
+      name: "Riders Republic PS5",
       description: "Desde montañas nevadas hasta cañones áridos esperan a los jugadores en un enorme mundo abierto compuesto por los icónicos parques nacionales de EE. UU. Allí, disfrutarán de los deportes más extremos: ciclismo, snowboarding, esquí y hasta wingsuit volador, para consagrarse en competencias al límite.",
       img: 
       ["https://res.cloudinary.com/dapq4icmj/image/upload/v1679333000/Ps5/Riders%20Republic%20-%20ps5/riders-republic-ps5-330x404_dd6ghk.jpg",

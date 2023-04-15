@@ -1,12 +1,19 @@
 const { newUser, getAllUsers, loginUser, logout, getUserReviews, newUserAuth0, promoteUser, blockUser, unblockUser, changeAdminRole } = require('../controllers/users.controllers');
 const { User } = require('../db');
+const cloudinary = require('cloudinary').v2;
 
+// Configuration 
+cloudinary.config({
+  cloud_name: "dapq4icmj",
+  api_key: "182849148671358",
+  api_secret: "LiNdU8c3mGXxCnRed_xiA9xQtLk"
+});
 
 const createUser = async (req, res) => {
     const { firstname, lastname, email, mobile, password, role, nationality, status, img } = req.body;
     try {
         const user = await newUser(firstname, lastname, email, mobile, password, role, nationality, status, img);
-        res.status(201).send({userId: user.id});
+        res.status(201).send({userId: user});
 
     } catch (error) {
         res.status(400).json({ message: 'Error in user creation', error: error.message});
@@ -41,7 +48,7 @@ const modifyUser= async (req, res) => {
     try {
         let { email }= req.params;
         let { firstname, lastname, nationality, mobile, img }= req.body;
-
+console.log(img)
         const user= await User.findOne({
             where: {
                 email: email
@@ -51,8 +58,15 @@ const modifyUser= async (req, res) => {
         if(!user){
             return res.status(404).json( { message: 'Error in user creation' })
         };
+    
+        if(img.length > 0){
+            // Generate The output url    
+            const res = await cloudinary.uploader.upload(`${img[0]}`, {folder: "img_profile", public_id: `profile-${email}`})
 
-        user.update({
+            img[0] = res.url
+        }
+
+        let updatedUser= await user.update({
             firstname: firstname,
             lastname: lastname,
             nationality: nationality,
@@ -60,7 +74,7 @@ const modifyUser= async (req, res) => {
             img: img
         });
 
-        res.status(201).json(user);
+        res.status(201).json(updatedUser);
     } catch (error) {
         res.status(401).json({ message: error });
     }

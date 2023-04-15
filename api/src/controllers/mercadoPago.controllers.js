@@ -1,9 +1,9 @@
+const axios = require("axios")
 const mercadopago = require("mercadopago");
-const { User, Review, Payment, Order } = require('../db');
-const { Videogame } = require('../models/Videogame');
-const { query } = require("express");
+const { User, Review, Payment, Order, Cart, Videogame, OrdersDetail } = require('../db');
+const { mailer, generateSaleTemplate } = require("../services/mailService");
 const { generateOrder, approveOrder, rejectOrder } = require("./orders.controllers");
-const product = Videogame;
+
 mercadopago.configure({
   access_token: process.env.ACCESS_TOKEN,
 });
@@ -18,38 +18,63 @@ catch(e) {res.status(500).json({message: e})}
 
 
 const paymentPostController = async (req, res) => {
-const prod = req.body
+  let prod = req.body
 
   const {totalPrice, userId} = req.body
- 
   try {
+ 
+  let cart = await Cart.findOne({where: {userId: userId}})
+  const productIds = cart.products.map((product) => product.id);
+  const videogames = await Videogame.findAll({ where: { id: productIds } });
+ 
+  //los objetos traidos por cart trae las id de los juegos por lo tanto los buscamos para tener el precio y el nombre
+  const newProducts = cart.products.map((product) => {
+
+   const videogame = videogames.find((v) => v.id === product.id);
+   return {
+
+     ...product,
+     ...videogame.toJSON(),
+     quantity: product.quantity,
+   };
+   });
+
+  prod = newProducts
+
     const preference = {
-      items: [
-        { 
-          id: prod.id,
-          title: prod.name,
-          quantity: 1,
-          currency_id: 'ARS',
-          category_id: 'art',
-          unit_price: totalPrice,
-          picture_url: prod.img,
-          description: prod.description,
-        }
-      ],
+      items: [{
+        id: prod.id,
+        title: prod.name,
+        quantity: 1,
+        currency_id: "ARS",
+        category_id: "art",
+        unit_price: totalPrice,
+        picture_url: prod.img,
+        description: prod.description
+      }],
       back_urls: {
         //rutas de acuerdo a como haya salido la transacion
-        success: 'http://localhost:3000/home',
-        failure: 'http://localhost:3000/home',
-        pending: '',
+        success: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
+        failure: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
+        pending: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
       },
       auto_return: "approved",
       notification_url: `https://pfservidor-production.up.railway.app/payment/${userId}`,
       statement_descriptor: "Henry Game Store",
       // para que no se puedan hacer pagos pendientes (rapipago, etc)
-      binary_mode: true,
+      
     };
-
-     // 1. Crear la preferencia de pago
+    
+    let fee_title = ""
+    for (let i = 0; i < prod.length; i++) {
+      fee_title = prod[i].name + ", " + fee_title
+      if(i === prod.length - 1) {
+        //combinamos todos los nombres de los juegos para colocarlo en el primer objeto de items ya que es el unico que aparece en el comprobante
+        fee_title = fee_title.slice(0, -2) + "." //le quitamos la coma que quedo al final y lo reemplazamos por un punto final 
+        preference.items[0].title = fee_title
+      }
+    }
+     // Creamos la preferencia de pago
      return await mercadopago.preferences.create(preference).then((response) => {
 
       res.status(200).send({ response: response });
@@ -59,80 +84,79 @@ const prod = req.body
   }
 };
 
+async function sendMail(customerId, orderId) {
+  // Send event to customer
+  try {
+    const customer = await User.findByPk(customerId);
+    const to = customer.email;
+    const subject = `HenryGameStore - Compra realizada con éxito. Pedido N° ${orderId}`;
+
+    const itemsBody = await generateSaleTemplate(orderId)
+
+    const body = {
+        name: customer.firstname,  
+        greeting: "Hola",
+        signature: "Saludos cordiales",
+        intro: ['¡Gracias por tu compra!', 'Tu compra ha sido exitosa. Acá está la lista de tus productos:'],
+        table: {
+          data: itemsBody,
+          columns: {
+            // Optionally, customize the column widths
+            customWidth: {
+                Juego: '40%',
+                priceTotal: '15%'
+            },
+            // Optionally, change column text alignment
+            customAlignment: {
+                Valor: 'right'
+            }
+        }},
+        outro: ["Acceda con sus datos al sitio para ver el detalle de su pedido.", "Esperamos que disfrutes de tus productos y gracias por confiar en nosotros."]
+    }
+    await mailer(to, subject, body);
+  } catch (error) {
+     console.log(error);
+  }
+}
+
 // para recibir la info del pago
 const getPaymentInfo = async (req, res, next) => {
   try{
   const userId = req.params.id
-  const {query} = req
-  console.log(query)
   const payment_id = req.query["data.id"]
   const payment_switch = req.query.type
 
   if(payment_switch === "payment") {
     const payment = await mercadopago.payment.findById(payment_id);
-    console.log(payment)
     /* const paymentModel = await Payment.create({info : payment.body}) */
     
     if(payment.response.status === "approved"){
+      try{
       let order_info = await generateOrder(userId)
       order_info = await approveOrder(order_info.id)
     /* order_info.paymentId = paymentModel.id */
-  
-    
-    res.status(200).send({Order: order_info})
-  }
-  else if (payment.response.status === "rejected") {
-    let order_info = await generateOrder(userId)
+      sendMail(userId, order_info.id)
+
+      res.status(200).send({Order: order_info})
+      }
+      catch (error) {res.status(500).send({message: error.message})}
+    }
+    else if (payment.response.status === "rejected") {
+    try{
+      let order_info = await generateOrder(userId)
     order_info = await rejectOrder(order_info.id)
     
     res.status(200).send({Order: order_info})
-  }
+
+    }
+    catch (error) {res.status(500).send({message: error.message})}
+    }
 
   }
   // const payment_id = req.query.payment_id;
   // const payment_status = req.query.status;
   // const external_reference = req.query.external_reference;
 
-  
-var merchantOrder;  
-
-/* switch (topic) {
-  case "payment":
-    // mercadopago.payment.get(req.query.id).then((payment) => {
-    //   mercadopago.merchant_orders.get(payment.order.id).then((order) => {
-    //     merchant_order = order;
-    //     checkPayment();
-    //   })
-    const paymentId = query.id
-    const payment = await mercadopago.payment.findById(paymentId);
-    console.log("ESTATUS",payment.response.status)
-    merchantOrder = await mercadopago.merchant_orders.findById(payment.body.order.id)
-    await Payment.create({info: payment})
-    
-    break;
-  case "merchant_order":
-    // mercadopago.merchant_orders.get(req.query.id).then((order) => {
-    //   merchant_order = order;
-    //   checkPayment();
-    // })
-    const orderId = query.id;
-    merchantOrder = await mercadopago.merchant_orders.findById(orderId)
-    console.log(" este merchantOrder", merchantOrder)
-    
-  break;
-} */
-/* console.log(merchantOrder.body.payments);
-
-  const paidAmount = 0;
-  merchantOrder.body.payments.forEach(payment => {
-    if (payment.status === 'approved') {
-      paidAmount += payment.transaction_amount;
-    } else if (paidAmount >= merchantOrder.body.total_amount) {
-      console.log("Pago exitoso");
-    } else {
-    console.log("No se pudo realizar el pago");
-  }
-  }); */
 
   res.status(200).send()
 }
