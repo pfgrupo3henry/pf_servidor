@@ -11,7 +11,7 @@ const paymentRouter = require('./payment');
 const mailRouter = require('./mail');
 const usersOrders = require('./orders');
 const reviewRouter = require('./review');
-
+const chatbotRouter= require('./chatbot');
 const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -24,6 +24,7 @@ router.use('/user', usersRouter);
 router.use('/favorites', favoritesRouter);
 router.use('/payment', paymentRouter);
 router.use('/review', reviewRouter);
+router.use('/chat', chatbotRouter);
 // router.use('/notification', (req, res) => {
 //     console.log("Notificar");
 //     const { body, query } = req;
