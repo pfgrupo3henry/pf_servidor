@@ -7,5 +7,4 @@ const router = Router();
 router.post("/mercadopago", paymentPostController);
 router.post("/:id", getPaymentInfo);
 
-
 module.exports = router;
