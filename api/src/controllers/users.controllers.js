@@ -62,19 +62,8 @@ const newUserAuth0= async (email, img, firstname) => {
 const getAllUsers= async()=> {
 
     const users= await User.findAll();
-        
-    return (users.map(user=> ({
-        id: user.id,
-            firstname: user.firstname,
-            lastname: user.lastname,
-            email: user.email,
-            password: user.password,
-            nacionality: user.nacionality,
-            role: user.role,
-            status: user.status,
-            img: user.img
-        })));
-       
+    
+    return users
 };
 
 
