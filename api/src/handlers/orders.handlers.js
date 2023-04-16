@@ -4,6 +4,8 @@ const {
   Videogame,
   OrdersDetail,
   Payment,
+  Genre,
+  Platform,
   User,
 } = require("../db");
 
@@ -123,6 +125,22 @@ const getAllOrders = async (req, res) => {
         include: [
           {
             model: Videogame,
+            include: [
+              {
+                  model: Genre,
+                  attributes: ['name'],
+                  through: {
+                      attributes: [],
+                  },
+              },
+              {
+                  model: Platform,
+                  attributes: ['name'],
+                  through: {
+                      attributes: [],
+                  }
+              },
+          ],
             through: {
               model: OrdersDetail,
               attributes: ["quantity", "subtotal"],
@@ -130,7 +148,6 @@ const getAllOrders = async (req, res) => {
           },
         ],
       });
-
       return order;
     });
 
