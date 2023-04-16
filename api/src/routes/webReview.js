@@ -1,9 +1,11 @@
 const Router = require('express');
 const router = Router();
-const { createWebReview, getReviewsOfWeb, putWebReview } = require("../handlers/webReview.handlers")
+const { createWebReview, getReviewsOfWeb, putWebReview, getAllWebReviews } = require("../handlers/webReview.handlers")
 
 
 router.post("/", createWebReview);
+
+router.get("/", getAllWebReviews);
 
 router.get("/:userId", getReviewsOfWeb);
 
