@@ -58,8 +58,8 @@ var emailText = mailGenerator.generatePlaintext({body});
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-          user: GMAIL_USER, // generated ethereal user
-          pass: GMAIL_PASS, // generated ethereal password
+          user: `${GMAIL_USER}`, // generated ethereal user
+          pass: `${GMAIL_PASS}`, // generated ethereal password
         },
       });
 
