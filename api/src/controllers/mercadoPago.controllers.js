@@ -54,7 +54,7 @@ const paymentPostController = async (req, res) => {
       }],
       back_urls: {
         //rutas de acuerdo a como haya salido la transacion
-        success: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
+        success: 'http://localhost:3000/home',
         failure: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
         pending: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
       },
