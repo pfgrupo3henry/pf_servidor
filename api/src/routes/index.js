@@ -27,12 +27,6 @@ router.use('/favorites', favoritesRouter);
 router.use('/payment', paymentRouter);
 router.use('/review', reviewRouter);
 router.use('/chat', chatbotRouter);
-// router.use('/notification', (req, res) => {
-//     console.log("Notificar");
-//     const { body, query } = req;
-//     console.log({ body, query } );
-//     res.send();
-// });
 router.use('/webreview', webReviewRouter);
 router.use('/mail', mailRouter);
 

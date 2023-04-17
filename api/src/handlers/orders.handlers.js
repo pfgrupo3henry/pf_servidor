@@ -4,6 +4,8 @@ const {
   Videogame,
   OrdersDetail,
   Payment,
+  Genre,
+  Platform,
   User,
 } = require("../db");
 
@@ -123,6 +125,22 @@ const getAllOrders = async (req, res) => {
         include: [
           {
             model: Videogame,
+            include: [
+              {
+                  model: Genre,
+                  attributes: ['name'],
+                  through: {
+                      attributes: [],
+                  },
+              },
+              {
+                  model: Platform,
+                  attributes: ['name'],
+                  through: {
+                      attributes: [],
+                  }
+              },
+          ],
             through: {
               model: OrdersDetail,
               attributes: ["quantity", "subtotal"],
@@ -130,7 +148,6 @@ const getAllOrders = async (req, res) => {
           },
         ],
       });
-
       return order;
     });
 
@@ -239,15 +256,11 @@ const succesOrder = async (req, res) => {
     order.status = "Completed Pay";
 
     await order.save();
-    // Obtener el objeto de la sesión del usuario
-    const session = req.session;
-    // Obtener el carrito de compras de la sesión del usuario
-    const cart = session.cart || [];
-    // Borrar el carrito de la sesión del usuario
-    delete session.cart;
-
-    return res.status(200).json({
-      message: "El estado de la orden se ha actualizado correctamente",
+        // Verificar si el usuario ha finalizado la compra
+        let cart = Cart.findByPk(order.cartId) 
+          await cart.update({ products: [] });
+        return res.status(200).json({
+          message: "El estado de la orden se ha actualizado correctamente",
     });
   } catch (error) {
     res.status(500).json({

@@ -1,5 +1,13 @@
 const { createVideogame, searchGameByName, getGameById, getAllGames } = require ('../controllers/videogames.controllers.js');
 const {Videogame, Platform, Genre} = require('../db');
+const cloudinary = require('cloudinary').v2;
+
+// Configuration 
+cloudinary.config({
+  cloud_name: "dapq4icmj",
+  api_key: "182849148671358",
+  api_secret: "LiNdU8c3mGXxCnRed_xiA9xQtLk"
+});
 
 // const createVideogameHandler = async (req, res) => {
 //   const {name, description, image, price, platform, genre} = req.body;
@@ -37,6 +45,15 @@ const modifyVideogameHandler = async (req, res) => {
   const{ name, newName, description, img, platform, genre, price, stock } = req.body;
 
   try {
+
+    if(img.length > 0){
+      // Generate The output url    
+      let id = newName || name
+      const res = await cloudinary.uploader.upload(`${img[0]}`, {folder: "img_new_game", public_id: `newGame-${id}`})
+
+      img[0] = res.url
+  }
+
     const actualizado = await Videogame.update({
       description: description, img: img, price: price, stock: stock
     },{

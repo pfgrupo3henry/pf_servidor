@@ -53,13 +53,6 @@ const getCart = async (req, res) => {
       if (!cart) {
         cart = await Cart.create({ userId: userId });
       }
-      
-      // Verificar si el usuario ha finalizado la compra
-      if (product.length > 0) {
-         await cart.update({ products: [] });
-              res.status(200).send(cart);
-         return;
-      }
 
       let gameInCart = cart.products.filter(el => el.id === product.id)[0];
       if(gameInCart !== undefined) {

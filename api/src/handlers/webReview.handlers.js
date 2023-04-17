@@ -2,15 +2,32 @@ const { WebReview, User } = require('../db');
 const { editWebReview } = require('../controllers/webReview.controller');
 
 const createWebReview = async (req, res) => {
+
     const { userId } = req.body
 
     try { 
         await WebReview.create(req.body);
         
         const allWebReviews = await WebReview.findAll({ where: { userId: userId } })
+
         res.status(201).json(allWebReviews);
+
     } catch (error) {
+
         res.status(400).json({ error: "Error al crear la Review" });
+    }
+};
+
+const getAllWebReviews = async (req, res) => {
+
+    try { 
+    
+        const webReviews = await WebReview.findAll();
+
+        res.status(201).json(webReviews);
+
+    } catch (error) {
+        res.status(400).json({ error: "Error al traer las reviews", message: error });
     }
 };
 
@@ -49,4 +66,4 @@ const putWebReview = async (req, res) => {
     }
 }
 
-module.exports = { createWebReview, getReviewsOfWeb, putWebReview }
+module.exports = { createWebReview, getReviewsOfWeb, putWebReview, getAllWebReviews }
