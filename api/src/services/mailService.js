@@ -1,7 +1,9 @@
 const nodemailer = require("nodemailer")
 var Mailgen = require('mailgen');
 const { Order, Videogame, OrdersDetail } = require("../db");
-
+const {
+  GMAIL_USER, GMAIL_PASS
+} = process.env;
 
  async function generateSaleTemplate(orderId) {
 
@@ -56,8 +58,8 @@ var emailText = mailGenerator.generatePlaintext({body});
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-          user: "pfgrupo3henry@gmail.com", // generated ethereal user
-          pass: "nhdqnfcuiffjyavg", // generated ethereal password
+          user: GMAIL_USER, // generated ethereal user
+          pass: GMAIL_PASS, // generated ethereal password
         },
       });
 
@@ -65,7 +67,7 @@ var emailText = mailGenerator.generatePlaintext({body});
     
       // send mail with defined transport object
       let info = await transporter.sendMail({
-        from: '"HenryGameStore" <pfgrupo3henry@gmail.com>', // sender address
+        from: '"HenryGameStore" <henrygamestore08@gmail.com>', // sender address
         to: `${to}`, // list of receivers
         subject: subject, // Subject line
         text: emailText, // plain text body
