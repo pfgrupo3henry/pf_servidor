@@ -60,8 +60,6 @@ const getOrders = async (req, res) => {
 
     const users= await User.findOne({ where: { id: cart.userId } });
 
-      
-console.log(users)
     if (!cart) {
       return res.status(404).send({ error: "Carrito no encontrado" });
     }
