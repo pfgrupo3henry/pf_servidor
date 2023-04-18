@@ -54,12 +54,12 @@ const paymentPostController = async (req, res) => {
       }],
       back_urls: {
         //rutas de acuerdo a como haya salido la transacion
-        success: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
+        success: 'http://localhost:3000/home',
         failure: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
         pending: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
       },
       auto_return: "approved",
-      notification_url: `https://pfservidor-production.up.railway.app/payment/${userId}`,
+      notification_url: `https://0fdf-2800-810-451-84bb-b582-def0-5dd9-1ee6.ngrok-free.app/payment/${userId}`,
       statement_descriptor: "Henry Game Store",
       // para que no se puedan hacer pagos pendientes (rapipago, etc)
       
@@ -98,8 +98,8 @@ async function sendMail(customerId, orderId) {
         greeting: "Hola",
         signature: "Saludos cordiales",
         intro: ['¡Gracias por tu compra!', 'Tu compra ha sido exitosa. Acá está la lista de tus productos:'],
-        table: {
-          data: itemsBody,
+        table: [{
+          data: itemsBody.itemsBody,
           columns: {
             // Optionally, customize the column widths
             customWidth: {
@@ -111,6 +111,17 @@ async function sendMail(customerId, orderId) {
                 Valor: 'right'
             }
         }},
+        {
+          data: itemsBody.code,
+          columns: {
+            // Optionally, change column text alignment
+            customAlignment: {
+                Nombre: 'left',
+                Plataforma: 'middle',
+                Codigo: 'right'
+            }
+        }
+        }],
         outro: ["Acceda con sus datos al sitio para ver el detalle de su pedido.", "Esperamos que disfrutes de tus productos y gracias por confiar en nosotros."]
     }
     await mailer(to, subject, body);
