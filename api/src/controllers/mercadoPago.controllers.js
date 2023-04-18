@@ -54,12 +54,12 @@ const paymentPostController = async (req, res) => {
       }],
       back_urls: {
         //rutas de acuerdo a como haya salido la transacion
-        success: 'http://localhost:3000/home',
+        success: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
         failure: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
         pending: 'https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/home',
       },
       auto_return: "approved",
-      notification_url: `https://0fdf-2800-810-451-84bb-b582-def0-5dd9-1ee6.ngrok-free.app/payment/${userId}`,
+      notification_url: `https://pfservidor-production.up.railway.app/payment/${userId}`,
       statement_descriptor: "Henry Game Store",
       // para que no se puedan hacer pagos pendientes (rapipago, etc)
       
