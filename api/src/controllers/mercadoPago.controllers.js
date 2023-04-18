@@ -98,8 +98,8 @@ async function sendMail(customerId, orderId) {
         greeting: "Hola",
         signature: "Saludos cordiales",
         intro: ['¡Gracias por tu compra!', 'Tu compra ha sido exitosa. Acá está la lista de tus productos:'],
-        table: {
-          data: itemsBody,
+        table: [{
+          data: itemsBody.itemsBody,
           columns: {
             // Optionally, customize the column widths
             customWidth: {
@@ -111,6 +111,17 @@ async function sendMail(customerId, orderId) {
                 Valor: 'right'
             }
         }},
+        {
+          data: itemsBody.code,
+          columns: {
+            // Optionally, change column text alignment
+            customAlignment: {
+                Nombre: 'left',
+                Plataforma: 'middle',
+                Codigo: 'right'
+            }
+        }
+        }],
         outro: ["Acceda con sus datos al sitio para ver el detalle de su pedido.", "Esperamos que disfrutes de tus productos y gracias por confiar en nosotros."]
     }
     await mailer(to, subject, body);
