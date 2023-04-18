@@ -70,7 +70,6 @@ const getAllUsers= async()=> {
 const loginUser= async(email, password)=> {
    
         const findUser= await User.findOne({where: {email: email}});
-        
         if (findUser && await findUser.isPasswordMatched(password, findUser.password)){
             const refreshToken= generateRefreshToken(findUser.id);
             await User.update({
@@ -84,6 +83,7 @@ const loginUser= async(email, password)=> {
                 firstname: findUser.firstname,
                 lastname: findUser.lastname,
                 email: findUser.email,
+                img: findUser.img,
                 nacionality: findUser.nacionality,
                 status: findUser.status,
                 role: findUser.role,
