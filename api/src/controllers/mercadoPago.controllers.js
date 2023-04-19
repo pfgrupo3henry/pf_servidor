@@ -5,7 +5,7 @@ const { mailer, generateSaleTemplate } = require("../services/mailService");
 const { generateOrder, approveOrder, rejectOrder } = require("./orders.controllers");
 
 mercadopago.configure({
-  access_token: process.env.ACCESS_TOKEN,
+  access_token: 'process.env.ACCESS_TOKEN',
 });
 
 const getAllPayment = async (req,res) => {
