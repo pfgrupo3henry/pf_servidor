@@ -5,6 +5,7 @@ const nodemailer = require('nodemailer');
 const Mailgen = require('mailgen');
 const {JWT_SECRET, GMAIL_PASS, GMAIL_USER} = process.env;
 const jwt = require ("jsonwebtoken");
+const { generateRefreshToken } = require('../config/generateRefreshToken');
 
 // Configuration 
 cloudinary.config({
@@ -177,10 +178,8 @@ const createNewPassword = async (req, res) => {
       if (!user || user.resetTokenExpirationDate < new Date().getTime()) {
         return res.status(400).json({ message: 'El enlace de restablecimiento de contraseña es inválido o ha expirado' });
       }
-       const newToken = jwt.sign(
-        { userId: user.id, email },
-        JWT_SECRET,
-      );
+
+      const newToken = generateRefreshToken(userId);
       // Actualizar la contraseña del usuario
       await user.update({
         password,
@@ -211,7 +210,8 @@ const loginhandler= async(req, res)=> {
                 httpOnly: true,
                 maxAge: 72*60*60*1000,
             });
-              //const loginData = await User.findOne({where: {email : email}});
+
+        // const loginData = await User.findOne({where: {email : email}})
        
          res.status(201).send(loginData);
     } catch (error) {
