@@ -60,8 +60,6 @@ const getOrders = async (req, res) => {
 
     const users= await User.findOne({ where: { id: cart.userId } });
 
-      
-console.log(users)
     if (!cart) {
       return res.status(404).send({ error: "Carrito no encontrado" });
     }
@@ -256,12 +254,7 @@ const succesOrder = async (req, res) => {
     order.status = "Completed Pay";
 
     await order.save();
-        // Verificar si el usuario ha finalizado la compra
-        let cart = Cart.findByPk(order.cartId) 
-          await cart.update({ products: [] });
-        return res.status(200).json({
-          message: "El estado de la orden se ha actualizado correctamente",
-    });
+      
   } catch (error) {
     res.status(500).json({
       message: "Ocurrió un error al actualizar la orden",

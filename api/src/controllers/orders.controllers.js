@@ -52,7 +52,7 @@ async function approveOrder(orderId) {
       }
     ]
   });
-  // console.log(order);
+   //console.log(order);
 
   if (!order) {
     throw new Error ('No se encontró la orden');
@@ -80,6 +80,10 @@ async function approveOrder(orderId) {
   order.status = 'Completed Pay';
 
   await order.save();
+
+    // Verificar si el usuario ha finalizado la compra
+    let cart = await Cart.findByPk(order.cartId) 
+    await cart.update({ products: [] });
 
   return order;
 

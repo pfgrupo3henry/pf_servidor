@@ -18,6 +18,7 @@ const getCart = async (req, res) => {
     } else {
 
       const productIds = cart.products.map((product) => product.id);
+      
       const videogames = await Videogame.findAll({ where: { id: productIds } });
       
 

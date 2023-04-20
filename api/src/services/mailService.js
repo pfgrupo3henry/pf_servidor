@@ -1,15 +1,45 @@
 const nodemailer = require("nodemailer")
 var Mailgen = require('mailgen');
-const { Order, Videogame, OrdersDetail } = require("../db");
+const randomstring = require('randomstring');
+const { Order, Videogame, OrdersDetail, Genre, Platform } = require("../db");
 const {
   GMAIL_USER, GMAIL_PASS
 } = process.env;
 
+function generateCode(num) {
+  const code = randomstring.generate({
+    length: 12,
+    charset: 'alphanumeric',
+    capitalization: 'uppercase',
+    readable: true,
+    seed: num.toString()
+  });
+  return code;
+}
+
+
  async function generateSaleTemplate(orderId) {
+   let hashCode = ""
 
   const order = await Order.findByPk(orderId, {include: [
     {
       model: Videogame,
+      include: [
+        {
+            model: Genre,
+            attributes: ['name'],
+            through: {
+                attributes: [],
+            },
+        },
+        {
+            model: Platform,
+            attributes: ['name'],
+            through: {
+                attributes: [],
+            }
+        },
+    ],
       through: {
         model: OrdersDetail,
         attributes: ["quantity", "subtotal"],
@@ -31,9 +61,17 @@ const {
     Juego: '',
     xUnidad: '',
     Valor: "Total: $" + order.totalAmount.split(".")[0]}//el monto total trae un punto para indicar los centavos, aca se los sacamos debido a la devaluacion que sufrimos en la argentina ahr 
+    
+    let itemsBodyCode = order.videogames.map(el => {
+      hashCode = generateCode(el.id)
+      return {
+        Nombre: el.name, 
+        Plataforma: el.platforms[0].name,
+        Codigo: hashCode
+      }
+    })
 
-
-    return itemsBody
+    return {itemsBody: itemsBody, code: itemsBodyCode}
 }
 
 async function mailer(to, subject, body){
@@ -58,8 +96,8 @@ var emailText = mailGenerator.generatePlaintext({body});
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: {
-          user: GMAIL_USER, // generated ethereal user
-          pass: GMAIL_PASS, // generated ethereal password
+          user: `${GMAIL_USER}`, // generated ethereal user
+          pass: `${GMAIL_PASS}`, // generated ethereal password
         },
       });
 
