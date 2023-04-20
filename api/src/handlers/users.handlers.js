@@ -177,11 +177,14 @@ const createNewPassword = async (req, res) => {
       if (!user || user.resetTokenExpirationDate < new Date().getTime()) {
         return res.status(400).json({ message: 'El enlace de restablecimiento de contraseña es inválido o ha expirado' });
       }
-      const newtoken = refreshToken(userId)
+       const newToken = jwt.sign(
+        { userId: user.id, email },
+        JWT_SECRET,
+      );
       // Actualizar la contraseña del usuario
       await user.update({
         password,
-        refreshToken: newtoken,
+        refreshToken: newToken,
       });
         res.status(200).json(user);
       } catch (error) {
