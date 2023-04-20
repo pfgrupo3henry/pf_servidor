@@ -3,7 +3,7 @@ const { User } = require('../db');
 const cloudinary = require('cloudinary').v2;
 const nodemailer = require('nodemailer');
 const Mailgen = require('mailgen');
-const {JWT_SECRET} = process.env;
+const {JWT_SECRET, GMAIL_PASS, GMAIL_USER} = process.env;
 const jwt = require ("jsonwebtoken");
 
 // Configuration 
