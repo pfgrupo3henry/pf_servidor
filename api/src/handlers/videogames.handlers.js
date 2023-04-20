@@ -131,7 +131,7 @@ const modifyGameWithImg = async (req, res) => {
 
     if(img.length > 0){
       // Generate The output url    
-      let id = newName || name
+      let id = name
       const res = await cloudinary.uploader.upload(`${img[0]}`, {folder: "img_new_game", public_id: `newGame-${id}`})
 
       img[0] = res.url
