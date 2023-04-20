@@ -42,26 +42,18 @@ const getVideogameById = async (req, res) => {
 };
 
 const modifyVideogameHandler = async (req, res) => {
-  const{ name, newName, description, img, platform, genre, price, stock } = req.body;
-
+  const{ id, name, description, platform, genre, price, stock } = req.body;
   try {
 
-    if(img.length > 0){
-      // Generate The output url    
-      let id = newName || name
-      const res = await cloudinary.uploader.upload(`${img[0]}`, {folder: "img_new_game", public_id: `newGame-${id}`})
-
-      img[0] = res.url
-  }
 
     const actualizado = await Videogame.update({
-      description: description, img: img, price: price, stock: stock
+      name: name, description: description, price: price, stock: stock
     },{
-      where: { name: name }
+      where: { id: id }
     });
   
     let videogame = await Videogame.findOne({
-      where: { name: name },
+      where: { id: id },
       include: [
         {
           model: Platform,
@@ -100,15 +92,8 @@ const modifyVideogameHandler = async (req, res) => {
   
       }
 
-    if(newName) {
-        await Videogame.update({
-        name: newName},{
-        where: { name: name }
-      });
-
-
       videogame = await Videogame.findOne({
-        where: { name: newName },
+        where: { id: id },
         include: [
           {
             model: Platform,
@@ -134,35 +119,6 @@ const modifyVideogameHandler = async (req, res) => {
 
     res.status(201).json(videogame);
 
-    }
-    else {
-      videogame = await Videogame.findOne({
-        where: { name: name },
-        include: [
-          {
-            model: Platform,
-            attributes: ['name']
-          },
-          {
-            model: Genre,
-            attributes: ['name']
-          }
-        ],
-      });
- 
-    videogame= {
-      id: videogame.id,
-      name: videogame.name, 
-      description: videogame.description,
-      img: videogame.img,
-      price: videogame.price,
-      genre: videogame.genres[0].name,
-      platform: videogame.platforms[0].name,
-      stock: videogame.stock
-      } 
-
-    res.status(201).json(videogame);
-  }
   } catch(error) {
       res.status(400).json({ error: "Error al modificar", message: error });
   }
