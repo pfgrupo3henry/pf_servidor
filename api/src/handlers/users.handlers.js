@@ -111,7 +111,7 @@ const resetPassword = async (req, res) => {
           );
 
          await user.update({
-            refreshToken : refreshToken,
+            refreshToken : token,
             tokenExpirationDate: new Date().getTime() + 3600000, // 1 hora en milisegundos
           });
 
