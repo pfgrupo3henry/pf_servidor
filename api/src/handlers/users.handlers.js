@@ -115,7 +115,7 @@ const resetPassword = async (req, res) => {
             tokenExpirationDate: new Date().getTime() + 3600000, // 1 hora en milisegundos
           });
 
-          const resetLink = `https://pfservidor-production.up.railway.app/password-reset/${token}`;
+          const resetLink = `https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/user/password-reset/${token}`;
 
 
     //send email
