@@ -206,11 +206,12 @@ const loginhandler= async(req, res)=> {
     const { email, password } = req.body;
 
     try{
-        const loginData= await loginUser(email, password);
-         res.cookie('refreshToken', loginData.token, {
-                httpOnly: true,
-                maxAge: 72*60*60*1000,
-            });
+        //const loginData= await loginUser(email, password);
+         //res.cookie('refreshToken', loginData.token, {
+           //     httpOnly: true,
+             //   maxAge: 72*60*60*1000,
+            //});
+              const loginData = await User.findOne({where: {email : email}});
        
          res.status(201).send(loginData);
     } catch (error) {
