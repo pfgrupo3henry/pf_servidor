@@ -4,6 +4,7 @@ const cloudinary = require('cloudinary').v2;
 const nodemailer = require('nodemailer');
 const Mailgen = require('mailgen');
 const {JWT_SECRET} = process.env;
+const jwt = require ("jsonwebtoken");
 
 // Configuration 
 cloudinary.config({
@@ -108,7 +109,6 @@ const resetPassword = async (req, res) => {
             JWT_SECRET,
             { expiresIn: '1h' }
           );
-          console.log(token);
 
          await user.update({
             refreshToken,
