@@ -3,8 +3,9 @@ const { User } = require('../db');
 const cloudinary = require('cloudinary').v2;
 const nodemailer = require('nodemailer');
 const Mailgen = require('mailgen');
-const {JWT_SECRET} = process.env;
+const {JWT_SECRET, GMAIL_PASS, GMAIL_USER} = process.env;
 const jwt = require ("jsonwebtoken");
+const { generateRefreshToken } = require('../config/generateRefreshToken');
 
 // Configuration 
 cloudinary.config({
@@ -111,11 +112,11 @@ const resetPassword = async (req, res) => {
           );
 
          await user.update({
-            refreshToken,
+            refreshToken : token,
             tokenExpirationDate: new Date().getTime() + 3600000, // 1 hora en milisegundos
           });
 
-          const resetLink = `https://pfservidor-production.up.railway.app/password-reset/${token}`;
+          const resetLink = `https://pf-front-y72g-git-develop-pfgrupo3henry.vercel.app/user/password-reset/${token}`;
 
 
     //send email
@@ -177,15 +178,16 @@ const createNewPassword = async (req, res) => {
       if (!user || user.resetTokenExpirationDate < new Date().getTime()) {
         return res.status(400).json({ message: 'El enlace de restablecimiento de contraseña es inválido o ha expirado' });
       }
-      const newtoken = generateRefreshToken(userId)
+
+      const newToken = generateRefreshToken(userId);
       // Actualizar la contraseña del usuario
       await user.update({
         password,
-        refreshToken: newtoken,
+        refreshToken: newToken,
       });
         res.status(200).json(user);
       } catch (error) {
-        return res.status(400).json({message: error});
+        return res.status(400).json({message: error.message});
       }
 }
 
@@ -208,6 +210,7 @@ const loginhandler= async(req, res)=> {
                 httpOnly: true,
                 maxAge: 72*60*60*1000,
             });
+        // const loginData = await User.findOne({where: {email : email}})
        
          res.status(201).send(loginData);
     } catch (error) {
