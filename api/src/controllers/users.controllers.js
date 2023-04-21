@@ -70,11 +70,14 @@ const getAllUsers= async()=> {
 const loginUser= async(email, password)=> {
    
         const findUser= await User.findOne({where: {email: email}});
+        console.log(findUser);
         if (findUser && await findUser.isPasswordMatched(password, findUser.password)){
-            const refreshToken= generateRefreshToken(findUser.id);
-            await User.update({
-                refreshToken: refreshToken
-            }, {
+            // const refreshToken= generateRefreshToken(findUser.id);
+            await User.update(
+                //{
+            //     refreshToken: refreshToken
+            // },
+             {
                 where: {id: findUser.id}
             });
             
