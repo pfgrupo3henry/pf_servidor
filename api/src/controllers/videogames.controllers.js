@@ -74,7 +74,8 @@ const getGameById = async (value) => {
       image: findDbID.img,
       price: findDbID.price,
       platform: findDbID.platforms[0].name,
-      genre: findDbID.genres[0].name
+      genre: findDbID.genres[0].name,
+      stock: findDbID.stock
   }
   return detailOfGame
 
