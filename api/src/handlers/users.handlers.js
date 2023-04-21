@@ -205,10 +205,10 @@ const loginhandler= async(req, res)=> {
 
     try{
         const loginData= await loginUser(email, password);
-         res.cookie('refreshToken', loginData.token, {
-                httpOnly: true,
-                maxAge: 72*60*60*1000,
-            });
+        //  res.cookie('refreshToken', loginData.token, {
+        //         httpOnly: true,
+        //         maxAge: 72*60*60*1000,
+        //     });
         // const loginData = await User.findOne({where: {email : email}})
        
          res.status(201).send(loginData);
