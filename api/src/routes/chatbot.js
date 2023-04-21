@@ -42,7 +42,7 @@ router.post("/", async (req, res) => {
     }
 
     const prompt =
-    `Eres un asistente útil en una página web que vende videojuegos. Analiza y utiliza el siguiente json con datos de videojuegos disponibles en la tienda, para responder lo que se solicita pero no menciones este json en tu respuesta: 
+    `Eres un asistente útil en una página web que vende videojuegos. Analiza y utiliza el siguiente json con datos de videojuegos disponibles en la tienda, para responder lo que se solicita pero no menciones este json o la palabra JSON en tu respuesta: 
    
     {"nombre":"A Way Out","precio":10680,"plataforma":"PS4"},{"nombre":"A Way Out Retro","precio":10080,"plataforma":"PS5"},{"nombre":"Alien
 Isolation","precio":11160,"plataforma":"PS4"},{"nombre":"Alien
@@ -146,8 +146,10 @@ Battlefront","precio":9200,"plataforma":"PS4"},{"nombre":"STAR WARS Battlefront
       model: "gpt-3.5-turbo",
       messages: [{ role: "system", content: prompt },
       {role: "system", content: `El mail de la tienda es:  henrygamestore08@gmail.com , la tienda cuenta con 3 sucursales ubicadas en CABA:  1) Av. Libertador 4321, 2) O'Higgins 2341, 3)Carlos Paz 6897. Cuando te consulten por las sucursales indica que las puede ver en detalle desde la barra de navegación -->Conózcanos-->Contacto` },
+      {role: "system", content: "No menciones en tu respuesta la palabra json o que estás usando un archivo"},
+      {role: "system", content: "El videojuego Fifa 23 está disponible en nuestra tienda, proporciona la información brindada sobre este juego cuando el usuario te consulte sobre este"},
       {role: "user", content: "¿Con qué medio de pago puedo abonar?"},
-      {role: "assistant", content: "Podés realizar la compra en nuestra tienda y abonar mediante MercadoPago con tarjeta de débito o crédito o podés hacercarte a nuestras sucursales y abonar con efectivo o tarjeta"},
+      {role: "assistant", content: "Podés realizar la compra a través de la tienda online y abonar mediante MercadoPago con tarjeta de débito o crédito o podés acercarte a nuestras sucursales y abonar con efectivo o tarjeta"},
       ...requestMessages],
       temperature: 0.6,
     };
