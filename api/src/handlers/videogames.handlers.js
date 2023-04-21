@@ -125,20 +125,20 @@ const modifyVideogameHandler = async (req, res) => {
 };
 
 const modifyGameWithImg = async (req, res) => {
-  const{ name, description, img, platform, genre, price, stock } = req.body;
+  const{ name, img} = req.body;
 
   try {
 
     if(img.length > 0){
       // Generate The output url    
-      let id = newName || name
+      let id = name
       const res = await cloudinary.uploader.upload(`${img[0]}`, {folder: "img_new_game", public_id: `newGame-${id}`})
 
       img[0] = res.url
   }
 
     const actualizado = await Videogame.update({
-      description: description, img: img, price: price, stock: stock
+      img: img
     },{
       where: { name: name }
     });
@@ -160,42 +160,6 @@ const modifyGameWithImg = async (req, res) => {
     if(!videogame) {
       throw "The videogame with the name selected isn't available" 
     }
-
-
-    if(platform) {
-
-    const platformDb = await Platform.findOne({where: {name: platform}})
-
-    await videogame.setPlatforms([]);
-
-    await videogame.addPlatform(platformDb, { through: { status: platform } });
-
-    }
-
-
-    if(genre) {
-
-      const genreDb = await Genre.findOne({where: {name: genre}})
-  
-      await videogame.setGenres([]);
-  
-      await videogame.addGenre(genreDb, { through: { status: genre} });
-  
-      }
-
-      videogame = await Videogame.findOne({
-        where: { name: name },
-        include: [
-          {
-            model: Platform,
-            attributes: ['name']
-          },
-          {
-            model: Genre,
-            attributes: ['name']
-          }
-        ],
-      });
  
     videogame= {
       id: videogame.id,
