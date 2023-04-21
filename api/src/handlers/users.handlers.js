@@ -53,30 +53,30 @@ const modifyUser= async (req, res) => {
     try {
         let { email }= req.params;
         let { firstname, lastname, nationality, mobile, img }= req.body;
-console.log(img)
+        
         const user= await User.findOne({
             where: {
                 email: email
             }
         });
-        
+
         if(!user){
             return res.status(404).json( { message: 'Error in user creation' })
         };
-    
+        
         if(img.length > 0){
             // Generate The output url    
             const res = await cloudinary.uploader.upload(`${img[0]}`, {folder: "img_profile", public_id: `profile-${email}`})
-
+            
             img[0] = res.url
         }
 
         let updatedUser= await user.update({
-            firstname: firstname,
-            lastname: lastname,
-            nationality: nationality,
-            mobile: mobile,
-            img: img
+            firstname: firstname === "" ? user.firstname : firstname,
+            lastname: lastname === "" ? user.lastname : lastname,
+            nationality: nationality === "" ? user.nationality : nationality,
+            mobile: mobile === "" ? user.mobile : mobile,
+            img: img.length === 0 ? user.img : img
         });
 
         res.status(201).json(updatedUser);
